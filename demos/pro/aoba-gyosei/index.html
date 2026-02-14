@@ -1,0 +1,1866 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>あおば行政書士事務所 | 栃木県佐野市</title>
+<meta name="description" content="栃木県佐野市の相続・遺言・許認可に強い行政書士事務所。初回相談60分無料。土日祝も事前予約で対応可能。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;700;900&family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+/* ================================
+   DESIGN TOKENS
+   ================================ */
+:root {
+  /* Palette — inspired by 青葉 (young leaves) */
+  --leaf-deep: #1a3a2a;
+  --leaf-mid: #2d5a3f;
+  --leaf-light: #4a7c5c;
+  --leaf-pale: #8fb89e;
+  --leaf-whisper: #d4e6da;
+  --cream: #f7f3ec;
+  --cream-warm: #ede7dc;
+  --ink: #1c1c1c;
+  --ink-light: #4a4a4a;
+  --ink-muted: #8a8a7e;
+  --gold: #b8965a;
+  --gold-light: #d4b47a;
+  --white: #ffffff;
+
+  /* Typography Scale */
+  --fs-hero: clamp(2.8rem, 7vw, 5.5rem);
+  --fs-hero-sub: clamp(1rem, 2.5vw, 1.4rem);
+  --fs-section: clamp(1.6rem, 4vw, 2.8rem);
+  --fs-subsection: clamp(1.1rem, 2.5vw, 1.5rem);
+  --fs-body: clamp(0.95rem, 1.8vw, 1.05rem);
+  --fs-small: clamp(0.8rem, 1.5vw, 0.9rem);
+  --fs-caption: 0.75rem;
+
+  /* Spacing */
+  --sp-xs: 0.5rem;
+  --sp-sm: 1rem;
+  --sp-md: 2rem;
+  --sp-lg: 4rem;
+  --sp-xl: 6rem;
+  --sp-2xl: 10rem;
+
+  /* Layout */
+  --max-w: 1200px;
+  --radius: 2px;
+  --radius-lg: 6px;
+
+  /* Transitions */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --duration: 0.6s;
+}
+
+/* ================================
+   RESET & BASE
+   ================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 400;
+  font-size: var(--fs-body);
+  line-height: 1.9;
+  color: var(--ink);
+  background: var(--cream);
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+
+/* ================================
+   UTILITY
+   ================================ */
+.container {
+  width: min(90%, var(--max-w));
+  margin-inline: auto;
+}
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); border: 0;
+}
+
+/* ================================
+   SCROLL ANIMATIONS
+   ================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ================================
+   SKIP LINK
+   ================================ */
+.skip-link {
+  position: absolute; top: -100%; left: 50%;
+  transform: translateX(-50%);
+  background: var(--leaf-deep); color: var(--white);
+  padding: var(--sp-xs) var(--sp-sm);
+  z-index: 9999; border-radius: var(--radius);
+}
+.skip-link:focus { top: var(--sp-sm); }
+
+/* ================================
+   HEADER
+   ================================ */
+.header {
+  position: fixed; top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(247, 243, 236, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(26, 58, 42, 0.06);
+  transition: box-shadow 0.4s var(--ease-smooth);
+}
+
+.header.scrolled {
+  box-shadow: 0 2px 30px rgba(26, 58, 42, 0.08);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.header-logo {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+
+.header-logo-mark {
+  font-family: 'Zen Old Mincho', serif;
+  font-weight: 900;
+  font-size: 1.3rem;
+  color: var(--leaf-deep);
+  letter-spacing: 0.08em;
+}
+
+.header-logo-sub {
+  font-size: var(--fs-caption);
+  color: var(--ink-muted);
+  letter-spacing: 0.15em;
+  font-weight: 300;
+}
+
+.header-nav { display: flex; align-items: center; gap: 2rem; line-height: 1; }
+
+.header-nav a {
+  font-size: var(--fs-small);
+  font-weight: 500;
+  color: var(--ink-light);
+  letter-spacing: 0.05em;
+  position: relative;
+  padding-bottom: 0;
+  transition: color 0.3s;
+  line-height: 1;
+}
+
+.header-nav a::after {
+  content: '';
+  position: absolute; bottom: -3px; left: 0; right: 0;
+  height: 1px; background: var(--leaf-mid);
+  transform: scaleX(0); transform-origin: right;
+  transition: transform 0.4s var(--ease-out);
+}
+
+.header-nav a:hover { color: var(--leaf-deep); }
+.header-nav a:hover::after { transform: scaleX(1); transform-origin: left; }
+
+.header-cta-btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--gold);
+  color: var(--leaf-deep);
+  padding: 0.55rem 1.6rem;
+  font-size: var(--fs-small);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  border-radius: 50px;
+  transition: background 0.3s, transform 0.3s, color 0.3s;
+  line-height: 1.4;
+  align-self: center;
+}
+
+.header-cta-btn span,
+.header-cta-btn svg { color: var(--leaf-deep); }
+
+.header-cta-btn::after { display: none; }
+
+.header-cta-btn:hover {
+  background: var(--leaf-deep);
+  color: var(--white);
+  transform: translateY(-1px);
+}
+
+.header-cta-btn:hover span,
+.header-cta-btn:hover svg { color: var(--white); }
+
+/* Mobile menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 8px;
+  background: none;
+  border: none;
+  z-index: 1001;
+}
+
+.hamburger span {
+  width: 24px;
+  height: 1.5px;
+  background: var(--ink);
+  transition: all 0.3s var(--ease-out);
+  display: block;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 4px);
+}
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .header-nav {
+    position: fixed; top: 0; right: -100%;
+    width: 280px; height: 100dvh;
+    background: var(--cream);
+    flex-direction: column;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: var(--sp-lg);
+    transition: right 0.5s var(--ease-out);
+    box-shadow: -10px 0 40px rgba(0,0,0,0.08);
+  }
+  .header-nav.open { right: 0; }
+  .header-nav a { font-size: 1rem; }
+}
+
+/* ================================
+   HERO
+   ================================ */
+.hero {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  padding-top: 72px;
+  overflow: hidden;
+  background: var(--cream);
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -20%; right: -10%;
+  width: 70vw; height: 70vw;
+  max-width: 800px; max-height: 800px;
+  background: radial-gradient(ellipse at center, rgba(143, 184, 158, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--leaf-pale), transparent);
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: var(--sp-xl) 0;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: var(--fs-small);
+  font-weight: 500;
+  color: var(--leaf-mid);
+  letter-spacing: 0.2em;
+  margin-bottom: var(--sp-md);
+  opacity: 0;
+  animation: fadeUp 0.8s var(--ease-out) 0.3s forwards;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 32px; height: 1px;
+  background: var(--leaf-mid);
+}
+
+.hero-title {
+  font-family: 'Zen Old Mincho', serif;
+  font-weight: 900;
+  font-size: var(--fs-hero);
+  line-height: 1.15;
+  color: var(--leaf-deep);
+  letter-spacing: 0.04em;
+  margin-bottom: var(--sp-md);
+}
+
+.hero-title .line {
+  display: block;
+  overflow: hidden;
+}
+
+.hero-title .line span {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(100%);
+  animation: slideUp 0.9s var(--ease-out) forwards;
+}
+
+.hero-title .line:nth-child(1) span { animation-delay: 0.5s; }
+.hero-title .line:nth-child(2) span { animation-delay: 0.7s; }
+
+@keyframes slideUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  to { opacity: 1; }
+}
+
+.hero-desc {
+  font-size: var(--fs-hero-sub);
+  color: var(--ink-light);
+  line-height: 2;
+  max-width: 540px;
+  margin-bottom: var(--sp-lg);
+  opacity: 0;
+  animation: fadeUp 0.8s var(--ease-out) 1s forwards;
+}
+
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-sm);
+  margin-bottom: var(--sp-lg);
+  opacity: 0;
+  animation: fadeUp 0.8s var(--ease-out) 1.2s forwards;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: var(--white);
+  border: 1px solid var(--leaf-whisper);
+  padding: 0.5rem 1.2rem;
+  font-size: var(--fs-small);
+  font-weight: 500;
+  color: var(--leaf-deep);
+  letter-spacing: 0.05em;
+  border-radius: 50px;
+}
+
+.hero-badge-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-sm);
+  opacity: 0;
+  animation: fadeUp 0.8s var(--ease-out) 1.4s forwards;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--leaf-deep);
+  color: var(--white);
+  padding: 1rem 2.4rem;
+  font-size: var(--fs-body);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--leaf-mid);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s var(--ease-out);
+  border-radius: inherit;
+}
+
+.btn-primary:hover::before { transform: scaleX(1); transform-origin: left; }
+.btn-primary span { position: relative; z-index: 1; }
+
+.btn-primary .arrow {
+  position: relative; z-index: 1;
+  transition: transform 0.3s;
+}
+.btn-primary:hover .arrow { transform: translateX(4px); }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: transparent;
+  color: var(--leaf-deep);
+  padding: 1rem 2.4rem;
+  font-size: var(--fs-body);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  border-radius: 50px;
+  border: 1px solid var(--leaf-deep);
+  cursor: pointer;
+  transition: all 0.4s var(--ease-out);
+}
+
+.btn-secondary:hover {
+  background: var(--leaf-deep);
+  color: var(--white);
+}
+
+/* Hero side decoration */
+.hero-deco {
+  position: absolute;
+  right: 5%; top: 50%;
+  transform: translateY(-50%);
+  width: 35vw; max-width: 420px;
+  pointer-events: none;
+  opacity: 0;
+  animation: fadeUp 1s var(--ease-out) 1.6s forwards;
+}
+
+.hero-deco-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-lg);
+  box-shadow:
+    0 4px 20px rgba(26, 58, 42, 0.06),
+    0 20px 60px rgba(26, 58, 42, 0.04);
+  position: relative;
+}
+
+.hero-deco-card::before {
+  content: '';
+  position: absolute;
+  top: -1px; left: var(--sp-md); right: var(--sp-md);
+  height: 3px;
+  background: linear-gradient(90deg, var(--leaf-mid), var(--gold));
+  border-radius: 0 0 2px 2px;
+}
+
+.deco-stat {
+  text-align: center;
+  padding: var(--sp-sm) 0;
+}
+
+.deco-stat + .deco-stat {
+  border-top: 1px solid var(--leaf-whisper);
+}
+
+.deco-stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--leaf-deep);
+  line-height: 1.2;
+  font-variant-numeric: lining-nums;
+}
+
+.deco-stat-unit {
+  font-size: 1rem;
+  font-weight: 400;
+  font-variant-numeric: lining-nums;
+}
+
+.deco-stat-label {
+  font-size: var(--fs-small);
+  color: var(--ink-muted);
+  letter-spacing: 0.1em;
+}
+
+@media (max-width: 960px) {
+  .hero-deco { display: none; }
+}
+
+/* ================================
+   SECTION COMMON
+   ================================ */
+.section {
+  padding: var(--sp-2xl) 0;
+  position: relative;
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: var(--sp-sm);
+  font-variant-numeric: lining-nums;
+}
+
+.section-label::before {
+  content: '';
+  width: 24px; height: 1px;
+  background: var(--gold);
+}
+
+.section-title {
+  font-family: 'Zen Old Mincho', serif;
+  font-weight: 700;
+  font-size: var(--fs-section);
+  color: var(--leaf-deep);
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  margin-bottom: var(--sp-lg);
+}
+
+.section-title-accent {
+  display: inline;
+  background: linear-gradient(transparent 60%, rgba(212, 230, 218, 0.5) 60%);
+}
+
+.section-desc {
+  font-size: var(--fs-body);
+  color: var(--ink-light);
+  max-width: 640px;
+  line-height: 2;
+  margin-bottom: var(--sp-lg);
+}
+
+/* ================================
+   ABOUT (代表プロフィール)
+   ================================ */
+.about {
+  background: var(--white);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--sp-xl);
+  align-items: center;
+}
+
+.about-photo {
+  position: relative;
+}
+
+.about-photo-frame {
+  aspect-ratio: 3/4;
+  background: linear-gradient(135deg, var(--leaf-whisper) 0%, var(--cream-warm) 100%);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Zen Old Mincho', serif;
+  font-size: var(--fs-section);
+  color: var(--leaf-pale);
+  overflow: hidden;
+  position: relative;
+}
+
+.about-photo-frame::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(26, 58, 42, 0.03), transparent);
+}
+
+.about-photo-accent {
+  position: absolute;
+  bottom: -12px; right: -12px;
+  width: 60%; height: 60%;
+  border: 1px solid var(--leaf-pale);
+  border-radius: var(--radius-lg);
+  z-index: -1;
+}
+
+.about-name {
+  font-family: 'Zen Old Mincho', serif;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: var(--leaf-deep);
+  margin-bottom: 0.3rem;
+}
+
+.about-title-role {
+  font-size: var(--fs-small);
+  color: var(--ink-muted);
+  letter-spacing: 0.15em;
+  margin-bottom: var(--sp-md);
+  padding-bottom: var(--sp-md);
+  border-bottom: 1px solid var(--leaf-whisper);
+}
+
+.about-text {
+  color: var(--ink-light);
+  line-height: 2.2;
+  margin-bottom: var(--sp-md);
+}
+
+.about-credentials {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.credential-item {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  font-size: var(--fs-small);
+  color: var(--ink-light);
+}
+
+.credential-dot {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+  margin-top: 0.5em;
+}
+
+@media (max-width: 768px) {
+  .about-grid { grid-template-columns: 1fr; gap: var(--sp-lg); }
+}
+
+/* ================================
+   SERVICES
+   ================================ */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-md);
+}
+
+.service-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-lg) var(--sp-md);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out);
+  border: 1px solid rgba(212, 230, 218, 0.4);
+}
+
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--leaf-mid), var(--leaf-light));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ease-out);
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(26, 58, 42, 0.08);
+}
+
+.service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 600;
+  color: var(--leaf-whisper);
+  line-height: 1;
+  margin-bottom: var(--sp-sm);
+  transition: color 0.4s;
+  font-variant-numeric: lining-nums;
+}
+
+.service-card:hover .service-num {
+  color: var(--leaf-pale);
+}
+
+.service-name {
+  font-family: 'Zen Old Mincho', serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: var(--leaf-deep);
+  margin-bottom: var(--sp-sm);
+  letter-spacing: 0.05em;
+}
+
+.service-desc {
+  font-size: var(--fs-small);
+  color: var(--ink-light);
+  line-height: 1.9;
+  margin-bottom: var(--sp-md);
+}
+
+.service-price {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  font-weight: 500;
+  color: var(--leaf-deep);
+  padding-top: var(--sp-sm);
+  border-top: 1px solid var(--leaf-whisper);
+  width: 100%;
+}
+
+.service-price-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-variant-numeric: lining-nums;
+}
+
+@media (max-width: 768px) {
+  .services-grid { grid-template-columns: 1fr; }
+}
+
+/* ================================
+   PRICING
+   ================================ */
+.pricing {
+  background: var(--white);
+}
+
+.pricing-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: var(--sp-md);
+}
+
+.pricing-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 560px;
+}
+
+.pricing-table thead {
+  background: var(--leaf-deep);
+}
+
+.pricing-table th {
+  color: var(--white);
+  font-weight: 500;
+  font-size: var(--fs-small);
+  letter-spacing: 0.1em;
+  padding: 1rem 1.5rem;
+  text-align: left;
+}
+
+.pricing-table tbody tr {
+  border-bottom: 1px solid var(--leaf-whisper);
+  transition: background 0.3s;
+}
+
+.pricing-table tbody tr:hover {
+  background: rgba(212, 230, 218, 0.15);
+}
+
+.pricing-table td {
+  padding: 1.2rem 1.5rem;
+  font-size: var(--fs-body);
+  color: var(--ink);
+}
+
+.pricing-table td:nth-child(2) {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--leaf-deep);
+  font-variant-numeric: lining-nums;
+}
+
+.pricing-notes {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.pricing-note {
+  font-size: var(--fs-small);
+  color: var(--ink-muted);
+  padding-left: 1.2em;
+  text-indent: -1.2em;
+}
+
+/* ================================
+   FLOW (相談の流れ)
+   ================================ */
+.flow-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0;
+  position: relative;
+}
+
+.flow-step {
+  padding: var(--sp-md);
+  text-align: center;
+  position: relative;
+}
+
+.flow-step::after {
+  content: '';
+  position: absolute;
+  right: 0; top: 50%;
+  transform: translateY(-50%);
+  width: 24px; height: 1px;
+  background: var(--leaf-pale);
+}
+
+.flow-step:last-child::after { display: none; }
+
+.flow-step-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  margin-bottom: 0.6rem;
+  font-variant-numeric: lining-nums;
+}
+
+.flow-step-icon {
+  width: 64px; height: 64px;
+  margin: 0 auto var(--sp-sm);
+  background: var(--leaf-whisper);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: background 0.4s, transform 0.4s;
+}
+
+.flow-step:hover .flow-step-icon {
+  background: var(--leaf-deep);
+  transform: scale(1.05);
+}
+
+.flow-step:hover .flow-step-icon svg path {
+  stroke: var(--white);
+}
+
+.flow-step-title {
+  font-family: 'Zen Old Mincho', serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--leaf-deep);
+  margin-bottom: 0.4rem;
+}
+
+.flow-step-desc {
+  font-size: var(--fs-small);
+  color: var(--ink-muted);
+  line-height: 1.7;
+}
+
+@media (max-width: 640px) {
+  .flow-steps {
+    grid-template-columns: 1fr;
+  }
+  .flow-step::after {
+    right: 50%; top: auto; bottom: 0;
+    transform: rotate(90deg);
+    width: 24px;
+  }
+  .flow-step:last-child::after { display: none; }
+}
+
+/* ================================
+   FAQ
+   ================================ */
+.faq {
+  background: var(--white);
+}
+
+.faq-list {
+  max-width: 800px;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--leaf-whisper);
+}
+
+.faq-question {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-sm);
+  padding: 1.5rem 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: var(--fs-body);
+  font-weight: 500;
+  color: var(--ink);
+  text-align: left;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
+  transition: color 0.3s;
+}
+
+.faq-question:hover { color: var(--leaf-mid); }
+
+.faq-question:focus-visible {
+  outline: 2px solid var(--leaf-mid);
+  outline-offset: 4px;
+  border-radius: var(--radius);
+}
+
+.faq-icon {
+  flex-shrink: 0;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--leaf-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s var(--ease-out), background 0.3s;
+}
+
+.faq-item.open .faq-icon {
+  transform: rotate(45deg);
+  background: var(--leaf-deep);
+  border-color: var(--leaf-deep);
+}
+
+.faq-item.open .faq-icon svg line { stroke: var(--white); }
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s var(--ease-out), padding 0.5s var(--ease-out);
+}
+
+.faq-answer-inner {
+  padding-bottom: 1.5rem;
+  font-size: var(--fs-body);
+  color: var(--ink-light);
+  line-height: 2;
+}
+
+/* ================================
+   CTA SECTION
+   ================================ */
+.cta-section {
+  background: var(--leaf-deep);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: -50%; right: -20%;
+  width: 60vw; height: 60vw;
+  background: radial-gradient(ellipse, rgba(255,255,255,0.03) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.cta-inner {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+.cta-section .section-label { color: var(--gold-light); justify-content: center; }
+.cta-section .section-label::before { background: var(--gold-light); }
+
+.cta-title {
+  font-family: 'Zen Old Mincho', serif;
+  font-weight: 700;
+  font-size: var(--fs-section);
+  color: var(--white);
+  letter-spacing: 0.06em;
+  line-height: 1.5;
+  margin-bottom: var(--sp-sm);
+}
+
+.cta-desc {
+  color: rgba(255,255,255,0.7);
+  line-height: 2;
+  margin-bottom: var(--sp-lg);
+}
+
+.cta-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--sp-md);
+  margin-bottom: var(--sp-lg);
+}
+
+.cta-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-md);
+  text-align: center;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.cta-card:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.2);
+}
+
+.cta-card-icon {
+  margin-bottom: 0.8rem;
+}
+
+.cta-card-title {
+  font-weight: 500;
+  font-size: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+.cta-card-info {
+  font-size: var(--fs-small);
+  color: rgba(255,255,255,0.6);
+}
+
+.cta-card-link {
+  display: inline-block;
+  margin-top: 0.8rem;
+  font-size: var(--fs-small);
+  color: var(--gold-light);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.cta-card-link:hover { border-color: var(--gold-light); }
+
+.cta-free-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(184, 150, 90, 0.15);
+  border: 1px solid rgba(184, 150, 90, 0.3);
+  padding: 0.8rem 1.6rem;
+  border-radius: 50px;
+  font-size: var(--fs-small);
+  color: var(--gold-light);
+  letter-spacing: 0.1em;
+}
+
+/* ================================
+   FOOTER
+   ================================ */
+.footer {
+  background: #151f1a;
+  padding: var(--sp-xl) 0 var(--sp-md);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: var(--sp-lg);
+  padding-bottom: var(--sp-lg);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: var(--sp-md);
+}
+
+.footer-brand-name {
+  font-family: 'Zen Old Mincho', serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--white);
+  margin-bottom: var(--sp-sm);
+}
+
+.footer-address {
+  font-size: var(--fs-small);
+  color: rgba(255,255,255,0.5);
+  line-height: 2;
+}
+
+.footer-heading {
+  font-size: var(--fs-small);
+  font-weight: 500;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.15em;
+  margin-bottom: var(--sp-sm);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.footer-links a {
+  font-size: var(--fs-small);
+  color: rgba(255,255,255,0.6);
+  transition: color 0.3s;
+}
+
+.footer-links a:hover { color: var(--white); }
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--sp-sm);
+}
+
+.footer-copy {
+  font-size: var(--fs-caption);
+  color: rgba(255,255,255,0.3);
+}
+
+.footer-legal a {
+  font-size: var(--fs-caption);
+  color: rgba(255,255,255,0.3);
+  transition: color 0.3s;
+}
+
+.footer-legal a:hover { color: rgba(255,255,255,0.6); }
+
+@media (max-width: 768px) {
+  .footer-top { grid-template-columns: 1fr; gap: var(--sp-md); }
+}
+
+/* ================================
+   FLOATING CTA (Mobile)
+   ================================ */
+.float-cta {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 900;
+  background: var(--leaf-deep);
+  padding: 0.8rem var(--sp-sm);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-sm);
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+}
+
+.float-cta a {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem;
+  border-radius: 50px;
+  font-size: var(--fs-small);
+  font-weight: 500;
+  color: var(--white);
+  letter-spacing: 0.05em;
+  text-align: center;
+  min-height: 48px;
+}
+
+.float-cta-tel {
+  background: rgba(255,255,255,0.12);
+}
+
+.float-cta-form {
+  background: var(--gold);
+  color: var(--leaf-deep) !important;
+}
+
+@media (max-width: 768px) {
+  .float-cta { display: flex; }
+  body { padding-bottom: 72px; }
+}
+
+/* ================================
+   DIVIDER
+   ================================ */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--leaf-pale), transparent);
+  border: none;
+  margin: 0;
+}
+
+/* ================================
+   SCROLLBAR
+   ================================ */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--cream); }
+::-webkit-scrollbar-thumb {
+  background: var(--leaf-pale);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--leaf-light); }
+</style>
+</head>
+
+<body>
+<a href="#main" class="skip-link">メインコンテンツへ</a>
+
+<!-- ========== HEADER ========== -->
+<header class="header" role="banner">
+  <div class="container header-inner">
+    <a href="#" class="header-logo" aria-label="あおば行政書士事務所 トップへ">
+      <span class="header-logo-mark">あおば行政書士事務所</span>
+      <span class="header-logo-sub">AOBA</span>
+    </a>
+
+    <button class="hamburger" aria-label="メニューを開く" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="header-nav" role="navigation" aria-label="メインナビゲーション">
+      <a href="#about">事務所紹介</a>
+      <a href="#services">業務内容</a>
+      <a href="#pricing">料金</a>
+      <a href="#flow">ご相談の流れ</a>
+      <a href="#faq">よくある質問</a>
+      <a href="#contact" class="header-cta-btn">
+        <span>無料相談</span>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </nav>
+  </div>
+</header>
+
+<!-- ========== HERO ========== -->
+<section class="hero" id="home">
+  <div class="container hero-inner">
+    <div class="hero-eyebrow">栃木県佐野市の行政書士</div>
+
+    <h1 class="hero-title">
+      <span class="line"><span>暮らしと事業の</span></span>
+      <span class="line"><span>「困った」を解決</span></span>
+    </h1>
+
+    <p class="hero-desc">
+      相続・遺言・各種許認可申請など、<br>
+      身近な法律手続きをわかりやすくサポートいたします。<br>
+      まずはお気軽にご相談ください。
+    </p>
+
+    <div class="hero-badges">
+      <span class="hero-badge"><span class="hero-badge-dot"></span>初回相談60分無料</span>
+      <span class="hero-badge"><span class="hero-badge-dot"></span>土日祝も事前予約で対応</span>
+      <span class="hero-badge"><span class="hero-badge-dot"></span>オンライン相談OK</span>
+    </div>
+
+    <div class="hero-cta-group">
+      <a href="#contact" class="btn-primary">
+        <span>無料相談を予約する</span>
+        <svg class="arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 8h12M9 3l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="tel:0283-00-0000" class="btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M14.5 11.3v1.8a1.2 1.2 0 01-1.3 1.2 11.9 11.9 0 01-5.2-1.8A11.7 11.7 0 014.5 9a11.9 11.9 0 01-1.8-5.2A1.2 1.2 0 013.9 2.5h1.8a1.2 1.2 0 011.2 1 7.5 7.5 0 00.4 1.7 1.2 1.2 0 01-.3 1.3l-.8.8a9.6 9.6 0 003.5 3.5l.8-.8a1.2 1.2 0 011.3-.3 7.5 7.5 0 001.7.4 1.2 1.2 0 011 1.2z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        0283-00-0000
+      </a>
+    </div>
+  </div>
+
+  <!-- Side decoration card (desktop) -->
+  <div class="hero-deco" aria-hidden="true">
+    <div class="hero-deco-card">
+      <div class="deco-stat">
+        <div class="deco-stat-num">500<span class="deco-stat-unit">件</span>+</div>
+        <div class="deco-stat-label">相談実績</div>
+      </div>
+      <div class="deco-stat">
+        <div class="deco-stat-num">15<span class="deco-stat-unit">年</span></div>
+        <div class="deco-stat-label">開業年数</div>
+      </div>
+      <div class="deco-stat">
+        <div class="deco-stat-num">98<span class="deco-stat-unit">%</span></div>
+        <div class="deco-stat-label">ご紹介・リピート率</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main id="main">
+
+<!-- ========== ABOUT ========== -->
+<section class="section about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo reveal reveal-left">
+        <div class="about-photo-frame">代表写真</div>
+        <div class="about-photo-accent"></div>
+      </div>
+      <div class="reveal">
+        <div class="section-label">About</div>
+        <h2 class="section-title">地域に根ざし、<br><span class="section-title-accent">人に寄り添う</span></h2>
+        <div class="about-name">青葉 太郎</div>
+        <div class="about-title-role">行政書士 / あおば行政書士事務所 代表</div>
+        <p class="about-text">
+          佐野市で開業して15年。相続や遺言、各種許認可申請を中心に、
+          地域の皆さまの「困った」に寄り添ってまいりました。
+          行政書士というと堅いイメージがあるかもしれませんが、
+          難しい法律用語はかみ砕いて、わかりやすくご説明することを
+          大切にしています。
+        </p>
+        <p class="about-text">
+          一人ひとりのご状況に合わせた最適なご提案を心がけております。
+          「こんなこと聞いていいのかな？」という些細なことでも、
+          どうぞお気軽にお声がけください。
+        </p>
+        <div class="about-credentials">
+          <div class="credential-item">
+            <span class="credential-dot"></span>
+            <span>行政書士（登録番号：第00000000号）</span>
+          </div>
+          <div class="credential-item">
+            <span class="credential-dot"></span>
+            <span>栃木県行政書士会 会員</span>
+          </div>
+          <div class="credential-item">
+            <span class="credential-dot"></span>
+            <span>申請取次行政書士（入管業務対応）</span>
+          </div>
+          <div class="credential-item">
+            <span class="credential-dot"></span>
+            <span>佐野市商工会議所 会員</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider" aria-hidden="true">
+
+<!-- ========== SERVICES ========== -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-label reveal">Services</div>
+    <h2 class="section-title reveal reveal-delay-1">主な<span class="section-title-accent">業務内容</span></h2>
+    <p class="section-desc reveal reveal-delay-2">
+      暮らしの手続きから事業の許認可まで、幅広くサポートいたします。
+      下記以外のご相談もお気軽にお問い合わせください。
+    </p>
+
+    <div class="services-grid">
+      <article class="service-card reveal reveal-delay-1">
+        <div class="service-num">01</div>
+        <h3 class="service-name">相続・遺言</h3>
+        <p class="service-desc">
+          相続手続きの全体サポート、遺産分割協議書の作成、
+          遺言書の起案・作成支援を行います。
+          ご家族の将来を守るお手伝いをいたします。
+        </p>
+        <div class="service-price">
+          <span class="service-price-num">33,000</span>円～（税込）
+        </div>
+      </article>
+
+      <article class="service-card reveal reveal-delay-2">
+        <div class="service-num">02</div>
+        <h3 class="service-name">各種許認可申請</h3>
+        <p class="service-desc">
+          建設業許可、飲食店営業許可、産業廃棄物収集運搬業許可など、
+          事業に必要な各種許認可の申請を代行します。
+        </p>
+        <div class="service-price">
+          <span class="service-price-num">55,000</span>円～（税込）
+        </div>
+      </article>
+
+      <article class="service-card reveal reveal-delay-3">
+        <div class="service-num">03</div>
+        <h3 class="service-name">法人設立・届出</h3>
+        <p class="service-desc">
+          会社設立、NPO法人設立、各種届出書類の作成をサポート。
+          設立後の運営に関するご相談にも対応しています。
+        </p>
+        <div class="service-price">
+          <span class="service-price-num">88,000</span>円～（税込）
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PRICING ========== -->
+<section class="section pricing" id="pricing">
+  <div class="container">
+    <div class="section-label reveal">Pricing</div>
+    <h2 class="section-title reveal reveal-delay-1"><span class="section-title-accent">料金</span>のご案内</h2>
+    <p class="section-desc reveal reveal-delay-2">
+      明朗会計を心がけ、事前に費用の目安をお伝えしています。
+      正式なお見積りは初回相談後にご提示いたします。
+    </p>
+
+    <div class="pricing-table-wrap reveal reveal-delay-3">
+      <table class="pricing-table">
+        <thead>
+          <tr>
+            <th>業務内容</th>
+            <th>基本報酬（税込）</th>
+            <th>備考</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>初回相談</td>
+            <td>無料（60分まで）</td>
+            <td>以降 5,500円/30分</td>
+          </tr>
+          <tr>
+            <td>遺産分割協議書作成</td>
+            <td>33,000円～</td>
+            <td>相続人数・財産内容により変動</td>
+          </tr>
+          <tr>
+            <td>遺言書作成支援</td>
+            <td>55,000円～</td>
+            <td>公正証書遺言の場合、公証人手数料は別途</td>
+          </tr>
+          <tr>
+            <td>建設業許可申請（新規）</td>
+            <td>110,000円～</td>
+            <td>知事許可の場合。大臣許可は別途お見積り</td>
+          </tr>
+          <tr>
+            <td>飲食店営業許可</td>
+            <td>55,000円～</td>
+            <td>保健所手数料は別途</td>
+          </tr>
+          <tr>
+            <td>法人設立</td>
+            <td>88,000円～</td>
+            <td>登録免許税・定款認証費は別途</td>
+          </tr>
+          <tr>
+            <td>その他の書類作成</td>
+            <td>11,000円～</td>
+            <td>内容・分量により変動</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pricing-notes reveal">
+      <p class="pricing-note">※ 上記は参考価格です。案件の内容により変動します。</p>
+      <p class="pricing-note">※ 正式なお見積りは、初回相談後にご提示いたします。</p>
+      <p class="pricing-note">※ 消費税込みの表示です。別途実費（印紙代・郵送費等）が発生する場合があります。</p>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider" aria-hidden="true">
+
+<!-- ========== FLOW ========== -->
+<section class="section" id="flow">
+  <div class="container">
+    <div class="section-label reveal">Flow</div>
+    <h2 class="section-title reveal reveal-delay-1">ご相談の<span class="section-title-accent">流れ</span></h2>
+    <p class="section-desc reveal reveal-delay-2">
+      お問い合わせから業務完了まで、丁寧にご案内いたします。
+      無理な勧誘は一切ございませんのでご安心ください。
+    </p>
+
+    <div class="flow-steps reveal reveal-delay-3">
+      <div class="flow-step">
+        <div class="flow-step-num">STEP 01</div>
+        <div class="flow-step-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.8 19.8 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="var(--leaf-deep)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="flow-step-title">お問い合わせ</h3>
+        <p class="flow-step-desc">お電話またはフォームよりお気軽にご連絡ください</p>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-step-num">STEP 02</div>
+        <div class="flow-step-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke="var(--leaf-deep)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="flow-step-title">初回ヒアリング</h3>
+        <p class="flow-step-desc">ご状況をお伺いし、対応方針をご説明します（無料60分）</p>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-step-num">STEP 03</div>
+        <div class="flow-step-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke="var(--leaf-deep)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="14 2 14 8 20 8" stroke="var(--leaf-deep)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="16" y1="13" x2="8" y2="13" stroke="var(--leaf-deep)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="16" y1="17" x2="8" y2="17" stroke="var(--leaf-deep)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="flow-step-title">お見積り・ご契約</h3>
+        <p class="flow-step-desc">正式な費用と期間をお伝えし、ご納得の上で契約となります</p>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-step-num">STEP 04</div>
+        <div class="flow-step-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke="var(--leaf-deep)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22 4 12 14.01 9 11.01" stroke="var(--leaf-deep)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="flow-step-title">業務着手・完了</h3>
+        <p class="flow-step-desc">必要書類をお預かりし、手続き完了後にご報告いたします</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FAQ ========== -->
+<section class="section faq" id="faq">
+  <div class="container">
+    <div class="section-label reveal">FAQ</div>
+    <h2 class="section-title reveal reveal-delay-1">よくある<span class="section-title-accent">ご質問</span></h2>
+
+    <div class="faq-list reveal reveal-delay-2">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          初回相談は本当に無料ですか？
+          <span class="faq-icon">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><line x1="7" y1="1" x2="7" y2="13" stroke="var(--leaf-deep)" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="7" x2="13" y2="7" stroke="var(--leaf-deep)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+        </button>
+        <div class="faq-answer" aria-hidden="true">
+          <div class="faq-answer-inner">
+            はい、60分まで無料です。無料相談後にご契約を強制することは一切ございません。
+            ご相談内容を伺った上で、必要な手続きや費用の目安をお伝えしますので、
+            ご自宅でじっくりご検討いただけます。
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          費用はいつ支払いますか？
+          <span class="faq-icon">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><line x1="7" y1="1" x2="7" y2="13" stroke="var(--leaf-deep)" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="7" x2="13" y2="7" stroke="var(--leaf-deep)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+        </button>
+        <div class="faq-answer" aria-hidden="true">
+          <div class="faq-answer-inner">
+            正式ご契約時に着手金として報酬の半額をお支払いいただき、
+            業務完了時に残金をお支払いいただきます。
+            お支払い方法は銀行振込となります。
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          土日や夜間の相談は可能ですか？
+          <span class="faq-icon">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><line x1="7" y1="1" x2="7" y2="13" stroke="var(--leaf-deep)" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="7" x2="13" y2="7" stroke="var(--leaf-deep)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+        </button>
+        <div class="faq-answer" aria-hidden="true">
+          <div class="faq-answer-inner">
+            事前にご予約いただければ、土日祝日も対応可能です。
+            夜間のご相談については、個別にご相談ください。
+            お仕事帰りのお時間に合わせた対応も行っております。
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          オンラインでの相談はできますか？
+          <span class="faq-icon">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><line x1="7" y1="1" x2="7" y2="13" stroke="var(--leaf-deep)" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="7" x2="13" y2="7" stroke="var(--leaf-deep)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+        </button>
+        <div class="faq-answer" aria-hidden="true">
+          <div class="faq-answer-inner">
+            Zoom・Google Meet等でのオンライン相談に対応しております。
+            ご遠方の方や外出が難しい方もお気軽にご相談ください。
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          どんな書類を準備すればよいですか？
+          <span class="faq-icon">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><line x1="7" y1="1" x2="7" y2="13" stroke="var(--leaf-deep)" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="7" x2="13" y2="7" stroke="var(--leaf-deep)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+        </button>
+        <div class="faq-answer" aria-hidden="true">
+          <div class="faq-answer-inner">
+            初回相談の際に、必要な書類をご案内いたします。
+            まずは身分証明書と、ご相談内容に関連する資料
+            （手紙や契約書のコピーなど）がございましたらお持ちください。
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          相談内容の秘密は守られますか？
+          <span class="faq-icon">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><line x1="7" y1="1" x2="7" y2="13" stroke="var(--leaf-deep)" stroke-width="1.5" stroke-linecap="round"/><line x1="1" y1="7" x2="13" y2="7" stroke="var(--leaf-deep)" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+        </button>
+        <div class="faq-answer" aria-hidden="true">
+          <div class="faq-answer-inner">
+            行政書士には法律上の守秘義務がございます。
+            ご相談内容が第三者に漏れることは一切ありませんので、
+            安心してご相談ください。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA ========== -->
+<section class="section cta-section" id="contact">
+  <div class="container cta-inner">
+    <div class="section-label reveal">Contact</div>
+    <h2 class="cta-title reveal reveal-delay-1">まずはお気軽に<br>ご相談ください</h2>
+    <p class="cta-desc reveal reveal-delay-2">
+      初回相談は60分まで無料です。<br>
+      「こんなこと聞いていいのかな？」という些細なことでも構いません。<br>
+      お一人で悩まず、まずはお話しをお聞かせください。
+    </p>
+
+    <div class="cta-cards reveal reveal-delay-3">
+      <div class="cta-card">
+        <div class="cta-card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.8 19.8 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="rgba(255,255,255,0.8)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="cta-card-title">お電話でのご相談</div>
+        <div class="cta-card-info">0283-00-0000</div>
+        <div class="cta-card-info">受付：平日 9:00～18:00</div>
+        <a href="tel:0283-00-0000" class="cta-card-link">電話をかける</a>
+      </div>
+
+      <div class="cta-card">
+        <div class="cta-card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="rgba(255,255,255,0.8)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22,6 12,13 2,6" stroke="rgba(255,255,255,0.8)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="cta-card-title">フォームでのご相談</div>
+        <div class="cta-card-info">24時間受付</div>
+        <div class="cta-card-info">2営業日以内にご連絡</div>
+        <a href="#" class="cta-card-link">お問い合わせフォームへ</a>
+      </div>
+
+      <div class="cta-card">
+        <div class="cta-card-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="rgba(255,255,255,0.8)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="10" r="3" stroke="rgba(255,255,255,0.8)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="cta-card-title">アクセス</div>
+        <div class="cta-card-info">栃木県佐野市○○町1-2-3</div>
+        <div class="cta-card-info">駐車場3台完備</div>
+        <a href="#" class="cta-card-link">地図を見る</a>
+      </div>
+    </div>
+
+    <div class="cta-free-note reveal reveal-delay-4">
+      初回相談60分無料 ― ご相談後にご契約を強制することはございません
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">あおば行政書士事務所</div>
+        <div class="footer-address">
+          〒327-0000<br>
+          栃木県佐野市○○町1-2-3<br>
+          TEL：0283-00-0000<br>
+          営業時間：平日 9:00～18:00
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">業務内容</div>
+        <div class="footer-links">
+          <a href="#services">相続・遺言</a>
+          <a href="#services">各種許認可申請</a>
+          <a href="#services">法人設立・届出</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-heading">ご案内</div>
+        <div class="footer-links">
+          <a href="#about">事務所紹介</a>
+          <a href="#pricing">料金</a>
+          <a href="#flow">ご相談の流れ</a>
+          <a href="#faq">よくある質問</a>
+          <a href="#contact">お問い合わせ</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">&copy; 2025 あおば行政書士事務所 All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="#">プライバシーポリシー</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== FLOATING CTA (Mobile) ========== -->
+<div class="float-cta" aria-label="お問い合わせ">
+  <a href="tel:0283-00-0000" class="float-cta-tel">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.8 19.8 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.8 19.8 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    電話する
+  </a>
+  <a href="#contact" class="float-cta-form">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="22,6 12,13 2,6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    無料相談
+  </a>
+</div>
+
+<!-- ========== SCRIPTS ========== -->
+<script>
+// Header scroll effect
+const header = document.querySelector('.header');
+let lastScroll = 0;
+
+window.addEventListener('scroll', () => {
+  const currentScroll = window.scrollY;
+  header.classList.toggle('scrolled', currentScroll > 50);
+  lastScroll = currentScroll;
+}, { passive: true });
+
+// Mobile menu
+const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('.header-nav');
+
+hamburger.addEventListener('click', () => {
+  const isOpen = nav.classList.toggle('open');
+  hamburger.classList.toggle('active');
+  hamburger.setAttribute('aria-expanded', isOpen);
+  hamburger.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+});
+
+// Close menu on link click
+nav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    nav.classList.remove('open');
+    hamburger.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', 'false');
+  });
+});
+
+// Scroll reveal
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -60px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.reveal, .reveal-left').forEach(el => observer.observe(el));
+
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(button => {
+  button.addEventListener('click', () => {
+    const item = button.parentElement;
+    const answer = item.querySelector('.faq-answer');
+    const isOpen = item.classList.contains('open');
+
+    // Close all
+    document.querySelectorAll('.faq-item.open').forEach(openItem => {
+      openItem.classList.remove('open');
+      const openAnswer = openItem.querySelector('.faq-answer');
+      openAnswer.style.maxHeight = '0';
+      openAnswer.setAttribute('aria-hidden', 'true');
+      openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+    });
+
+    // Toggle current
+    if (!isOpen) {
+      item.classList.add('open');
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+      answer.setAttribute('aria-hidden', 'false');
+      button.setAttribute('aria-expanded', 'true');
+    }
+  });
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (href === '#') return;
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) {
+      const headerH = document.querySelector('.header').offsetHeight;
+      const top = target.getBoundingClientRect().top + window.scrollY - headerH;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+</script>
+</body>
+</html>

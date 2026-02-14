@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>つばさ社労士事務所 | Tsubasa HR & Labor Office</title>
+    <meta name="description" content="スタートアップから中小企業まで。人事労務の課題解決なら、つばさ社労士事務所へ。初回相談無料。">
+    
+    <!-- Fonts: Noto Sans JP (Main) + Zen Old Mincho (Headings) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Old+Mincho:wght@700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lenis for Smooth Scroll -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        teal: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6', // Main Brand Color
+                            600: '#0d9488',
+                            900: '#134e4a',
+                        },
+                        slate: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        },
+                        sky: {
+                            50: '#f0f9ff',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                        serif: ['"Zen Old Mincho"', 'serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 20px 40px -15px rgba(13, 148, 136, 0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: #1e293b;
+            background-color: #ffffff;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Fluid Typography for Mobile First */
+        h1, h2, h3 {
+            font-family: 'Zen Old Mincho', serif;
+            letter-spacing: 0.05em;
+        }
+
+        /* Animations */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-scale {
+            opacity: 0;
+            transform: scale(0.95);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-scale.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Wing Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
+        }
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Custom Mobile Menu Transition */
+        #mobile-menu {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        /* Step Flow Line */
+        .step-line {
+            position: absolute;
+            left: 24px;
+            top: 40px;
+            bottom: -20px;
+            width: 2px;
+            background-color: #e2e8f0;
+            z-index: 0;
+        }
+        @media (min-width: 768px) {
+            .step-line {
+                left: 0;
+                right: 0;
+                top: 24px;
+                bottom: auto;
+                width: 100%;
+                height: 2px;
+            }
+        }
+
+        /* Loader */
+        .loader-bg {
+            position: fixed;
+            inset: 0;
+            background: #0f172a;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.6s ease-out, visibility 0.6s;
+        }
+    </style>
+</head>
+<body class="bg-slate-50">
+
+    <!-- Loading -->
+    <div id="loader" class="loader-bg">
+        <svg class="w-16 h-16 text-teal-500 animate-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+
+    <!-- Header -->
+    <header class="fixed w-full z-50 transition-all duration-300 bg-white/80 backdrop-blur-md border-b border-gray-100" id="header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 h-16 flex justify-between items-center">
+            <a href="#" class="text-xl font-serif font-bold text-slate-900 flex items-center gap-2">
+                <!-- Logo Icon -->
+                <svg class="w-6 h-6 text-teal-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.48-.56.93-1.2 1.34-1.91L5.53 14.54l-1.03 1.96zM19.5 7.5c1.5-1.26 2-5 2-5s-3.74.5-5 2c-.48.56-.93 1.2-1.34 1.91l3.31 3.05 1.03-1.96zM12 12.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11z"/>
+                    <path d="M4.22 19.78c1.33-1.33 2.66-2.66 4-4 .67.67 1.34 1.34 2 2-1.33 1.33-2.66 2.66-4 4-.67-.67-1.34-1.34-2-2zM15.78 8.22c1.33-1.33 2.66-2.66 4-4 .67.67 1.34 1.34 2 2-1.33 1.33-2.66 2.66-4 4-.67-.67-1.34-1.34-2-2z"/>
+                </svg>
+                <span class="tracking-wide">TSUBASA</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex gap-8 text-sm font-medium text-slate-600">
+                <a href="#about" class="hover:text-teal-600 transition-colors">事務所について</a>
+                <a href="#services" class="hover:text-teal-600 transition-colors">サービス</a>
+                <a href="#price" class="hover:text-teal-600 transition-colors">料金</a>
+                <a href="#flow" class="hover:text-teal-600 transition-colors">流れ</a>
+                <a href="#contact" class="px-5 py-2 bg-teal-600 text-white rounded-full hover:bg-teal-700 transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                    無料相談のご予約
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden p-2 text-slate-800">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform translate-x-full pt-20 px-6 flex flex-col gap-6 md:hidden">
+        <a href="#about" class="text-xl font-serif text-slate-800 border-b border-gray-100 pb-2 menu-link">事務所について</a>
+        <a href="#services" class="text-xl font-serif text-slate-800 border-b border-gray-100 pb-2 menu-link">サービス</a>
+        <a href="#price" class="text-xl font-serif text-slate-800 border-b border-gray-100 pb-2 menu-link">料金表</a>
+        <a href="#flow" class="text-xl font-serif text-slate-800 border-b border-gray-100 pb-2 menu-link">ご相談の流れ</a>
+        <a href="#contact" class="mt-4 w-full py-4 bg-teal-600 text-white text-center rounded-lg font-bold shadow-lg menu-link">
+            無料相談を予約する
+        </a>
+        <button id="close-menu" class="absolute top-5 right-4 p-2 text-slate-500">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative pt-32 pb-20 md:pt-48 md:pb-32 px-4 sm:px-6 md:px-12 overflow-hidden bg-gradient-to-br from-slate-50 to-teal-50/50">
+            <!-- Abstract Wing SVG Background -->
+            <div class="absolute top-0 right-0 w-[150%] md:w-[60%] opacity-5 pointer-events-none floating-element translate-x-20">
+                <svg viewBox="0 0 200 200" fill="currentColor" class="text-teal-900">
+                    <path d="M45.7,163.4c-3.2-34.7,6.8-67.6,28.4-96C99.8,33.8,143.5,9.6,183.9,0.2c-5.8,32.8-19.4,63.1-40.1,88.9 c-23.2,29-54.8,50.8-90.1,62.7C51.5,155.8,49.2,159.8,45.7,163.4z"/>
+                </svg>
+            </div>
+
+            <div class="max-w-7xl mx-auto relative z-10 grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1">
+                    <div class="inline-flex items-center gap-2 bg-white px-3 py-1 rounded-full border border-teal-100 shadow-sm mb-6 reveal-up">
+                        <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span>
+                        <span class="text-xs font-bold text-teal-800 tracking-wider">初回相談60分無料</span>
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900 leading-[1.2] mb-6 reveal-up" style="transition-delay: 0.1s;">
+                        御社の人事労務の<br>
+                        <span class="text-teal-600 inline-block relative">
+                            「翼」
+                            <svg class="absolute -bottom-2 left-0 w-full h-3 text-teal-200/50 -z-10" viewBox="0 0 100 10" preserveAspectRatio="none"><path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="8" fill="none"/></svg>
+                        </span>
+                        になる。
+                    </h1>
+                    
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed mb-8 max-w-lg reveal-up" style="transition-delay: 0.2s;">
+                        スタートアップから中小企業まで。<br>
+                        複雑な労働手続きや助成金申請、トラブル対応をまるごとサポート。<br>
+                        経営者様が「本業」に高く羽ばたける環境を整えます。
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 reveal-up" style="transition-delay: 0.3s;">
+                        <a href="#contact" class="inline-flex justify-center items-center px-8 py-4 bg-teal-600 text-white rounded-lg font-bold shadow-lg hover:bg-teal-700 hover:shadow-xl transition-all transform hover:-translate-y-1">
+                            無料相談を予約する
+                        </a>
+                        <a href="#services" class="inline-flex justify-center items-center px-8 py-4 bg-white text-slate-700 border border-slate-200 rounded-lg font-medium hover:bg-slate-50 transition-colors">
+                            サービスを見る
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="order-1 md:order-2 reveal-scale">
+                    <div class="relative w-full aspect-[4/3] md:aspect-square rounded-2xl overflow-hidden shadow-2xl bg-white p-2">
+                         <img src="https://placehold.co/800x800/e0f2f1/134e4a?text=Business+Meeting" alt="ダミー：打ち合わせ風景" class="w-full h-full object-cover rounded-xl">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trust Bar (Stats) -->
+        <section class="bg-slate-900 text-white py-12 px-4">
+            <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-slate-700/50">
+                <div class="reveal-up">
+                    <p class="text-xs text-teal-400 mb-1">創業</p>
+                    <p class="text-2xl md:text-4xl font-serif font-bold">15<span class="text-sm font-sans font-normal ml-1">年</span></p>
+                </div>
+                <div class="reveal-up" style="transition-delay: 0.1s;">
+                    <p class="text-xs text-teal-400 mb-1">相談実績</p>
+                    <p class="text-2xl md:text-4xl font-serif font-bold">3,000<span class="text-sm font-sans font-normal ml-1">件超</span></p>
+                </div>
+                <div class="reveal-up" style="transition-delay: 0.2s;">
+                    <p class="text-xs text-teal-400 mb-1">顧問先継続率</p>
+                    <p class="text-2xl md:text-4xl font-serif font-bold">98<span class="text-sm font-sans font-normal ml-1">%</span></p>
+                </div>
+                <div class="reveal-up" style="transition-delay: 0.3s;">
+                    <p class="text-xs text-teal-400 mb-1">対応エリア</p>
+                    <p class="text-lg md:text-2xl font-bold mt-1">全国・オンライン</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section id="services" class="py-24 px-4 sm:px-6 md:px-12">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-teal-600 font-bold tracking-widest text-xs uppercase mb-2 block reveal-up">Services</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mb-4 reveal-up">事業成長を加速させる<br>3つのサポート</h2>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Card 1 -->
+                    <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-soft hover:shadow-lg transition-all duration-300 group reveal-up">
+                        <div class="w-14 h-14 bg-teal-50 rounded-xl flex items-center justify-center text-teal-600 mb-6 group-hover:scale-110 transition-transform">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">労務顧問・手続き代行</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">入退社手続きから給与計算まで、煩雑な事務作業を正確に代行。法改正にも即座に対応し、コンプライアンスリスクをゼロにします。</p>
+                        <div class="text-teal-600 text-sm font-bold flex items-center gap-1">
+                            月額 22,000円〜
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-soft hover:shadow-lg transition-all duration-300 group reveal-up" style="transition-delay: 0.1s;">
+                        <div class="w-14 h-14 bg-teal-50 rounded-xl flex items-center justify-center text-teal-600 mb-6 group-hover:scale-110 transition-transform">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">助成金申請サポート</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">採用、教育、育児休業など、企業の取り組みに合わせた最適な助成金を提案。申請書類の作成から受給までフルサポートします。</p>
+                        <div class="text-teal-600 text-sm font-bold flex items-center gap-1">
+                            着手金0円 + 成功報酬15%〜
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-soft hover:shadow-lg transition-all duration-300 group reveal-up" style="transition-delay: 0.2s;">
+                        <div class="w-14 h-14 bg-teal-50 rounded-xl flex items-center justify-center text-teal-600 mb-6 group-hover:scale-110 transition-transform">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">就業規則・人事評価</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">「会社を守る」だけでなく「社員が意欲的に働ける」ルール作りを。テレワーク規定や同一労働同一賃金対応もお任せください。</p>
+                        <div class="text-teal-600 text-sm font-bold flex items-center gap-1">
+                            作成 110,000円〜
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile (E-E-A-T) -->
+        <section class="py-24 bg-sky-50 px-4 sm:px-6 md:px-12">
+            <div class="max-w-6xl mx-auto bg-white rounded-3xl p-8 md:p-12 shadow-sm reveal-up">
+                <div class="grid md:grid-cols-[300px_1fr] gap-12 items-start">
+                    <div class="text-center md:text-left">
+                        <div class="w-48 h-48 md:w-full md:h-auto md:aspect-[3/4] bg-slate-200 rounded-2xl overflow-hidden mx-auto mb-6 relative group">
+                             <img src="https://placehold.co/600x800/e2e8f0/1e293b?text=Portrait" alt="ダミー：代表写真" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-slate-900 mb-1">翼山 翔太</h3>
+                        <p class="text-sm text-slate-500 font-bold mb-4">特定社会保険労務士 / 代表</p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-xl md:text-2xl font-bold text-slate-900 mb-6">「人」の悩みをゼロにし、<br>経営を次のステージへ。</h4>
+                        <p class="text-slate-600 leading-loose mb-8">
+                            大学卒業後、大手人材会社にて10年間、採用・組織開発のコンサルティングに従事。その後、社会保険労務士資格を取得し、つばさ社労士事務所を開設しました。<br><br>
+                            私の強みは「法律」と「現場感覚」の両立です。単に法律論を振りかざすのではなく、経営者様の想いや会社のフェーズに合わせた、現実的かつ前向きな解決策をご提案いたします。
+                        </p>
+                        
+                        <div class="grid sm:grid-cols-2 gap-6 bg-slate-50 p-6 rounded-xl border border-slate-100">
+                            <div>
+                                <h5 class="font-bold text-teal-700 mb-2 text-sm">保有資格</h5>
+                                <ul class="text-sm text-slate-700 space-y-1">
+                                    <li>特定社会保険労務士（登録番号：12345678）</li>
+                                    <li>第一種衛生管理者</li>
+                                    <li>キャリアコンサルタント</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-teal-700 mb-2 text-sm">所属・役職</h5>
+                                <ul class="text-sm text-slate-700 space-y-1">
+                                    <li>全国社会保険労務士会連合会</li>
+                                    <li>東京商工会議所 会員</li>
+                                    <li>中小企業福祉事業団 幹事</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing -->
+        <section id="price" class="py-24 px-4 sm:px-6 md:px-12">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-12">
+                    <span class="text-teal-600 font-bold tracking-widest text-xs uppercase mb-2 block reveal-up">Price</span>
+                    <h2 class="text-3xl font-bold text-slate-900 reveal-up">明朗な料金体系</h2>
+                    <p class="text-slate-500 mt-4 text-sm reveal-up">企業の規模やご依頼内容に合わせて、最適なプランをご提案します。</p>
+                </div>
+
+                <div class="overflow-hidden border border-gray-200 rounded-xl shadow-sm reveal-up">
+                    <table class="w-full text-left border-collapse">
+                        <thead class="bg-slate-50 border-b border-gray-200">
+                            <tr>
+                                <th class="p-4 md:p-6 text-sm font-bold text-slate-700 w-1/3">サービス名</th>
+                                <th class="p-4 md:p-6 text-sm font-bold text-slate-700 w-1/3">料金目安 (税込)</th>
+                                <th class="hidden md:table-cell p-6 text-sm font-bold text-slate-700">備考</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100">
+                            <tr class="hover:bg-teal-50/30 transition-colors">
+                                <td class="p-4 md:p-6">
+                                    <div class="font-bold text-slate-900">顧問契約（相談のみ）</div>
+                                    <div class="md:hidden text-xs text-gray-500 mt-1">従業員数により変動</div>
+                                </td>
+                                <td class="p-4 md:p-6">
+                                    <span class="text-lg font-bold text-teal-700">22,000</span><span class="text-sm">円〜 /月</span>
+                                </td>
+                                <td class="hidden md:table-cell p-6 text-sm text-slate-600">従業員数5名未満の場合。チャット相談し放題。</td>
+                            </tr>
+                            <tr class="hover:bg-teal-50/30 transition-colors">
+                                <td class="p-4 md:p-6">
+                                    <div class="font-bold text-slate-900">顧問契約（手続き込）</div>
+                                    <div class="md:hidden text-xs text-gray-500 mt-1">入退社・保険手続き含む</div>
+                                </td>
+                                <td class="p-4 md:p-6">
+                                    <span class="text-lg font-bold text-teal-700">33,000</span><span class="text-sm">円〜 /月</span>
+                                </td>
+                                <td class="hidden md:table-cell p-6 text-sm text-slate-600">従業員数5名未満の場合。給与計算は別途。</td>
+                            </tr>
+                            <tr class="hover:bg-teal-50/30 transition-colors">
+                                <td class="p-4 md:p-6">
+                                    <div class="font-bold text-slate-900">助成金申請代行</div>
+                                </td>
+                                <td class="p-4 md:p-6">
+                                    <span class="text-sm">受給額の</span> <span class="text-lg font-bold text-teal-700">15%〜</span>
+                                </td>
+                                <td class="hidden md:table-cell p-6 text-sm text-slate-600">着手金無料。不支給の場合は費用はいただきません。</td>
+                            </tr>
+                            <tr class="hover:bg-teal-50/30 transition-colors">
+                                <td class="p-4 md:p-6">
+                                    <div class="font-bold text-slate-900">就業規則作成</div>
+                                </td>
+                                <td class="p-4 md:p-6">
+                                    <span class="text-lg font-bold text-teal-700">110,000</span><span class="text-sm">円〜</span>
+                                </td>
+                                <td class="hidden md:table-cell p-6 text-sm text-slate-600">ヒアリング、原案作成、労基署届出まで一式。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-4 text-xs text-slate-500 text-right reveal-up">
+                    ※上記は目安です。詳細はお見積りいたします（見積無料）。
+                </div>
+            </div>
+        </section>
+
+        <!-- Flow -->
+        <section id="flow" class="py-24 bg-white px-4 sm:px-6 md:px-12 border-t border-slate-100">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="text-teal-600 font-bold tracking-widest text-xs uppercase mb-2 block reveal-up">Flow</span>
+                    <h2 class="text-3xl font-bold text-slate-900 reveal-up">ご相談の流れ</h2>
+                </div>
+
+                <div class="relative grid md:grid-cols-5 gap-8 md:gap-4 reveal-up">
+                    <!-- Line for visual connection -->
+                    <div class="step-line"></div>
+
+                    <!-- Step 1 -->
+                    <div class="relative flex md:flex-col items-center md:text-center bg-white z-10 p-2 rounded-lg">
+                        <div class="w-12 h-12 bg-teal-600 text-white rounded-full flex items-center justify-center font-bold text-lg shrink-0 shadow-lg border-4 border-white">1</div>
+                        <div class="ml-4 md:ml-0 md:mt-4">
+                            <h4 class="font-bold text-slate-900 mb-1">お問い合わせ</h4>
+                            <p class="text-xs text-slate-500">フォームまたはお電話で。<br>初回相談は無料です。</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="relative flex md:flex-col items-center md:text-center bg-white z-10 p-2 rounded-lg">
+                        <div class="w-12 h-12 bg-white text-teal-600 border-2 border-teal-600 rounded-full flex items-center justify-center font-bold text-lg shrink-0 shadow-sm">2</div>
+                        <div class="ml-4 md:ml-0 md:mt-4">
+                            <h4 class="font-bold text-slate-900 mb-1">ヒアリング</h4>
+                            <p class="text-xs text-slate-500">対面・Zoomにて<br>課題をお伺いします。</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="relative flex md:flex-col items-center md:text-center bg-white z-10 p-2 rounded-lg">
+                        <div class="w-12 h-12 bg-white text-teal-600 border-2 border-teal-600 rounded-full flex items-center justify-center font-bold text-lg shrink-0 shadow-sm">3</div>
+                        <div class="ml-4 md:ml-0 md:mt-4">
+                            <h4 class="font-bold text-slate-900 mb-1">ご提案・見積</h4>
+                            <p class="text-xs text-slate-500">最適なプランと費用を<br>明示いたします。</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="relative flex md:flex-col items-center md:text-center bg-white z-10 p-2 rounded-lg">
+                        <div class="w-12 h-12 bg-white text-teal-600 border-2 border-teal-600 rounded-full flex items-center justify-center font-bold text-lg shrink-0 shadow-sm">4</div>
+                        <div class="ml-4 md:ml-0 md:mt-4">
+                            <h4 class="font-bold text-slate-900 mb-1">ご契約</h4>
+                            <p class="text-xs text-slate-500">電子契約も対応可能。<br>スムーズに締結します。</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="relative flex md:flex-col items-center md:text-center bg-white z-10 p-2 rounded-lg">
+                        <div class="w-12 h-12 bg-teal-100 text-teal-800 border-2 border-teal-200 rounded-full flex items-center justify-center font-bold text-lg shrink-0 shadow-sm">5</div>
+                        <div class="ml-4 md:ml-0 md:mt-4">
+                            <h4 class="font-bold text-slate-900 mb-1">業務開始</h4>
+                            <p class="text-xs text-slate-500">チャットツール等を開設し<br>サポートを開始します。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="py-24 px-4 sm:px-6 md:px-12 bg-slate-50">
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-12">
+                    <span class="text-teal-600 font-bold tracking-widest text-xs uppercase mb-2 block reveal-up">FAQ</span>
+                    <h2 class="text-3xl font-bold text-slate-900 reveal-up">よくあるご質問</h2>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- Item 1 -->
+                    <div class="bg-white rounded-lg shadow-sm p-6 reveal-up">
+                        <h3 class="font-bold text-slate-900 flex gap-3 items-start">
+                            <span class="text-teal-500">Q.</span>
+                            従業員が1名だけでも顧問契約は可能ですか？
+                        </h3>
+                        <p class="mt-3 text-sm text-slate-600 leading-relaxed pl-6">
+                            はい、可能です。創業初期の経営者様こそ、人事労務の負担を減らすメリットが大きいと考えております。お気軽にご相談ください。
+                        </p>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="bg-white rounded-lg shadow-sm p-6 reveal-up">
+                        <h3 class="font-bold text-slate-900 flex gap-3 items-start">
+                            <span class="text-teal-500">Q.</span>
+                            スポット（単発）での依頼はできますか？
+                        </h3>
+                        <p class="mt-3 text-sm text-slate-600 leading-relaxed pl-6">
+                            就業規則の作成や、助成金の申請のみといったスポット依頼も承っております。無理に顧問契約を勧めることはございません。
+                        </p>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="bg-white rounded-lg shadow-sm p-6 reveal-up">
+                        <h3 class="font-bold text-slate-900 flex gap-3 items-start">
+                            <span class="text-teal-500">Q.</span>
+                            対応エリアを教えてください。
+                        </h3>
+                        <p class="mt-3 text-sm text-slate-600 leading-relaxed pl-6">
+                            Chatwork、Slack、Zoom等を活用し、全国対応しております。訪問が必要な場合は別途ご相談ください。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section id="contact" class="py-24 px-4 sm:px-6 md:px-12 bg-teal-900 text-white relative overflow-hidden">
+             <!-- Background Wing -->
+             <div class="absolute -bottom-20 -left-20 w-[400px] text-teal-800 opacity-20 pointer-events-none floating-element">
+                <svg viewBox="0 0 200 200" fill="currentColor">
+                    <path d="M45.7,163.4c-3.2-34.7,6.8-67.6,28.4-96C99.8,33.8,143.5,9.6,183.9,0.2c-5.8,32.8-19.4,63.1-40.1,88.9 c-23.2,29-54.8,50.8-90.1,62.7C51.5,155.8,49.2,159.8,45.7,163.4z"/>
+                </svg>
+            </div>
+
+            <div class="max-w-4xl mx-auto relative z-10 text-center">
+                <h2 class="text-3xl md:text-5xl font-serif font-bold mb-6 reveal-up">まずは、無料相談から。</h2>
+                <p class="text-teal-100 mb-12 reveal-up">
+                    御社の現状をお聞かせください。<br>
+                    最適な解決策と、将来のリスク回避策をご提案します。
+                </p>
+
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10 mb-12 reveal-up">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="text-center md:text-right border-b md:border-b-0 md:border-r border-white/20 pb-8 md:pb-0 md:pr-8">
+                            <p class="text-xs tracking-widest text-teal-200 mb-2">お電話でのご予約</p>
+                            <a href="tel:03-1234-5678" class="text-3xl md:text-4xl font-bold hover:text-teal-300 transition-colors">03-1234-5678</a>
+                            <p class="text-xs text-teal-200 mt-2">受付：平日 9:00 - 18:00（土日祝は要予約）</p>
+                        </div>
+                        <div class="text-center md:text-left md:pl-8">
+                            <p class="text-xs tracking-widest text-teal-200 mb-4">Webフォーム（24時間受付）</p>
+                            <a href="#" class="inline-flex items-center justify-center w-full md:w-auto px-8 py-4 bg-white text-teal-900 rounded-lg font-bold hover:bg-teal-50 transition-colors">
+                                お問い合わせフォームへ
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-12 px-4 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto text-center md:text-left md:flex justify-between items-end">
+            <div class="mb-8 md:mb-0">
+                <div class="text-xl font-serif font-bold text-white flex items-center justify-center md:justify-start gap-2 mb-4">
+                    <svg class="w-5 h-5 text-teal-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                         <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.48-.56.93-1.2 1.34-1.91L5.53 14.54l-1.03 1.96zM19.5 7.5c1.5-1.26 2-5 2-5s-3.74.5-5 2c-.48.56-.93 1.2-1.34 1.91l3.31 3.05 1.03-1.96zM12 12.5a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11z"/>
+                    </svg>
+                    TSUBASA HR Office
+                </div>
+                <address class="not-italic text-sm leading-relaxed">
+                    〒100-0005 東京都千代田区丸の内1-1-1<br>
+                    つばさビルディング 4F
+                </address>
+            </div>
+            <div class="text-xs">
+                <ul class="flex justify-center md:justify-end gap-6 mb-4">
+                    <li><a href="#" class="hover:text-white transition-colors">プライバシーポリシー</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">特定商取引法に基づく表記</a></li>
+                </ul>
+                <p>&copy; 2024 Tsubasa Labor and Social Security Attorney Office.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Init Lenis
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            smoothTouch: false,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // Loading
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loader = document.getElementById('loader');
+                loader.style.opacity = '0';
+                loader.style.visibility = 'hidden';
+            }, 800);
+        });
+
+        // Mobile Menu
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuLinks = document.querySelectorAll('.menu-link');
+
+        function toggleMenu() {
+            const isOpen = !mobileMenu.classList.contains('translate-x-full');
+            if (isOpen) {
+                mobileMenu.classList.add('translate-x-full');
+            } else {
+                mobileMenu.classList.remove('translate-x-full');
+            }
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+        
+        menuLinks.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        // Scroll Reveal
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-up, .reveal-scale').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header Style on Scroll
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-sm', 'bg-white/90');
+                header.classList.remove('bg-white/80');
+            } else {
+                header.classList.remove('shadow-sm', 'bg-white/90');
+                header.classList.add('bg-white/80');
+            }
+        });
+
+        // Smooth Scroll for Anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                lenis.scrollTo(targetId);
+            });
+        });
+    </script>
+</body>
+</html>

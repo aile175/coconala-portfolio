@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>さくら建設 | 採用特化サイト</title>
+    <meta name="description" content="その技術、もっと高く買います。さくら建設 採用情報">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Oswald:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans JP"', 'sans-serif'],
+                        display: ['"Oswald"', 'sans-serif'],
+                    },
+                    colors: {
+                        sakura: {
+                            50: '#fdf2f8',
+                            100: '#fce7f3',
+                            300: '#f9a8d4',
+                            500: '#ec4899', // Pink
+                            600: '#db2777',
+                            900: '#831843',
+                        },
+                        dark: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            700: '#334155',
+                        },
+                        line: '#06C755', // LINE Green
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Typography */
+        .text-vertical {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        /* Custom Scrollbar for horizontal sections */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-100 {
+            transition-delay: 0.1s;
+        }
+
+        .reveal-delay-200 {
+            transition-delay: 0.2s;
+        }
+
+        .reveal-delay-300 {
+            transition-delay: 0.3s;
+        }
+
+        /* FAQ Accordion */
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .faq-item.active .faq-content {
+            max-height: 500px;
+            /* Arbitrary large height */
+            transition: max-height 0.5s ease-in;
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Mobile Menu */
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Gradient Text */
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            background-image: linear-gradient(to right, #ec4899, #f9a8d4);
+        }
+    </style>
+</head>
+
+<body class="relative font-sans antialiased">
+
+    <!-- Fixed Buttons for Mobile (Sticky Footer) -->
+    <div
+        class="fixed bottom-0 left-0 w-full z-50 bg-dark-900/95 backdrop-blur border-t border-white/10 p-4 md:hidden flex gap-2 reveal active">
+        <a href="#line"
+            class="flex-1 bg-line text-white font-bold py-3 rounded-full text-center flex items-center justify-center gap-2 shadow-lg hover:brightness-110 transition-all">
+            <i data-lucide="message-circle" class="w-5 h-5"></i> LINEで質問
+        </a>
+        <a href="#entry"
+            class="flex-1 bg-sakura-600 text-white font-bold py-3 rounded-full text-center shadow-lg hover:bg-sakura-500 transition-all">
+            1分で応募
+        </a>
+    </div>
+
+    <!-- Header -->
+    <header class="fixed top-0 w-full z-40 bg-white/95 backdrop-blur shadow-sm transition-all duration-300" id="header">
+        <div class="container mx-auto px-4 md:px-6 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-8 h-8 bg-sakura-500 rounded flex items-center justify-center">
+                    <span class="font-display font-bold text-white">S</span>
+                </div>
+                <span class="font-bold text-lg md:text-xl tracking-wider text-gray-800">さくら建設</span>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
+                <a href="#merit" class="hover:text-sakura-500 transition-colors">メリット</a>
+                <a href="#works" class="hover:text-sakura-500 transition-colors">仕事内容</a>
+                <a href="#interview" class="hover:text-sakura-500 transition-colors">社員の声</a>
+                <a href="#faq" class="hover:text-sakura-500 transition-colors">募集要項</a>
+                <a href="#entry"
+                    class="bg-sakura-500 text-white px-6 py-2 rounded-full font-bold hover:bg-sakura-600 transition-all shadow-lg shadow-sakura-500/20 transform hover:-translate-y-0.5">
+                    応募する
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-btn" class="md:hidden text-gray-800 p-1">
+                <i data-lucide="menu" class="w-7 h-7"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-white z-50 transform translate-x-full flex flex-col pt-24 px-6 gap-6 text-gray-800 transition-transform duration-300">
+        <button id="close-menu" class="absolute top-4 right-4 text-gray-800 p-2">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <a href="#merit" class="text-2xl font-bold border-b border-gray-100 pb-4 mobile-link">メリット</a>
+        <a href="#works" class="text-2xl font-bold border-b border-gray-100 pb-4 mobile-link">仕事内容</a>
+        <a href="#interview" class="text-2xl font-bold border-b border-gray-100 pb-4 mobile-link">社員の声</a>
+        <a href="#career" class="text-2xl font-bold border-b border-gray-100 pb-4 mobile-link">募集要項</a>
+        <a href="#entry" class="text-2xl font-bold text-sakura-500 mobile-link">応募する</a>
+    </div>
+
+    <!-- 1. Hero Area -->
+    <section class="relative h-screen min-h-[600px] flex items-center overflow-hidden pt-16">
+        <!-- Background -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://placehold.co/1920x1080?text=Construction+Site" alt="Construction Site"
+                class="w-full h-full object-cover">
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-slate-900/60 mix-blend-multiply"></div>
+        </div>
+
+        <div
+            class="container mx-auto px-4 md:px-6 relative z-10 w-full h-full flex flex-col justify-center items-center text-center">
+            <div class="max-w-5xl">
+                <!-- Tagline -->
+                <div class="inline-block bg-sakura-900/80 backdrop-blur-sm px-4 py-1.5 rounded-full mb-6 reveal">
+                    <span class="text-white/90 text-sm font-medium tracking-wider">令和7年度 新規スタッフ積極採用中</span>
+                </div>
+
+                <!-- Main Copy -->
+                <h1
+                    class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight reveal reveal-delay-100 drop-shadow-lg">
+                    地図に残る仕事、<br>
+                    <span class="text-sakura-300">始めよう。</span>
+                </h1>
+
+                <!-- Sub Copy -->
+                <p
+                    class="text-lg md:text-xl text-gray-100 mb-12 leading-relaxed max-w-3xl mx-auto reveal reveal-delay-200 drop-shadow-md">
+                    未経験から「一生モノ」の国家資格へ。DX導入で残業削減。<br class="hidden md:block">
+                    家族との時間も、技術も、どちらも大切にする「新しい建設業」です。
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16 reveal reveal-delay-300">
+                    <a href="#entry"
+                        class="bg-sakura-500 text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-sakura-600 transition-all flex items-center justify-center gap-3 min-w-[240px]">
+                        <i data-lucide="smartphone" class="w-5 h-5"></i>
+                        1分で応募完了
+                        <i data-lucide="arrow-right" class="w-5 h-5 ml-auto"></i>
+                    </a>
+                    <a href="#"
+                        class="bg-[#06C755] text-white px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-[#05b34c] transition-all flex items-center justify-center gap-3 min-w-[240px]">
+                        <i data-lucide="message-circle" class="w-6 h-6 fill-current"></i>
+                        LINEで気軽に質問
+                    </a>
+                </div>
+
+                <!-- Footer Features -->
+                <div
+                    class="flex flex-wrap justify-center gap-6 text-white/90 text-sm font-medium reveal reveal-delay-300">
+                    <div class="flex items-center gap-2">
+                        <div class="w-5 h-5 rounded-full bg-sakura-500 flex items-center justify-center">
+                            <i data-lucide="check" class="w-3 h-3 text-white stroke-[3]"></i>
+                        </div>
+                        前職給与保証
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div class="w-5 h-5 rounded-full bg-sakura-500 flex items-center justify-center">
+                            <i data-lucide="check" class="w-3 h-3 text-white stroke-[3]"></i>
+                        </div>
+                        賞与年3回
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div class="w-5 h-5 rounded-full bg-sakura-500 flex items-center justify-center">
+                            <i data-lucide="check" class="w-3 h-3 text-white stroke-[3]"></i>
+                        </div>
+                        寮・社宅完備
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator (Bottom Right) -->
+        <div class="absolute bottom-8 right-8 flex flex-col items-center gap-2 text-white/80 animate-bounce">
+            <span class="text-xs tracking-widest vertical-rl">SCROLL</span>
+            <i data-lucide="arrow-down" class="w-5 h-5"></i>
+        </div>
+    </section>
+
+    <!-- 2. Introduction (Worries & Empathy) -->
+    <section class="py-20 bg-dark-800 relative">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">こんな<span class="text-sakura-500">悩み</span>、抱えていませんか？
+                </h2>
+                <div class="w-16 h-1 bg-sakura-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <div class="bg-dark-900 p-6 rounded-lg border border-white/5 relative overflow-hidden group reveal">
+                    <div
+                        class="absolute -right-4 -top-4 w-20 h-20 bg-gray-700/20 rounded-full group-hover:bg-sakura-500/20 transition-colors">
+                    </div>
+                    <div class="relative z-10">
+                        <i data-lucide="frown"
+                            class="w-10 h-10 text-gray-400 mb-4 group-hover:text-sakura-500 transition-colors"></i>
+                        <h3 class="font-bold text-lg mb-2">「給料が上がらない…」</h3>
+                        <p class="text-gray-400 text-sm">頑張っても評価されない。家族を養うのにもう少し余裕が欲しい。</p>
+                    </div>
+                </div>
+                <div
+                    class="bg-dark-900 p-6 rounded-lg border border-white/5 relative overflow-hidden group reveal reveal-delay-100">
+                    <div
+                        class="absolute -right-4 -top-4 w-20 h-20 bg-gray-700/20 rounded-full group-hover:bg-sakura-500/20 transition-colors">
+                    </div>
+                    <div class="relative z-10">
+                        <i data-lucide="users"
+                            class="w-10 h-10 text-gray-400 mb-4 group-hover:text-sakura-500 transition-colors"></i>
+                        <h3 class="font-bold text-lg mb-2">「人間関係に疲れた…」</h3>
+                        <p class="text-gray-400 text-sm">古い体質の現場、怒鳴り声。もっとのびのび働きたい。</p>
+                    </div>
+                </div>
+                <div
+                    class="bg-dark-900 p-6 rounded-lg border border-white/5 relative overflow-hidden group reveal reveal-delay-200">
+                    <div
+                        class="absolute -right-4 -top-4 w-20 h-20 bg-gray-700/20 rounded-full group-hover:bg-sakura-500/20 transition-colors">
+                    </div>
+                    <div class="relative z-10">
+                        <i data-lucide="help-circle"
+                            class="w-10 h-10 text-gray-400 mb-4 group-hover:text-sakura-500 transition-colors"></i>
+                        <h3 class="font-bold text-lg mb-2">「未経験でも稼げる？」</h3>
+                        <p class="text-gray-400 text-sm">手に職をつけたいけど、今さら見習いから始めるのは不安。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bridge -->
+            <div class="mt-16 text-center reveal">
+                <div class="inline-block relative">
+                    <p class="relative z-10 text-xl md:text-2xl font-bold text-white">
+                        その悩み、<span class="text-sakura-300">さくら建設</span>なら解決できます！
+                    </p>
+                </div>
+                <div class="mt-4">
+                    <i data-lucide="arrow-down" class="w-6 h-6 mx-auto text-sakura-500 animate-bounce"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Strong Points (Merits) -->
+    <section id="merit" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-16 reveal">
+                <span class="text-sakura-500 font-bold tracking-widest text-sm">STRONG POINTS</span>
+                <h2 class="text-3xl md:text-4xl font-bold mt-2 text-gray-900">さくら建設が選ばれる<br class="md:hidden">3つの理由</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Merit 1 -->
+                <div
+                    class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 reveal group">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-sakura-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 shadow-md transform group-hover:-translate-y-2 transition-transform">
+                        <i data-lucide="wallet" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">業界水準越えの<br><span
+                            class="text-sakura-500 text-2xl">高待遇・高収入</span>
+                    </h3>
+                    <ul class="space-y-3 text-gray-600 text-sm">
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2"
+                                class="text-sakura-500 w-5 h-5"></i> 賞与年3回（決算賞与含む）</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2"
+                                class="text-sakura-500 w-5 h-5"></i> 前職給与保証制度あり</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2"
+                                class="text-sakura-500 w-5 h-5"></i> 日払い・週払い相談可</li>
+                    </ul>
+                </div>
+
+                <!-- Merit 2 -->
+                <div
+                    class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 reveal reveal-delay-100 group">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-2xl flex items-center justify-center mb-6 shadow-md transform group-hover:-translate-y-2 transition-transform">
+                        <i data-lucide="smartphone" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">DX推進で<br><span
+                            class="text-blue-500 text-2xl">残業ほぼナシ</span></h3>
+                    <ul class="space-y-3 text-gray-600 text-sm">
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2"
+                                class="text-blue-500 w-5 h-5"></i> iPad支給で図面・写真管理</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2"
+                                class="text-blue-500 w-5 h-5"></i> ドローン活用で測量効率化</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2"
+                                class="text-blue-500 w-5 h-5"></i> 直行直帰OKで自分の時間を確保</li>
+                    </ul>
+                </div>
+
+                <!-- Merit 3 -->
+                <div
+                    class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 reveal reveal-delay-200 group">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl flex items-center justify-center mb-6 shadow-md transform group-hover:-translate-y-2 transition-transform">
+                        <i data-lucide="smile" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900">働きやすい<br><span
+                            class="text-green-500 text-2xl">快適な環境</span></h3>
+                    <ul class="space-y-3 text-gray-600 text-sm">
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2"
+                                class="text-green-500 w-5 h-5"></i> 資格取得費用は全額会社負担</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2"
+                                class="text-green-500 w-5 h-5"></i> 1R寮・社宅完備（即入居可）</li>
+                        <li class="flex items-center gap-2"><i data-lucide="check-circle-2"
+                                class="text-green-500 w-5 h-5"></i> 髪型・ヒゲ自由（清潔感あればOK）</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Works & Schedule -->
+    <!-- 4. Works & Schedule -->
+    <section id="works" class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="grid md:grid-cols-2 gap-12 lg:gap-20">
+                <!-- Left Column: Our Works -->
+                <div>
+                    <div class="mb-10 reveal">
+                        <span class="text-sakura-500 font-bold tracking-widest text-sm uppercase">OUR WORKS</span>
+                        <h2 class="text-3xl md:text-3xl font-bold mt-2 text-gray-900">こんな仕事をしています</h2>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- Work 1 -->
+                        <div class="relative group overflow-hidden rounded-2xl h-64 shadow-md reveal reveal-delay-100">
+                            <img src="https://placehold.co/800x600?text=Road+Work" alt="Road Work"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div
+                                class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 via-black/50 to-transparent p-6">
+                                <h3 class="font-bold text-xl text-white mb-1">道路改良工事（〇〇市）</h3>
+                                <p class="text-gray-300 text-sm">工期：6ヶ月 / ドローン測量導入現場</p>
+                            </div>
+                        </div>
+                        <!-- Work 2 -->
+                        <div class="relative group overflow-hidden rounded-2xl h-64 shadow-md reveal reveal-delay-200">
+                            <img src="https://placehold.co/800x600?text=River+Work" alt="River Work"
+                                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                            <div
+                                class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 via-black/50 to-transparent p-6">
+                                <h3 class="font-bold text-xl text-white mb-1">河川護岸工事（〇〇県）</h3>
+                                <p class="text-gray-300 text-sm">工期：1年 / ICT建機活用</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Schedule -->
+                <div class="reveal reveal-delay-200">
+                    <div class="mb-10 flex items-center gap-3">
+                        <i data-lucide="clock" class="w-8 h-8 text-sakura-500"></i>
+                        <h2 class="text-3xl md:text-3xl font-bold text-gray-900">1日のスケジュール</h2>
+                    </div>
+
+                    <div class="relative pl-4">
+                        <!-- Vertical Line -->
+                        <div class="absolute left-[19px] top-4 bottom-4 w-0.5 bg-gray-200"></div>
+
+                        <div class="space-y-8">
+                            <!-- 8:00 -->
+                            <div class="relative flex gap-6">
+                                <div class="flex-none z-10">
+                                    <div
+                                        class="w-10 h-10 bg-sakura-500 rounded-full flex items-center justify-center text-white font-bold shadow-md ring-4 ring-white">
+                                        1</div>
+                                </div>
+                                <div>
+                                    <span class="text-sakura-500 font-bold text-sm block mb-1">8:00</span>
+                                    <h4 class="font-bold text-lg text-gray-900 mb-2">朝礼・作業開始</h4>
+                                    <p class="text-sm text-gray-600 leading-relaxed">現場でのKY（危険予知）活動を行い、安全第一で作業スタート。</p>
+                                </div>
+                            </div>
+
+                            <!-- 10:00 -->
+                            <div class="relative flex gap-6">
+                                <div class="flex-none z-10">
+                                    <div
+                                        class="w-10 h-10 bg-sakura-500 rounded-full flex items-center justify-center text-white font-bold shadow-md ring-4 ring-white">
+                                        2</div>
+                                </div>
+                                <div>
+                                    <span class="text-sakura-500 font-bold text-sm block mb-1">10:00</span>
+                                    <h4 class="font-bold text-lg text-gray-900 mb-2">一服（30分）</h4>
+                                    <p class="text-sm text-gray-600 leading-relaxed">コーヒーを飲んでリフレッシュ。夏場はこまめに休憩を取ります。</p>
+                                </div>
+                            </div>
+
+                            <!-- 12:00 -->
+                            <div class="relative flex gap-6">
+                                <div class="flex-none z-10">
+                                    <div
+                                        class="w-10 h-10 bg-sakura-500 rounded-full flex items-center justify-center text-white font-bold shadow-md ring-4 ring-white">
+                                        3</div>
+                                </div>
+                                <div>
+                                    <span class="text-sakura-500 font-bold text-sm block mb-1">12:00</span>
+                                    <h4 class="font-bold text-lg text-gray-900 mb-2">お昼休憩（60分）</h4>
+                                    <p class="text-sm text-gray-600 leading-relaxed">現場近くの定食屋へ行ったり、車内で昼寝をしたり。自由な時間です。
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- 13:00 -->
+                            <div class="relative flex gap-6">
+                                <div class="flex-none z-10">
+                                    <div
+                                        class="w-10 h-10 bg-sakura-500 rounded-full flex items-center justify-center text-white font-bold shadow-md ring-4 ring-white">
+                                        4</div>
+                                </div>
+                                <div>
+                                    <span class="text-sakura-500 font-bold text-sm block mb-1">13:00</span>
+                                    <h4 class="font-bold text-lg text-gray-900 mb-2">午後の作業開始</h4>
+                                    <p class="text-sm text-gray-600 leading-relaxed">進捗を確認し、午後の作業へ。</p>
+                                </div>
+                            </div>
+
+                            <!-- 15:00 -->
+                            <div class="relative flex gap-6">
+                                <div class="flex-none z-10">
+                                    <div
+                                        class="w-10 h-10 bg-sakura-500 rounded-full flex items-center justify-center text-white font-bold shadow-md ring-4 ring-white">
+                                        5</div>
+                                </div>
+                                <div>
+                                    <span class="text-sakura-500 font-bold text-sm block mb-1">15:00</span>
+                                    <h4 class="font-bold text-lg text-gray-900 mb-2">一服（30分）</h4>
+                                    <p class="text-sm text-gray-600 leading-relaxed">ラストスパートに向けて小休憩。</p>
+                                </div>
+                            </div>
+
+                            <!-- 17:00 -->
+                            <div class="relative flex gap-6">
+                                <div class="flex-none z-10">
+                                    <div
+                                        class="w-10 h-10 bg-sakura-500 rounded-full flex items-center justify-center text-white font-bold shadow-md ring-4 ring-white">
+                                        6</div>
+                                </div>
+                                <div>
+                                    <span class="text-sakura-500 font-bold text-sm block mb-1">17:00</span>
+                                    <h4 class="font-bold text-lg text-gray-900 mb-2">作業終了・片付け</h4>
+                                    <p class="text-sm text-gray-600 leading-relaxed">基本的に残業はありません。ダラダラ残らず、サッと帰るのが当社の流儀。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Infographics -->
+    <section class="py-24 bg-slate-900 text-white">
+        <div class="container mx-auto px-4 md:px-6">
+            <h2 class="text-center text-3xl font-bold mb-16 reveal text-white">数字で見るさくら建設</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="p-4 reveal">
+                    <p class="text-gray-400 text-sm font-bold mb-4 tracking-wider">平均年収</p>
+                    <p class="text-5xl md:text-6xl font-display font-bold text-sakura-500">550<span
+                            class="text-2xl text-white font-bold ml-1">万</span></p>
+                </div>
+                <div class="p-4 reveal reveal-delay-100">
+                    <p class="text-gray-400 text-sm font-bold mb-4 tracking-wider">有給取得率</p>
+                    <p class="text-5xl md:text-6xl font-display font-bold text-sakura-500">85<span
+                            class="text-2xl text-white font-bold ml-1">%</span></p>
+                </div>
+                <div class="p-4 reveal reveal-delay-200">
+                    <p class="text-gray-400 text-sm font-bold mb-4 tracking-wider">平均年齢</p>
+                    <p class="text-5xl md:text-6xl font-display font-bold text-sakura-500">36<span
+                            class="text-2xl text-white font-bold ml-1">歳</span></p>
+                </div>
+                <div class="p-4 reveal reveal-delay-300">
+                    <p class="text-gray-400 text-sm font-bold mb-4 tracking-wider">定着率</p>
+                    <p class="text-5xl md:text-6xl font-display font-bold text-sakura-500">92<span
+                            class="text-2xl text-white font-bold ml-1">%</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Interview -->
+    <section id="interview" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-16 reveal">
+                <span class="text-sakura-500 font-bold tracking-widest text-sm uppercase">INTERVIEWS</span>
+                <h2 class="text-3xl md:text-3xl font-bold mt-2 text-gray-900">先輩社員の声</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Interview 1 -->
+                <div
+                    class="bg-white p-10 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 reveal group">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 bg-gray-200 rounded-full overflow-hidden flex-shrink-0">
+                            <img src="https://placehold.co/300x300?text=Tanaka" alt="Tanaka"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p class="font-bold text-lg text-gray-900">田中 健太 (24)</p>
+                            <p class="text-gray-500 text-sm">入社2年目 / 元飲食店スタッフ</p>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-xl mb-4 text-sakura-500">「見て覚えろ」なんて言われません。</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        未経験で入ったので、最初は正直怖かったです。でも、iPadを使ったマニュアルがあったり、職長が優しく教えてくれたり、イメージと全然違いました。前職より給料も上がり、土日休みで趣味のスノボに行けるようになったのが最高です。
+                    </p>
+                </div>
+
+                <!-- Interview 2 -->
+                <div
+                    class="bg-white p-10 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 reveal reveal-delay-100 group">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-16 h-16 bg-gray-200 rounded-full overflow-hidden flex-shrink-0">
+                            <img src="https://placehold.co/300x300?text=Suzuki" alt="Suzuki"
+                                class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <p class="font-bold text-lg text-gray-900">鈴木 大介 (42)</p>
+                            <p class="text-gray-500 text-sm">入社5年目 / 職長 / 経験者採用</p>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-xl mb-4 text-sakura-500">技術を正当に評価してくれる。</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        以前の会社はどれだけ頑張っても給料が変わらず…。ここは資格やスキルをしっかり見て給与に反映してくれます。DX化が進んでいるので、無駄な書類作成で残業することが本当になくなりました。家族と夕飯を食べられるのが嬉しいですね。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Career Path & Salary -->
+    <section id="career" class="py-20 bg-dark-800">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">年収モデル・キャリアパス</h2>
+                <p class="text-gray-400">頑張れば頑張った分だけ、確実に収入アップできる仕組みです。</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <!-- Step 1 -->
+                <div
+                    class="bg-dark-900 p-8 rounded-xl flex flex-col md:flex-row items-center justify-between shadow-lg reveal relative z-10 border border-white/5">
+                    <div class="flex items-center gap-6 mb-4 md:mb-0">
+                        <div
+                            class="w-20 h-20 bg-gray-800 rounded-full flex flex-col items-center justify-center text-center flex-shrink-0">
+                            <span class="text-gray-300 font-bold text-sm">1年目</span>
+                            <span class="text-gray-400 text-xs font-bold">見習い</span>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-xl text-white mb-1">現場スタッフ</h3>
+                            <p class="text-sm text-gray-400">先輩のサポート、資材運搬、資格勉強</p>
+                        </div>
+                    </div>
+                    <div class="text-center md:text-right">
+                        <p class="text-xs text-gray-500 mb-1">年収例</p>
+                        <p class="text-3xl font-display font-bold text-white">350<span class="text-lg">万円</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Arrow -->
+                <div class="h-16 flex items-center justify-center reveal reveal-delay-100">
+                    <i data-lucide="arrow-down" class="w-8 h-8 text-gray-500"></i>
+                </div>
+
+                <!-- Step 2 -->
+                <div
+                    class="bg-dark-900 p-8 rounded-xl flex flex-col md:flex-row items-center justify-between shadow-lg reveal reveal-delay-100 relative z-10 border-l-8 border-sakura-500">
+                    <div class="flex items-center gap-6 mb-4 md:mb-0">
+                        <div
+                            class="w-20 h-20 bg-sakura-900/30 rounded-full flex flex-col items-center justify-center text-center flex-shrink-0">
+                            <span class="text-sakura-400 font-bold text-sm">3年目</span>
+                            <span class="text-sakura-500 text-xs font-bold">職長</span>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-xl text-white mb-1">チームリーダー</h3>
+                            <p class="text-sm text-gray-400">現場指揮、工程管理、後輩育成</p>
+                        </div>
+                    </div>
+                    <div class="text-center md:text-right">
+                        <p class="text-xs text-gray-500 mb-1">年収例</p>
+                        <p class="text-3xl font-display font-bold text-sakura-500">500<span class="text-lg">万円</span>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Arrow -->
+                <div class="h-16 flex items-center justify-center reveal reveal-delay-200">
+                    <i data-lucide="arrow-down" class="w-8 h-8 text-gray-500"></i>
+                </div>
+
+                <!-- Step 3 -->
+                <div
+                    class="bg-dark-900 p-8 rounded-xl flex flex-col md:flex-row items-center justify-between shadow-lg reveal reveal-delay-200 relative z-10 border-l-8 border-yellow-500">
+                    <div class="flex items-center gap-6 mb-4 md:mb-0">
+                        <div
+                            class="w-20 h-20 bg-yellow-900/30 rounded-full flex flex-col items-center justify-center text-center flex-shrink-0">
+                            <span class="text-yellow-400 font-bold text-sm">10年目</span>
+                            <span class="text-yellow-500 text-xs font-bold">幹部</span>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-xl text-white mb-1">施工管理技士</h3>
+                            <p class="text-sm text-gray-400">大規模案件の統括、予算管理、経営参画</p>
+                        </div>
+                    </div>
+                    <div class="text-center md:text-right">
+                        <p class="text-xs text-gray-500 mb-1">年収例</p>
+                        <p class="text-4xl font-display font-bold text-yellow-500">700<span class="text-xl">万円~</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Requirements -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4 md:px-6">
+            <div class="text-center mb-16 reveal">
+                <span class="text-sakura-500 font-bold tracking-widest text-sm uppercase">REQUIREMENTS</span>
+                <h2 class="text-3xl font-bold mt-2 text-gray-900">募集要項</h2>
+            </div>
+
+            <div class="max-w-4xl mx-auto bg-white border-t border-gray-200 reveal">
+                <div class="divide-y divide-gray-200">
+                    <!-- Employment -->
+                    <div class="flex flex-col md:flex-row py-8">
+                        <div class="md:w-1/4 font-bold text-gray-800 mb-2 md:mb-0">雇用形態</div>
+                        <div class="md:w-3/4 text-gray-600">正社員（試用期間3ヶ月/同条件）</div>
+                    </div>
+                    <!-- Salary -->
+                    <div class="flex flex-col md:flex-row py-8">
+                        <div class="md:w-1/4 font-bold text-gray-800 mb-2 md:mb-0">給与</div>
+                        <div class="md:w-3/4">
+                            <p class="text-xl font-bold text-sakura-500 mb-1">月給28万円〜50万円</p>
+                            <p class="text-xs text-gray-400">※経験・能力を考慮して決定します</p>
+                        </div>
+                    </div>
+                    <!-- Location -->
+                    <div class="flex flex-col md:flex-row py-8">
+                        <div class="md:w-1/4 font-bold text-gray-800 mb-2 md:mb-0">勤務地</div>
+                        <div class="md:w-3/4">
+                            <p class="text-gray-600 mb-3">本社（〇〇県〇〇市）および各現場</p>
+                            <div class="flex gap-2">
+                                <span
+                                    class="text-xs bg-white text-gray-600 px-3 py-1 rounded-full border border-gray-300">車通勤OK</span>
+                                <span
+                                    class="text-xs bg-white text-gray-600 px-3 py-1 rounded-full border border-gray-300">転勤なし</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Hours -->
+                    <div class="flex flex-col md:flex-row py-8">
+                        <div class="md:w-1/4 font-bold text-gray-800 mb-2 md:mb-0">勤務時間</div>
+                        <div class="md:w-3/4 text-gray-600">8:00 〜 17:00（休憩2時間 / 実働7時間）</div>
+                    </div>
+                    <!-- Holidays -->
+                    <div class="flex flex-col md:flex-row py-8">
+                        <div class="md:w-1/4 font-bold text-gray-800 mb-2 md:mb-0">休日・休暇</div>
+                        <div class="md:w-3/4 text-gray-600">週休2日制（土・日・祝）、GW、夏季、年末年始、有給休暇</div>
+                    </div>
+                    <!-- Benefits -->
+                    <div class="flex flex-col md:flex-row py-8">
+                        <div class="md:w-1/4 font-bold text-gray-800 mb-2 md:mb-0">福利厚生</div>
+                        <div class="md:w-3/4 text-gray-600 text-sm leading-8">
+                            ・社会保険完備<br>
+                            ・賞与年3回（決算賞与含む）<br>
+                            ・昇給年1回<br>
+                            ・資格取得支援全額負担<br>
+                            ・寮・社宅完備（即入居可）<br>
+                            ・制服・道具貸与
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. FAQ -->
+    <section id="faq" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 md:px-6">
+            <h2 class="text-3xl font-bold mb-16 text-center reveal text-gray-900">よくある質問</h2>
+
+            <div class="max-w-3xl mx-auto space-y-6">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white rounded-xl shadow-sm p-8 reveal border border-gray-100">
+                    <div class="flex items-start gap-4 mb-4">
+                        <span class="text-sakura-500 font-bold text-xl">Q.</span>
+                        <h3 class="font-bold text-lg text-gray-900 pt-0.5">未経験でも本当に大丈夫ですか？</h3>
+                    </div>
+                    <div class="flex items-start gap-4 border-t border-gray-100 pt-4">
+                        <span class="text-sakura-500 font-bold text-xl">A.</span>
+                        <p class="text-gray-600 text-sm leading-relaxed pt-1">
+                            もちろん！現在活躍中のスタッフの6割が未経験スタートです。最初は道具の名前を覚えるところから始めましょう。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-white rounded-xl shadow-sm p-8 reveal reveal-delay-100 border border-gray-100">
+                    <div class="flex items-start gap-4 mb-4">
+                        <span class="text-sakura-500 font-bold text-xl">Q.</span>
+                        <h3 class="font-bold text-lg text-gray-900 pt-0.5">寮にはすぐに入れますか？</h3>
+                    </div>
+                    <div class="flex items-start gap-4 border-t border-gray-100 pt-4">
+                        <span class="text-sakura-500 font-bold text-xl">A.</span>
+                        <p class="text-gray-600 text-sm leading-relaxed pt-1">
+                            はい、即入居可能な個室寮を完備しています。家具家電付きなので、カバン一つで新生活を始められます。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-white rounded-xl shadow-sm p-8 reveal reveal-delay-200 border border-gray-100">
+                    <div class="flex items-start gap-4 mb-4">
+                        <span class="text-sakura-500 font-bold text-xl">Q.</span>
+                        <h3 class="font-bold text-lg text-gray-900 pt-0.5">面接は作業着でもいいですか？</h3>
+                    </div>
+                    <div class="flex items-start gap-4 border-t border-gray-100 pt-4">
+                        <span class="text-sakura-500 font-bold text-xl">A.</span>
+                        <p class="text-gray-600 text-sm leading-relaxed pt-1">
+                            はい、全く問題ありません。仕事終わりの作業着のままでもままでもお気軽にお越しください。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="bg-white rounded-xl shadow-sm p-8 reveal reveal-delay-300 border border-gray-100">
+                    <div class="flex items-start gap-4 mb-4">
+                        <span class="text-sakura-500 font-bold text-xl">Q.</span>
+                        <h3 class="font-bold text-lg text-gray-900 pt-0.5">体力に自信がないのですが...</h3>
+                    </div>
+                    <div class="flex items-start gap-4 border-t border-gray-100 pt-4">
+                        <span class="text-sakura-500 font-bold text-xl">A.</span>
+                        <p class="text-gray-600 text-sm leading-relaxed pt-1">
+                            重機やドローンの導入で、以前のような「力仕事」は減っています。女性スタッフやシニア層も活躍していますよ。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Entry Form -->
+    <section id="entry" class="py-24 relative overflow-hidden bg-sakura-900">
+        <!-- Background Decor -->
+        <div class="absolute inset-0 bg-dark-900/90 z-0"></div>
+        <div class="absolute -right-20 top-20 w-96 h-96 bg-sakura-500/20 rounded-full blur-3xl animate-pulse-slow">
+        </div>
+
+        <div class="container mx-auto px-4 md:px-6 relative z-10">
+            <div class="max-w-lg mx-auto">
+                <div class="text-center mb-10 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">応募・お問い合わせ</h2>
+                    <p class="text-gray-300">まずは話を聞くだけでもOKです。<br>お気軽にご連絡ください。</p>
+                </div>
+
+                <!-- LINE Button High Priority -->
+                <a href="#"
+                    class="block w-full bg-[#06C755] hover:bg-[#05b34c] text-white font-bold text-xl py-5 rounded-xl text-center shadow-lg transition-transform transform hover:-translate-y-1 mb-10 flex items-center justify-center gap-3 reveal">
+                    <i data-lucide="message-circle" class="w-8 h-8 fill-current"></i>
+                    LINEで気軽に質問・応募
+                </a>
+
+                <div class="flex items-center justify-center gap-4 mb-8 text-gray-400 text-sm reveal">
+                    <div class="h-px bg-white/20 w-full"></div>
+                    <span>OR</span>
+                    <div class="h-px bg-white/20 w-full"></div>
+                </div>
+
+                <!-- Simple Form -->
+                <form
+                    class="bg-white/5 backdrop-blur-sm p-6 md:p-8 rounded-2xl border border-white/10 space-y-4 reveal reveal-delay-100">
+                    <div>
+                        <label class="block text-sm font-bold mb-2">お名前 <span class="text-sakura-500">*</span></label>
+                        <input type="text"
+                            class="w-full bg-dark-900 border border-white/20 rounded p-3 focus:outline-none focus:border-sakura-500 transition-colors"
+                            placeholder="例：桜 太郎">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2">電話番号 <span class="text-sakura-500">*</span></label>
+                        <input type="tel"
+                            class="w-full bg-dark-900 border border-white/20 rounded p-3 focus:outline-none focus:border-sakura-500 transition-colors"
+                            placeholder="090-0000-0000">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2">年齢</label>
+                        <input type="number"
+                            class="w-full bg-dark-900 border border-white/20 rounded p-3 focus:outline-none focus:border-sakura-500 transition-colors"
+                            placeholder="例：25">
+                    </div>
+
+                    <button type="button"
+                        class="w-full bg-sakura-600 hover:bg-sakura-500 text-white font-bold text-lg py-4 rounded-lg shadow-lg shadow-sakura-600/30 transition-all mt-4">
+                        上記の内容で応募する
+                    </button>
+
+                    <p class="text-xs text-center text-gray-400 mt-4">
+                        ※履歴書は面接時でOKです。<br>
+                        ※3営業日以内に担当者よりご連絡いたします。
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 pt-16 pb-8 border-t border-white/10 text-gray-400 text-sm">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-8">
+                <span class="text-xl font-bold text-white tracking-wider">さくら建設株式会社</span>
+                <p class="mt-4 leading-relaxed">
+                    〒100-0000 東京都千代田区1-1-1<br>
+                    TEL: 03-0000-0000 / FAX: 03-0000-0000
+                </p>
+            </div>
+            <p class="text-xs text-gray-600">&copy; 2026 Sakura Construction Inc. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        lucide.createIcons();
+
+        // Mobile Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu(show) {
+            if (show) {
+                mobileMenu.classList.remove('translate-x-full');
+                document.body.style.overflow = 'hidden';
+            } else {
+                mobileMenu.classList.add('translate-x-full');
+                document.body.style.overflow = '';
+            }
+        }
+
+        menuBtn.addEventListener('click', () => toggleMenu(true));
+        closeBtn.addEventListener('click', () => toggleMenu(false));
+        mobileLinks.forEach(link => link.addEventListener('click', () => toggleMenu(false)));
+
+        // Reveal Animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+
+</html>
