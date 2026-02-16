@@ -658,6 +658,37 @@ a:hover { color: var(--c-accent-h); }
   border-bottom: 1px solid var(--c-border);
 }
 
+/* iOS Safari / LINE browser fallback: aspect-ratio 未対応端末での高さ崩れを防ぐ */
+@supports not (aspect-ratio: 1 / 1) {
+  .portfolio-card__img,
+  .demo-card__img,
+  .demo-card__placeholder {
+    height: 0;
+    position: relative;
+  }
+
+  .portfolio-card__img {
+    padding-top: 56.25%; /* 16:9 */
+  }
+
+  .demo-card__img,
+  .demo-card__placeholder {
+    padding-top: 62.5%; /* 16:10 */
+  }
+
+  .portfolio-card__img img,
+  .demo-card__img img {
+    position: absolute;
+    inset: 0;
+  }
+
+  .portfolio-card__img-overlay,
+  .demo-card__placeholder {
+    position: absolute;
+    inset: 0;
+  }
+}
+
 .demo-card__body {
   padding: var(--sp-sm) var(--sp-md);
 }
