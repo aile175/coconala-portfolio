@@ -51,6 +51,9 @@
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --max-w:     1100px;
   --header-h:  64px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --header-total-h: calc(var(--header-h) + var(--safe-top));
+  --app-height: 1vh;
 }
 
 /* ============================================
@@ -60,8 +63,9 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: var(--header-h);
+  scroll-padding-top: var(--header-total-h);
   -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -187,7 +191,8 @@ a:hover { color: var(--c-accent-h); }
   top: 0;
   left: 0;
   right: 0;
-  height: var(--header-h);
+  height: var(--header-total-h);
+  padding-top: var(--safe-top);
   background: rgba(10, 10, 10, 0.92);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -313,12 +318,13 @@ a:hover { color: var(--c-accent-h); }
    ============================================ */
 .hero {
   min-height: 100vh;
-  min-height: 100dvh;
+  min-height: 100svh;
+  min-height: calc(var(--app-height) * 100);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: calc(var(--header-h) + var(--sp-xl)) var(--sp-md) var(--sp-xl);
+  padding: calc(var(--header-total-h) + var(--sp-xl)) var(--sp-md) var(--sp-xl);
   position: relative;
   overflow: hidden;
 }

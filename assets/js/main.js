@@ -2,6 +2,13 @@
   'use strict';
 
   var demoScrollKey = 'mainLpScrollY';
+  var rootStyle = document.documentElement.style;
+
+  function updateViewportHeightVar() {
+    var vh = (window.innerHeight || document.documentElement.clientHeight || 0) * 0.01;
+    if (!vh) return;
+    rootStyle.setProperty('--app-height', vh + 'px');
+  }
 
   function saveMainScrollPosition() {
     sessionStorage.setItem(demoScrollKey, String(window.scrollY || window.pageYOffset || 0));
@@ -17,6 +24,15 @@
 
     window.scrollTo(0, parseInt(saved, 10) || 0);
     sessionStorage.removeItem(demoScrollKey);
+  }
+
+  updateViewportHeightVar();
+  window.addEventListener('resize', updateViewportHeightVar);
+  window.addEventListener('orientationchange', updateViewportHeightVar);
+  window.addEventListener('pageshow', updateViewportHeightVar);
+
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', updateViewportHeightVar);
   }
 
   window.addEventListener('pageshow', restoreMainScrollPositionIfNeeded);
