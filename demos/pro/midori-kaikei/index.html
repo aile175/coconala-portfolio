@@ -160,6 +160,21 @@
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
+
+        /* iOS Safari / LINE browser viewport adjustments */
+        .hero-section {
+            min-height: 100vh;
+            min-height: 100svh;
+            padding-top: calc(env(safe-area-inset-top) + 6.5rem);
+            padding-bottom: calc(env(safe-area-inset-bottom) + 2rem);
+        }
+
+        @media (min-width: 768px) {
+            .hero-section {
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+        }
     </style>
 </head>
 <body class="font-serif antialiased selection:bg-gold selection:text-white">
@@ -188,14 +203,24 @@
             <a href="#contact" class="px-6 py-2 border border-gold text-gold hover:bg-gold hover:text-navy-900 transition-colors duration-300">CONTACT</a>
         </div>
 
-        <button class="md:hidden text-gold">
+        <button id="mobile-menu-button" class="md:hidden text-gold z-50" aria-label="メニューを開く" aria-controls="mobile-menu" aria-expanded="false">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path></svg>
         </button>
+
+        <div id="mobile-menu" class="md:hidden absolute top-full left-0 right-0 bg-navy-900/95 backdrop-blur-md border-t border-navy-700 px-6 py-5 hidden">
+            <div class="flex flex-col gap-4 text-sm font-sans tracking-widest font-light">
+                <a href="#about" class="py-2 border-b border-navy-700 hover:text-gold transition-colors">ABOUT</a>
+                <a href="#services" class="py-2 border-b border-navy-700 hover:text-gold transition-colors">SERVICES</a>
+                <a href="#pricing" class="py-2 border-b border-navy-700 hover:text-gold transition-colors">PRICE</a>
+                <a href="#flow" class="py-2 border-b border-navy-700 hover:text-gold transition-colors">FLOW</a>
+                <a href="#contact" class="mt-2 px-5 py-2 border border-gold text-gold text-center hover:bg-gold hover:text-navy-900 transition-colors duration-300">CONTACT</a>
+            </div>
+        </div>
     </nav>
 
     <main>
         <!-- Hero Section -->
-        <section class="relative h-screen w-full bg-navy-900 text-offwhite overflow-hidden flex flex-col justify-center items-center">
+        <section class="hero-section relative w-full bg-navy-900 text-offwhite overflow-hidden flex flex-col justify-center items-center">
             <!-- Background Decoration -->
             <div class="absolute inset-0 opacity-20 pointer-events-none">
                 <svg class="absolute top-0 right-0 w-[800px] h-[800px] text-gold animate-[spin_60s_linear_infinite]" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.2">
@@ -670,12 +695,30 @@
             }
         });
         
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                const isOpen = !mobileMenu.classList.contains('hidden');
+                mobileMenu.classList.toggle('hidden');
+                mobileMenuButton.setAttribute('aria-expanded', String(!isOpen));
+            });
+        }
+
         // Anchor link smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
+
+                if (mobileMenu && mobileMenuButton && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', 'false');
+                }
+
                 lenis.scrollTo(targetId);
             });
         });
