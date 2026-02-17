@@ -160,6 +160,21 @@
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
+
+        /* iOS Safari / LINE browser viewport adjustments */
+        .hero-section {
+            min-height: 100vh;
+            min-height: 100svh;
+            padding-top: calc(env(safe-area-inset-top) + 6.5rem);
+            padding-bottom: calc(env(safe-area-inset-bottom) + 2rem);
+        }
+
+        @media (min-width: 768px) {
+            .hero-section {
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+        }
     </style>
 </head>
 <body class="font-serif antialiased selection:bg-gold selection:text-white">
@@ -195,7 +210,7 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="relative h-screen w-full bg-navy-900 text-offwhite overflow-hidden flex flex-col justify-center items-center">
+        <section class="hero-section relative w-full bg-navy-900 text-offwhite overflow-hidden flex flex-col justify-center items-center">
             <!-- Background Decoration -->
             <div class="absolute inset-0 opacity-20 pointer-events-none">
                 <svg class="absolute top-0 right-0 w-[800px] h-[800px] text-gold animate-[spin_60s_linear_infinite]" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.2">
