@@ -207,21 +207,36 @@ ul { list-style: none; }
 .header-nav a:hover::after { transform: scaleX(1); transform-origin: left; }
 
 .header-cta-btn {
-  display: inline-flex; align-items: center; gap: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   background: var(--gold);
   color: var(--leaf-deep);
-  padding: 0.55rem 1.6rem;
+  height: 40px;
+  padding: 0 1.45rem;
   font-size: var(--fs-small);
   font-weight: 700;
   letter-spacing: 0.08em;
   border-radius: 50px;
   transition: background 0.3s, transform 0.3s, color 0.3s;
-  line-height: 1.4;
+  line-height: 1;
   align-self: center;
+  white-space: nowrap;
 }
 
 .header-cta-btn span,
-.header-cta-btn svg { color: var(--leaf-deep); }
+.header-cta-btn svg {
+  color: var(--leaf-deep);
+  display: block;
+  line-height: 1;
+}
+
+.header-cta-btn svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
 
 .header-cta-btn::after { display: none; }
 
@@ -264,19 +279,113 @@ ul { list-style: none; }
 
 @media (max-width: 768px) {
   .hamburger { display: flex; }
+
+  /* オーバーレイ */
+  .nav-overlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(10, 24, 16, 0.55);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.4s var(--ease-smooth);
+  }
+  .nav-overlay.open {
+    display: block;
+    opacity: 1;
+  }
+
   .header-nav {
     position: fixed; top: 0; right: -100%;
-    width: 280px; height: 100dvh;
-    background: var(--cream);
+    width: 300px; height: 100dvh;
+    background: var(--leaf-deep);
     flex-direction: column;
-    justify-content: center;
-    gap: 2.5rem;
-    padding: var(--sp-lg);
-    transition: right 0.5s var(--ease-out);
-    box-shadow: -10px 0 40px rgba(0,0,0,0.08);
+    justify-content: flex-start;
+    gap: 0;
+    padding: 0;
+    transition: right 0.45s var(--ease-out);
+    box-shadow: -8px 0 48px rgba(0,0,0,0.25);
+    z-index: 1000;
+    overflow-y: auto;
   }
   .header-nav.open { right: 0; }
-  .header-nav a { font-size: 1rem; }
+
+  /* ナビ上部ヘッダー */
+  .header-nav::before {
+    content: 'MENU';
+    display: block;
+    padding: 5rem 2.4rem 1.6rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 0.5rem;
+  }
+
+  /* 通常リンク */
+  .header-nav a:not(.header-cta-btn) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.82);
+    padding: 1.05rem 2.4rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    transition: color 0.25s, background 0.25s, padding-left 0.25s;
+  }
+  .header-nav a:not(.header-cta-btn)::after {
+    content: '';
+    display: block;
+    width: 16px; height: 1px;
+    background: var(--gold);
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: opacity 0.3s, transform 0.3s var(--ease-out);
+    flex-shrink: 0;
+    position: static;
+    bottom: auto; left: auto;
+  }
+  .header-nav a:not(.header-cta-btn):hover {
+    color: var(--white);
+    background: rgba(255,255,255,0.04);
+    padding-left: 2.8rem;
+  }
+  .header-nav a:not(.header-cta-btn):hover::after {
+    opacity: 1;
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* 無料相談ボタン */
+  .header-cta-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    margin: 2rem 2.4rem 2.4rem;
+    padding: 0.9rem 1.6rem;
+    min-height: 48px;
+    background: var(--gold);
+    color: var(--leaf-deep) !important;
+    border-radius: 2px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    line-height: 1;
+    border: none;
+    transition: background 0.3s, transform 0.3s;
+  }
+  .header-cta-btn span,
+  .header-cta-btn svg { color: var(--leaf-deep) !important; }
+  .header-cta-btn:hover {
+    background: var(--gold-light);
+    transform: none;
+  }
+  .header-cta-btn::after { display: none; }
 }
 
 /* ================================
@@ -1274,6 +1383,7 @@ ul { list-style: none; }
       <span></span><span></span><span></span>
     </button>
 
+    <div class="nav-overlay" aria-hidden="true"></div>
     <nav class="header-nav" role="navigation" aria-label="メインナビゲーション">
       <a href="#about">事務所紹介</a>
       <a href="#services">業務内容</a>
@@ -1787,21 +1897,35 @@ window.addEventListener('scroll', () => {
 // Mobile menu
 const hamburger = document.querySelector('.hamburger');
 const nav = document.querySelector('.header-nav');
+const overlay = document.querySelector('.nav-overlay');
+
+function openMenu() {
+  nav.classList.add('open');
+  overlay.classList.add('open');
+  hamburger.classList.add('active');
+  hamburger.setAttribute('aria-expanded', 'true');
+  hamburger.setAttribute('aria-label', 'メニューを閉じる');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMenu() {
+  nav.classList.remove('open');
+  overlay.classList.remove('open');
+  hamburger.classList.remove('active');
+  hamburger.setAttribute('aria-expanded', 'false');
+  hamburger.setAttribute('aria-label', 'メニューを開く');
+  document.body.style.overflow = '';
+}
 
 hamburger.addEventListener('click', () => {
-  const isOpen = nav.classList.toggle('open');
-  hamburger.classList.toggle('active');
-  hamburger.setAttribute('aria-expanded', isOpen);
-  hamburger.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+  nav.classList.contains('open') ? closeMenu() : openMenu();
 });
+
+overlay.addEventListener('click', closeMenu);
 
 // Close menu on link click
 nav.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    nav.classList.remove('open');
-    hamburger.classList.remove('active');
-    hamburger.setAttribute('aria-expanded', 'false');
-  });
+  link.addEventListener('click', closeMenu);
 });
 
 // Scroll reveal
