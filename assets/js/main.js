@@ -81,6 +81,32 @@
     });
   }
 
+  // Floating CTA visibility
+  var floatCta = document.querySelector('.float-cta');
+  if (floatCta) {
+    floatCta.style.opacity = '0';
+    floatCta.style.transform = 'translateY(100%)';
+    floatCta.style.transition = 'opacity 0.3s, transform 0.3s';
+    var floatVisible = false;
+
+    function checkFloatCta() {
+      var scrollY = window.scrollY || window.pageYOffset || 0;
+      var shouldShow = scrollY > (window.innerHeight * 0.5);
+      if (shouldShow && !floatVisible) {
+        floatCta.style.opacity = '1';
+        floatCta.style.transform = 'translateY(0)';
+        floatVisible = true;
+      } else if (!shouldShow && floatVisible) {
+        floatCta.style.opacity = '0';
+        floatCta.style.transform = 'translateY(100%)';
+        floatVisible = false;
+      }
+    }
+
+    window.addEventListener('scroll', checkFloatCta, { passive: true });
+    checkFloatCta();
+  }
+
   // Active nav highlight on scroll
   var sections = document.querySelectorAll('section[id]');
   var navLinks = document.querySelectorAll('.header__nav a');
