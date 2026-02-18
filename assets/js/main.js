@@ -3,6 +3,59 @@
 
   var demoScrollKey = 'mainLpScrollY';
   var rootStyle = document.documentElement.style;
+  var copyVariant = 'A'; // 'A' | 'B' | 'C'
+  var copyStorageKey = 'mainLpCopyVariant';
+  var copySets = {
+    A: {
+      heroLabel: '建設業・士業専門 / IT初心者向け',
+      heroTitle: '「何の会社か」が一目で伝わる<br>ホームページを、維持費0円で制作',
+      heroSub: '難しい設定は不要です。全国800社の調査をもとに、<br>お問い合わせにつながる構成で制作します。',
+      primaryCta: '料金とサービス内容を見る',
+      ctaDesc: 'デモ確認後にそのままご相談できます。初めての方にも分かるよう、手順をシンプルにしています。',
+      floatCta: 'HP制作の詳細・料金を見る'
+    },
+    B: {
+      heroLabel: '建設業・士業専門 / 価格重視の方向け',
+      heroTitle: '月額0円で運用できる<br>ホームページを制作',
+      heroSub: 'サーバー代や管理費をかけずに、<br>必要な情報が伝わるページを作成します。',
+      primaryCta: '費用感を確認する',
+      ctaDesc: '制作費と維持費のバランスを重視したい方向けのプランです。まずは費用感から確認できます。',
+      floatCta: '費用感を確認する'
+    },
+    C: {
+      heroLabel: '建設業・士業専門 / はじめてでも安心',
+      heroTitle: '相談から公開まで<br>迷わず進めるホームページ制作',
+      heroSub: '「何を準備すればいいか分からない」状態でも問題ありません。<br>必要事項を一緒に整理して進めます。',
+      primaryCta: 'まずは相談してみる',
+      ctaDesc: '依頼前の相談だけでも可能です。難しい専門用語を使わず、分かりやすくご案内します。',
+      floatCta: 'まずは相談してみる'
+    }
+  };
+
+  function resolveCopyVariant() {
+    var params = new URLSearchParams(window.location.search || '');
+    var fromQuery = (params.get('ab') || '').toUpperCase();
+    if (copySets[fromQuery]) {
+      sessionStorage.setItem(copyStorageKey, fromQuery);
+      return fromQuery;
+    }
+
+    var fromStorage = (sessionStorage.getItem(copyStorageKey) || '').toUpperCase();
+    if (copySets[fromStorage]) return fromStorage;
+
+    sessionStorage.setItem(copyStorageKey, copyVariant);
+    return copyVariant;
+  }
+
+  function applyCopyVariant() {
+    var selectedVariant = resolveCopyVariant();
+    var selected = copySets[selectedVariant] || copySets.A;
+    Object.keys(selected).forEach(function(key) {
+      var el = document.querySelector('[data-copy-key="' + key + '"]');
+      if (!el) return;
+      el.innerHTML = selected[key];
+    });
+  }
 
   function updateViewportHeightVar() {
     var vh = (window.innerHeight || document.documentElement.clientHeight || 0) * 0.01;
@@ -27,6 +80,7 @@
   }
 
   updateViewportHeightVar();
+  applyCopyVariant();
   window.addEventListener('resize', updateViewportHeightVar);
   window.addEventListener('orientationchange', updateViewportHeightVar);
   window.addEventListener('pageshow', updateViewportHeightVar);
