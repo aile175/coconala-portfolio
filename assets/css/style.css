@@ -150,6 +150,10 @@ a:hover { color: var(--c-accent-h); }
   border-radius: 2px;
 }
 
+.u-keep {
+  display: inline-block;
+}
+
 /* Tag */
 .tag {
   display: inline-block;
@@ -400,6 +404,14 @@ a:hover { color: var(--c-accent-h); }
   margin: 0 auto var(--sp-lg);
   opacity: 0;
   animation: fadeUp 0.8s 0.6s forwards;
+}
+
+.hero__title,
+.hero__sub,
+.cta-section__title,
+.cta-section__desc,
+.process-card p {
+  text-wrap: pretty;
 }
 
 .hero__stat {
@@ -1354,4 +1366,57 @@ a:hover { color: var(--c-accent-h); }
   .hero__stat-num { font-size: 1.5rem; }
   .portfolio-card__body { padding: var(--sp-sm); }
   .features-block__title { font-size: 1.1rem; }
+}
+
+@media (max-width: 420px) {
+  .hero {
+    padding: calc(var(--header-total-h) + 2.4rem) var(--sp-sm) 2.2rem;
+  }
+
+  .hero__label {
+    letter-spacing: 0.12em;
+  }
+
+  .hero__title {
+    font-size: clamp(2rem, 9vw, 2.35rem);
+    line-height: 1.34;
+    max-width: 10.8em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero__sub {
+    font-size: 0.94rem;
+    line-height: 1.9;
+    max-width: 22em;
+    margin-bottom: var(--sp-md);
+  }
+
+  .hero__stat {
+    padding: 0.45em 1.1em;
+  }
+
+  .cta-section__title {
+    font-size: clamp(1.85rem, 8.2vw, 2.1rem);
+    line-height: 1.42;
+    max-width: 11em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-section__title .u-keep {
+    display: block;
+  }
+
+  .cta-section__desc {
+    font-size: 0.95rem;
+    line-height: 1.85;
+    max-width: 24em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .process-card p {
+    line-height: 1.85;
+  }
 }

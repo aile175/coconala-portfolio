@@ -160,6 +160,78 @@
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
+
+        .hero-sub-copy .hero-sub-tiny {
+            display: none;
+        }
+
+        /* Small mobile typography tuning (iPhone SE etc.) */
+        @media (max-width: 480px) {
+            .hero-main-copy {
+                font-size: 2.45rem;
+                line-height: 1.22;
+            }
+            .hero-main-copy-line {
+                white-space: nowrap;
+            }
+
+            .services-head {
+                align-items: center;
+                text-align: center;
+            }
+            .services-head > div {
+                width: 100%;
+            }
+            .services-head .services-note {
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+            }
+
+            .contact-main-copy {
+                font-size: 2rem;
+                line-height: 1.35;
+            }
+            .contact-main-copy .contact-tail {
+                white-space: nowrap;
+            }
+
+            .hero-sub-copy {
+                font-size: 0.9rem;
+                line-height: 1.9;
+                letter-spacing: 0.01em !important;
+                max-width: 20.5rem;
+                padding-left: 0.25rem;
+                padding-right: 0.25rem;
+                overflow-wrap: anywhere;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .hero-sub-copy {
+                font-size: 0.84rem;
+                line-height: 1.85;
+                letter-spacing: 0 !important;
+                max-width: 20rem;
+                padding-left: 0.2rem;
+                padding-right: 0.2rem;
+            }
+            .hero-sub-copy .hero-sub-desktop {
+                display: none;
+            }
+            .hero-sub-copy .hero-sub-tiny {
+                display: inline;
+            }
+            .hero-sub-copy .hero-sub-line {
+                display: block;
+            }
+
+            .representative-catch {
+                font-size: 1.1rem !important;
+                letter-spacing: 0.01em;
+                white-space: nowrap;
+            }
+        }
     </style>
 </head>
 <body class="font-serif antialiased selection:bg-gold selection:text-white">
@@ -227,14 +299,18 @@
                 <div class="inline-block border border-gold px-4 py-1 rounded-full text-gold text-xs font-sans tracking-widest mb-8 reveal-text">
                     初回相談60分無料 | 土日祝対応可
                 </div>
-                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight tracking-tight reveal-text" style="transition-delay: 0.2s;">
-                    <span class="block">数字の向こうに、</span>
+                <h1 class="hero-main-copy text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight tracking-tight reveal-text" style="transition-delay: 0.2s;">
+                    <span class="hero-main-copy-line block">数字の向こうに、</span>
                     <span class="block mt-2 text-gold">未来を見る。</span>
                 </h1>
                 <div class="w-[1px] h-16 bg-gold mx-auto my-6 origin-top transform scale-y-0 transition-transform duration-1000 delay-500 active-scale"></div>
-                <p class="text-sm md:text-base text-gray-300 font-sans tracking-widest max-w-lg mx-auto leading-loose reveal-text" style="transition-delay: 0.4s;">
-                    事業承継・法人税務の専門家。<br>
-                    経営者の孤独に寄り添い、確かな戦略で事業の永続を支えます。
+                <p class="hero-sub-copy text-sm md:text-base text-gray-300 font-sans tracking-widest max-w-lg mx-auto leading-loose reveal-text" style="transition-delay: 0.4s;">
+                    <span class="hero-sub-desktop">事業承継・法人税務の専門家。<br>経営者の孤独に寄り添い、確かな戦略で事業の永続を支えます。</span>
+                    <span class="hero-sub-tiny">
+                        <span class="hero-sub-line">事業承継・法人税務の専門家。</span>
+                        <span class="hero-sub-line">経営者の孤独に寄り添い、</span>
+                        <span class="hero-sub-line">確かな戦略で事業の永続を支えます。</span>
+                    </span>
                 </p>
                 <div class="mt-10 reveal-text" style="transition-delay: 0.6s;">
                     <a href="#contact" class="inline-flex items-center gap-2 bg-gold text-navy-900 px-8 py-3 hover:bg-white transition-colors duration-300 font-sans tracking-widest text-sm font-medium">
@@ -307,7 +383,7 @@
                             <p class="font-bold text-lg text-navy-900">翠川 健一</p>
                         </div>
                         <div>
-                            <h4 class="text-xl font-bold text-navy-900 mb-4">「守り」から「攻め」の財務へ</h4>
+                            <h4 class="representative-catch text-xl font-bold text-navy-900 mb-4">「守り」から「攻め」の財務へ</h4>
                             <p class="text-sm text-navy-light leading-loose mb-6 font-sans">
                                 大手監査法人での10年間の勤務を経て、当事務所を開設いたしました。単なる節税だけでなく、企業の永続的な成長を見据えた財務戦略の提案を得意としています。特に事業承継においては、現経営者様と後継者様、双方の想いを繋ぐ架け橋となることを心がけています。
                             </p>
@@ -330,12 +406,12 @@
         <!-- Services Section -->
         <section id="services" class="py-32 bg-navy-900 text-offwhite">
             <div class="max-w-7xl mx-auto px-6 md:px-12">
-                <div class="flex flex-col md:flex-row justify-between items-end mb-24">
+                <div class="services-head flex flex-col md:flex-row justify-between items-end mb-24">
                     <div>
                         <h2 class="text-xs font-sans text-gold tracking-[0.3em] mb-4 reveal-text">OUR EXPERTISE</h2>
                         <p class="text-4xl md:text-5xl font-bold reveal-text">提供サービス</p>
                     </div>
-                    <p class="mt-8 md:mt-0 max-w-sm text-gray-400 font-sans text-sm leading-relaxed reveal-text">
+                    <p class="services-note mt-8 md:mt-0 max-w-sm text-gray-400 font-sans text-sm leading-relaxed reveal-text">
                         法人税務から事業承継まで。<br>あらゆるフェーズに対応する包括的サポート。
                     </p>
                 </div>
@@ -538,8 +614,8 @@
         <section id="contact" class="py-32 px-6 md:px-24 bg-navy-900 text-offwhite">
             <div class="max-w-4xl mx-auto text-center">
                 <h2 class="text-xs font-sans text-gold tracking-[0.3em] mb-6 reveal-text">CONTACT</h2>
-                <h3 class="text-4xl md:text-6xl font-bold mb-12 reveal-text">
-                    未来の話をしましょう。
+                <h3 class="contact-main-copy text-4xl md:text-6xl font-bold mb-12 reveal-text">
+                    未来の話を<span class="contact-tail">しましょう。</span>
                 </h3>
                 
                 <div class="grid md:grid-cols-2 gap-8 mb-16 reveal-text">
@@ -631,24 +707,6 @@
 
     <!-- Scripts -->
     <script>
-        // Initialize Lenis Smooth Scroll
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            direction: 'vertical',
-            gestureDirection: 'vertical',
-            smooth: true,
-            mouseMultiplier: 1,
-            smoothTouch: false,
-            touchMultiplier: 2,
-        });
-
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
-
         // Loading Animation
         window.addEventListener('load', () => {
             const loader = document.getElementById('loader');
@@ -657,6 +715,31 @@
                 loader.style.visibility = 'hidden';
             }, 1000);
         });
+
+        // Initialize Lenis Smooth Scroll (fail-safe if CDN is unavailable)
+        let lenis = null;
+        if (typeof window.Lenis === 'function') {
+            try {
+                lenis = new window.Lenis({
+                    duration: 1.2,
+                    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                    direction: 'vertical',
+                    gestureDirection: 'vertical',
+                    smooth: true,
+                    mouseMultiplier: 1,
+                    smoothTouch: false,
+                    touchMultiplier: 2,
+                });
+
+                function raf(time) {
+                    lenis.raf(time);
+                    requestAnimationFrame(raf);
+                }
+                requestAnimationFrame(raf);
+            } catch (error) {
+                console.warn('Lenis initialization failed:', error);
+            }
+        }
 
         // Intersection Observer for Scroll Reveals
         const observerOptions = {
@@ -694,7 +777,14 @@
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
-                lenis.scrollTo(targetId);
+                if (lenis) {
+                    lenis.scrollTo(targetId);
+                } else {
+                    const target = document.querySelector(targetId);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }
             });
         });
 
