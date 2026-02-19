@@ -48,11 +48,81 @@
     </script>
 
     <style>
+        :root {
+            --container-max: 72rem;
+            --container-pad: clamp(1rem, 4vw, 2rem);
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            min-width: 0;
+        }
+
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
         body {
             background-color: #F8F8F6;
             color: #0F172A;
             overflow-x: hidden;
             font-feature-settings: "palt";
+        }
+
+        img,
+        svg,
+        video,
+        canvas {
+            max-width: 100%;
+            height: auto;
+        }
+
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        a,
+        li,
+        td,
+        th,
+        span {
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
+        .container-safe {
+            width: min(100%, var(--container-max));
+            margin-inline: auto;
+            padding-inline: var(--container-pad);
+        }
+
+        .hero-main-copy {
+            font-size: clamp(2rem, 8.4vw, 4.5rem);
+            line-height: 1.2;
+        }
+
+        .hero-sub-copy {
+            font-size: clamp(0.84rem, 2.9vw, 1rem);
+            line-height: 1.85;
+            letter-spacing: 0.02em;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-main-copy {
+            font-size: clamp(1.8rem, 8vw, 3.75rem);
+            line-height: 1.3;
+        }
+
+        .cta-touch {
+            min-height: 44px;
+            min-width: 44px;
         }
 
         /* Animations */
@@ -167,12 +237,16 @@
 
         /* Small mobile typography tuning (iPhone SE etc.) */
         @media (max-width: 480px) {
+            #navbar {
+                padding-inline: 1rem;
+            }
+
             .hero-main-copy {
-                font-size: 2.45rem;
+                font-size: clamp(1.9rem, 9vw, 2.45rem);
                 line-height: 1.22;
             }
             .hero-main-copy-line {
-                white-space: nowrap;
+                white-space: normal;
             }
 
             .services-head {
@@ -189,21 +263,78 @@
             }
 
             .contact-main-copy {
-                font-size: 2rem;
+                font-size: clamp(1.7rem, 7.3vw, 2rem);
                 line-height: 1.35;
             }
             .contact-main-copy .contact-tail {
-                white-space: nowrap;
+                white-space: normal;
             }
 
             .hero-sub-copy {
-                font-size: 0.9rem;
+                font-size: clamp(0.82rem, 3.2vw, 0.9rem);
                 line-height: 1.9;
                 letter-spacing: 0.01em !important;
                 max-width: 20.5rem;
                 padding-left: 0.25rem;
                 padding-right: 0.25rem;
                 overflow-wrap: anywhere;
+            }
+
+            .hero-cta,
+            .contact-submit {
+                width: 100%;
+                justify-content: center;
+                padding-inline: 1rem;
+            }
+
+            #contact a[href^="tel:"] {
+                font-size: clamp(1.4rem, 7vw, 2rem);
+            }
+
+            #pricing .overflow-x-auto {
+                overflow: visible;
+            }
+
+            #pricing table,
+            #pricing thead,
+            #pricing tbody,
+            #pricing tr,
+            #pricing th,
+            #pricing td {
+                display: block;
+                width: 100%;
+            }
+
+            #pricing thead {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                margin: -1px;
+                padding: 0;
+                overflow: hidden;
+                border: 0;
+                clip: rect(0 0 0 0);
+            }
+
+            #pricing tr {
+                padding: 1rem;
+                border-bottom: 1px solid #e5e7eb;
+            }
+
+            #pricing td {
+                padding: 0.35rem 0;
+                border: 0;
+                font-size: 0.92rem;
+            }
+
+            #pricing td::before {
+                display: block;
+                margin-bottom: 0.15rem;
+                font-size: 0.66rem;
+                letter-spacing: 0.12em;
+                color: #6b7280;
+                font-family: "Jost", sans-serif;
+                content: attr(data-label);
             }
         }
 
@@ -229,7 +360,20 @@
             .representative-catch {
                 font-size: 1.1rem !important;
                 letter-spacing: 0.01em;
-                white-space: nowrap;
+                white-space: normal;
+            }
+        }
+
+        @media (max-width: 340px) {
+            .hero-main-copy {
+                font-size: clamp(1.7rem, 8.5vw, 1.95rem);
+            }
+
+            #contact,
+            #about,
+            #pricing,
+            #services {
+                padding-inline: 1rem;
             }
         }
     </style>
@@ -313,7 +457,7 @@
                     </span>
                 </p>
                 <div class="mt-10 reveal-text" style="transition-delay: 0.6s;">
-                    <a href="#contact" class="inline-flex items-center gap-2 bg-gold text-navy-900 px-8 py-3 hover:bg-white transition-colors duration-300 font-sans tracking-widest text-sm font-medium">
+                    <a href="#contact" class="hero-cta cta-touch inline-flex items-center gap-2 bg-gold text-navy-900 px-8 py-3 hover:bg-white transition-colors duration-300 font-sans tracking-widest text-sm font-medium">
                         無料相談を予約する
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </a>
@@ -470,29 +614,29 @@
                             </thead>
                             <tbody class="text-navy-900 text-sm md:text-base">
                                 <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                                    <td class="p-6 font-bold">税務顧問（月次）</td>
-                                    <td class="p-6 font-sans">33,000円〜</td>
-                                    <td class="p-6 text-xs text-gray-500">年商・訪問頻度により変動します</td>
+                                    <td data-label="SERVICE" class="p-6 font-bold">税務顧問（月次）</td>
+                                    <td data-label="PRICE (TAX INC.)" class="p-6 font-sans">33,000円〜</td>
+                                    <td data-label="NOTE" class="p-6 text-xs text-gray-500">年商・訪問頻度により変動します</td>
                                 </tr>
                                 <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                                    <td class="p-6 font-bold">決算申告のみ</td>
-                                    <td class="p-6 font-sans">165,000円〜</td>
-                                    <td class="p-6 text-xs text-gray-500">記帳代行の有無により変動します</td>
+                                    <td data-label="SERVICE" class="p-6 font-bold">決算申告のみ</td>
+                                    <td data-label="PRICE (TAX INC.)" class="p-6 font-sans">165,000円〜</td>
+                                    <td data-label="NOTE" class="p-6 text-xs text-gray-500">記帳代行の有無により変動します</td>
                                 </tr>
                                 <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                                    <td class="p-6 font-bold">相続税申告</td>
-                                    <td class="p-6 font-sans">330,000円〜</td>
-                                    <td class="p-6 text-xs text-gray-500">遺産総額の0.5%〜1.0%が目安です</td>
+                                    <td data-label="SERVICE" class="p-6 font-bold">相続税申告</td>
+                                    <td data-label="PRICE (TAX INC.)" class="p-6 font-sans">330,000円〜</td>
+                                    <td data-label="NOTE" class="p-6 text-xs text-gray-500">遺産総額の0.5%〜1.0%が目安です</td>
                                 </tr>
                                 <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                                    <td class="p-6 font-bold">事業承継コンサルティング</td>
-                                    <td class="p-6 font-sans">応相談</td>
-                                    <td class="p-6 text-xs text-gray-500">株価算定含む。プロジェクト単位でお見積り</td>
+                                    <td data-label="SERVICE" class="p-6 font-bold">事業承継コンサルティング</td>
+                                    <td data-label="PRICE (TAX INC.)" class="p-6 font-sans">応相談</td>
+                                    <td data-label="NOTE" class="p-6 text-xs text-gray-500">株価算定含む。プロジェクト単位でお見積り</td>
                                 </tr>
                                 <tr class="bg-gold/5">
-                                    <td class="p-6 font-bold text-gold-dark">初回相談</td>
-                                    <td class="p-6 font-sans font-bold text-gold-dark">無料（60分）</td>
-                                    <td class="p-6 text-xs text-gold-dark">以降30分ごとに5,500円</td>
+                                    <td data-label="SERVICE" class="p-6 font-bold text-gold-dark">初回相談</td>
+                                    <td data-label="PRICE (TAX INC.)" class="p-6 font-sans font-bold text-gold-dark">無料（60分）</td>
+                                    <td data-label="NOTE" class="p-6 text-xs text-gold-dark">以降30分ごとに5,500円</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -654,7 +798,7 @@
                     </p>
 
                     <div class="text-center mt-12">
-                        <button type="button" class="group relative inline-flex items-center justify-center px-12 py-4 overflow-hidden border border-white transition-all hover:border-gold hover:text-navy-900 bg-transparent hover:bg-gold">
+                        <button type="button" class="contact-submit cta-touch group relative inline-flex items-center justify-center px-12 py-4 overflow-hidden border border-white transition-all hover:border-gold hover:text-navy-900 bg-transparent hover:bg-gold">
                             <span class="relative text-sm font-sans tracking-widest transition-colors duration-300">SEND MESSAGE</span>
                         </button>
                     </div>
