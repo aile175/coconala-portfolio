@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>みどり税理士事務所 | Midori Tax Accounting Office</title>
     <meta name="description" content="事業承継・相続・法人税務に強い税理士事務所。初回相談無料。">
-    
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700;900&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700;900&family=Jost:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Lenis for Smooth Scroll -->
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
 
@@ -131,6 +134,7 @@
             transform: translateY(40px);
             transition: all 1.0s cubic-bezier(0.19, 1, 0.22, 1);
         }
+
         .reveal-text.active {
             opacity: 1;
             transform: translateY(0);
@@ -140,6 +144,7 @@
             width: 0;
             transition: width 1.5s cubic-bezier(0.19, 1, 0.22, 1);
         }
+
         .reveal-line.active {
             width: 100%;
         }
@@ -167,6 +172,7 @@
             align-items: center;
             transition: opacity 0.8s ease-out, visibility 0.8s;
         }
+
         .loader-text {
             color: #C5A059;
             font-family: 'Zen Old Mincho', serif;
@@ -174,25 +180,32 @@
             transform: translateY(100%);
             animation: textUp 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
         }
+
         @keyframes textUp {
-            to { transform: translateY(0); }
+            to {
+                transform: translateY(0);
+            }
         }
 
         /* Hover Effects */
         .service-card {
             transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
         }
+
         .service-card:hover {
             transform: translateY(-10px);
             background-color: #0F172A;
             color: #F8F8F6;
         }
+
         .service-card:hover .icon-gold {
             color: #F8F8F6;
         }
+
         .service-card:hover p {
             color: #94A3B8;
         }
+
         .service-card:hover .card-more {
             color: #C5A059;
             border-bottom-color: #C5A059;
@@ -202,17 +215,21 @@
         .faq-item {
             transition: all 0.3s ease;
         }
+
         .faq-answer {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s cubic-bezier(0.19, 1, 0.22, 1);
         }
+
         .faq-item.active .faq-answer {
             max-height: 200px;
         }
+
         .faq-icon {
             transition: transform 0.3s ease;
         }
+
         .faq-item.active .faq-icon {
             transform: rotate(45deg);
         }
@@ -222,13 +239,20 @@
             overflow: hidden;
             white-space: nowrap;
         }
+
         .marquee-content {
             display: inline-block;
             animation: marquee 30s linear infinite;
         }
+
         @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
         .hero-sub-copy .hero-sub-tiny {
@@ -245,6 +269,7 @@
                 font-size: clamp(1.9rem, 9vw, 2.45rem);
                 line-height: 1.22;
             }
+
             .hero-main-copy-line {
                 white-space: normal;
             }
@@ -253,9 +278,11 @@
                 align-items: center;
                 text-align: center;
             }
-            .services-head > div {
+
+            .services-head>div {
                 width: 100%;
             }
+
             .services-head .services-note {
                 margin-left: auto;
                 margin-right: auto;
@@ -263,11 +290,13 @@
             }
 
             .contact-main-copy {
-                font-size: clamp(1.7rem, 7.3vw, 2rem);
+                font-size: clamp(1.2rem, 5vw, 2rem);
                 line-height: 1.35;
+                white-space: nowrap;
             }
+
             .contact-main-copy .contact-tail {
-                white-space: normal;
+                white-space: nowrap;
             }
 
             .hero-sub-copy {
@@ -347,20 +376,23 @@
                 padding-left: 0.2rem;
                 padding-right: 0.2rem;
             }
+
             .hero-sub-copy .hero-sub-desktop {
                 display: none;
             }
+
             .hero-sub-copy .hero-sub-tiny {
                 display: inline;
             }
+
             .hero-sub-copy .hero-sub-line {
                 display: block;
             }
 
             .representative-catch {
-                font-size: 1.1rem !important;
-                letter-spacing: 0.01em;
-                white-space: normal;
+                font-size: 0.95rem !important;
+                letter-spacing: 0;
+                white-space: nowrap;
             }
         }
 
@@ -378,6 +410,7 @@
         }
     </style>
 </head>
+
 <body class="font-serif antialiased selection:bg-gold selection:text-white">
 
     <!-- Loading Screen -->
@@ -388,34 +421,48 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 transition-all duration-300 mix-blend-difference text-white py-6 px-6 md:px-12 flex justify-between items-center" id="navbar">
+    <nav class="fixed w-full z-50 transition-all duration-300 mix-blend-difference text-white py-6 px-6 md:px-12 flex justify-between items-center"
+        id="navbar">
         <a href="#" class="text-xl font-bold tracking-widest z-50 flex items-center gap-2 group">
-            <svg class="w-6 h-6 text-gold group-hover:rotate-180 transition-transform duration-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            <svg class="w-6 h-6 text-gold group-hover:rotate-180 transition-transform duration-700" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
             </svg>
             MIDORI TAX
         </a>
-        
+
         <div class="hidden md:flex gap-10 text-sm font-sans tracking-widest font-light items-center">
             <a href="#about" class="hover:text-gold transition-colors relative group">ABOUT</a>
             <a href="#services" class="hover:text-gold transition-colors relative group">SERVICES</a>
             <a href="#pricing" class="hover:text-gold transition-colors relative group">PRICE</a>
             <a href="#flow" class="hover:text-gold transition-colors relative group">FLOW</a>
-            <a href="#contact" class="px-6 py-2 border border-gold text-gold hover:bg-gold hover:text-navy-900 transition-colors duration-300">CONTACT</a>
+            <a href="#contact"
+                class="px-6 py-2 border border-gold text-gold hover:bg-gold hover:text-navy-900 transition-colors duration-300">CONTACT</a>
         </div>
 
-        <button id="menu-btn" class="md:hidden text-gold z-50" aria-label="メニューを開く" aria-expanded="false" aria-controls="mobile-menu">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        <button id="menu-btn" class="md:hidden text-gold z-50" aria-label="メニューを開く" aria-expanded="false"
+            aria-controls="mobile-menu">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16">
+                </path>
+            </svg>
         </button>
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu-overlay" class="fixed inset-0 z-40 bg-black/40 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden" aria-hidden="true"></div>
-    <nav id="mobile-menu" class="fixed top-0 right-0 z-50 h-dvh w-[82%] max-w-[320px] bg-navy-900 text-offwhite border-l border-navy-700 transform translate-x-full transition-transform duration-300 md:hidden" aria-label="モバイルメニュー">
+    <div id="mobile-menu-overlay"
+        class="fixed inset-0 z-40 bg-black/40 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"
+        aria-hidden="true"></div>
+    <nav id="mobile-menu"
+        class="fixed top-0 right-0 z-50 h-dvh w-[82%] max-w-[320px] bg-navy-900 text-offwhite border-l border-navy-700 transform translate-x-full transition-transform duration-300 md:hidden"
+        aria-label="モバイルメニュー">
         <div class="flex items-center justify-between px-6 h-20 border-b border-navy-700">
             <span class="text-gold tracking-widest text-xs font-sans">MENU</span>
             <button id="menu-close" class="text-gold" aria-label="メニューを閉じる">
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 6l12 12M18 6L6 18"></path></svg>
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 6l12 12M18 6L6 18">
+                    </path>
+                </svg>
             </button>
         </div>
         <div class="px-6 py-6 flex flex-col gap-1 font-sans tracking-widest text-sm">
@@ -423,32 +470,40 @@
             <a href="#services" class="mobile-nav-link py-4 border-b border-navy-700/70">SERVICES</a>
             <a href="#pricing" class="mobile-nav-link py-4 border-b border-navy-700/70">PRICE</a>
             <a href="#flow" class="mobile-nav-link py-4 border-b border-navy-700/70">FLOW</a>
-            <a href="#contact" class="mobile-nav-link mt-5 inline-flex items-center justify-center px-4 py-3 border border-gold text-gold hover:bg-gold hover:text-navy-900 transition-colors duration-300">CONTACT</a>
+            <a href="#contact"
+                class="mobile-nav-link mt-5 inline-flex items-center justify-center px-4 py-3 border border-gold text-gold hover:bg-gold hover:text-navy-900 transition-colors duration-300">CONTACT</a>
         </div>
     </nav>
 
     <main>
         <!-- Hero Section -->
-        <section class="relative h-screen w-full bg-navy-900 text-offwhite overflow-hidden flex flex-col justify-center items-center">
+        <section
+            class="relative h-screen w-full bg-navy-900 text-offwhite overflow-hidden flex flex-col justify-center items-center">
             <!-- Background Decoration -->
             <div class="absolute inset-0 opacity-20 pointer-events-none">
-                <svg class="absolute top-0 right-0 w-[800px] h-[800px] text-gold animate-[spin_60s_linear_infinite]" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.2">
+                <svg class="absolute top-0 right-0 w-[800px] h-[800px] text-gold animate-[spin_60s_linear_infinite]"
+                    viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.2">
                     <circle cx="50" cy="50" r="40" stroke-dasharray="4 4" />
                     <circle cx="50" cy="50" r="30" stroke-dasharray="2 6" />
                     <circle cx="50" cy="50" r="20" />
                 </svg>
             </div>
-            
-            <div class="z-10 text-center px-4 relative max-w-4xl mx-auto">
-                <div class="inline-block border border-gold px-4 py-1 rounded-full text-gold text-xs font-sans tracking-widest mb-8 reveal-text">
+
+            <div class="z-10 text-center px-4 relative max-w-4xl mx-auto pt-20 md:pt-0">
+                <div
+                    class="inline-block border border-gold px-4 py-1 rounded-full text-gold text-xs font-sans tracking-widest mb-8 reveal-text">
                     初回相談60分無料 | 土日祝対応可
                 </div>
-                <h1 class="hero-main-copy text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight tracking-tight reveal-text" style="transition-delay: 0.2s;">
+                <h1 class="hero-main-copy text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight tracking-tight reveal-text"
+                    style="transition-delay: 0.2s;">
                     <span class="hero-main-copy-line block">数字の向こうに、</span>
                     <span class="block mt-2 text-gold">未来を見る。</span>
                 </h1>
-                <div class="w-[1px] h-16 bg-gold mx-auto my-6 origin-top transform scale-y-0 transition-transform duration-1000 delay-500 active-scale"></div>
-                <p class="hero-sub-copy text-sm md:text-base text-gray-300 font-sans tracking-widest max-w-lg mx-auto leading-loose reveal-text" style="transition-delay: 0.4s;">
+                <div
+                    class="w-[1px] h-16 bg-gold mx-auto my-6 origin-top transform scale-y-0 transition-transform duration-1000 delay-500 active-scale">
+                </div>
+                <p class="hero-sub-copy text-sm md:text-base text-gray-300 font-sans tracking-widest max-w-lg mx-auto leading-loose reveal-text"
+                    style="transition-delay: 0.4s;">
                     <span class="hero-sub-desktop">事業承継・法人税務の専門家。<br>経営者の孤独に寄り添い、確かな戦略で事業の永続を支えます。</span>
                     <span class="hero-sub-tiny">
                         <span class="hero-sub-line">事業承継・法人税務の専門家。</span>
@@ -457,9 +512,13 @@
                     </span>
                 </p>
                 <div class="mt-10 reveal-text" style="transition-delay: 0.6s;">
-                    <a href="#contact" class="hero-cta cta-touch inline-flex items-center gap-2 bg-gold text-navy-900 px-8 py-3 hover:bg-white transition-colors duration-300 font-sans tracking-widest text-sm font-medium">
+                    <a href="#contact"
+                        class="hero-cta cta-touch inline-flex items-center gap-2 bg-gold text-navy-900 px-8 py-3 hover:bg-white transition-colors duration-300 font-sans tracking-widest text-sm font-medium">
                         無料相談を予約する
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                        </svg>
                     </a>
                 </div>
             </div>
@@ -471,7 +530,8 @@
 
         <!-- Stats / Trust Bar (New) -->
         <div class="bg-navy-800 border-b border-navy-700 py-12 text-offwhite">
-            <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-navy-700">
+            <div
+                class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-navy-700">
                 <div class="reveal-text">
                     <p class="text-xs text-gold font-sans mb-2 tracking-widest">創業</p>
                     <p class="text-3xl font-bold font-sans">30<span class="text-sm font-normal ml-1">年</span></p>
@@ -494,14 +554,15 @@
         <!-- About & Representative (Philosophy) -->
         <section id="about" class="py-32 px-6 md:px-24 bg-offwhite relative overflow-hidden">
             <div class="bg-pattern absolute top-0 left-0 w-full h-full pointer-events-none"></div>
-            
+
             <div class="max-w-7xl mx-auto">
                 <div class="grid md:grid-cols-2 gap-20 items-start mb-24">
                     <div class="relative">
                         <div class="absolute -top-6 -left-6 w-24 h-24 border-t border-l border-gold opacity-50"></div>
-                        <img src="./assets/images/about-placeholder.svg" alt="Meeting" class="w-full h-[500px] object-cover grayscale brightness-90 hover:grayscale-0 transition-all duration-1000 ease-out-expo reveal-text">
+                        <img src="./assets/images/about-placeholder.svg" alt="Meeting"
+                            class="w-full h-[500px] object-cover grayscale brightness-90 hover:grayscale-0 transition-all duration-1000 ease-out-expo reveal-text">
                     </div>
-                    
+
                     <div class="pt-10">
                         <h2 class="text-xs font-sans text-gold tracking-[0.3em] mb-6 reveal-text">PHILOSOPHY</h2>
                         <h3 class="text-3xl md:text-4xl font-bold leading-normal mb-8 text-navy-900 reveal-text">
@@ -521,7 +582,8 @@
                         <div class="text-center">
                             <!-- Placeholder for Headshot -->
                             <div class="w-40 h-40 bg-navy-light mx-auto mb-4 rounded-full overflow-hidden">
-                                <img src="./assets/images/representative-placeholder.svg" alt="代表写真" class="w-full h-full object-cover grayscale">
+                                <img src="./assets/images/representative-placeholder.svg" alt="代表写真"
+                                    class="w-full h-full object-cover grayscale">
                             </div>
                             <p class="text-xs font-sans tracking-widest text-gold mb-1">REPRESENTATIVE</p>
                             <p class="font-bold text-lg text-navy-900">翠川 健一</p>
@@ -555,40 +617,60 @@
                         <h2 class="text-xs font-sans text-gold tracking-[0.3em] mb-4 reveal-text">OUR EXPERTISE</h2>
                         <p class="text-4xl md:text-5xl font-bold reveal-text">提供サービス</p>
                     </div>
-                    <p class="services-note mt-8 md:mt-0 max-w-sm text-gray-400 font-sans text-sm leading-relaxed reveal-text">
+                    <p
+                        class="services-note mt-8 md:mt-0 max-w-sm text-gray-400 font-sans text-sm leading-relaxed reveal-text">
                         法人税務から事業承継まで。<br>あらゆるフェーズに対応する包括的サポート。
                     </p>
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-px bg-navy-700 border border-navy-700">
                     <!-- Card 1 -->
-                    <div class="service-card bg-navy-900 p-10 border-b md:border-b-0 md:border-r border-navy-700 group relative">
-                        <svg class="w-10 h-10 text-gold mb-6 icon-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                    <div
+                        class="service-card bg-navy-900 p-10 border-b md:border-b-0 md:border-r border-navy-700 group relative">
+                        <svg class="w-10 h-10 text-gold mb-6 icon-gold" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                                d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z">
+                            </path>
+                        </svg>
                         <h3 class="text-xl font-bold mb-4">税務顧問・決算</h3>
                         <p class="text-gray-400 font-sans text-sm leading-relaxed mb-6">
                             月次巡回監査を通じ、正確な月次決算を実施。AIを活用した予実管理で、未来のキャッシュフローを可視化します。
                         </p>
-                        <span class="text-xs font-sans text-navy-light border-b border-navy-light pb-1 card-more">MORE DETAIL</span>
+                        <span class="text-xs font-sans text-navy-light border-b border-navy-light pb-1 card-more">MORE
+                            DETAIL</span>
                     </div>
 
                     <!-- Card 2 -->
-                    <div class="service-card bg-navy-900 p-10 border-b md:border-b-0 md:border-r border-navy-700 group relative">
-                        <svg class="w-10 h-10 text-gold mb-6 icon-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
+                    <div
+                        class="service-card bg-navy-900 p-10 border-b md:border-b-0 md:border-r border-navy-700 group relative">
+                        <svg class="w-10 h-10 text-gold mb-6 icon-gold" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                        </svg>
                         <h3 class="text-xl font-bold mb-4">経営コンサルティング</h3>
                         <p class="text-gray-400 font-sans text-sm leading-relaxed mb-6">
                             財務分析に基づく経営改善計画の策定。銀行融資対策や資金調達支援など、攻めの財務をサポートします。
                         </p>
-                        <span class="text-xs font-sans text-navy-light border-b border-navy-light pb-1 card-more">MORE DETAIL</span>
+                        <span class="text-xs font-sans text-navy-light border-b border-navy-light pb-1 card-more">MORE
+                            DETAIL</span>
                     </div>
 
                     <!-- Card 3 -->
                     <div class="service-card bg-navy-900 p-10 group relative">
-                        <svg class="w-10 h-10 text-gold mb-6 icon-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path></svg>
+                        <svg class="w-10 h-10 text-gold mb-6 icon-gold" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                                d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3">
+                            </path>
+                        </svg>
                         <h3 class="text-xl font-bold mb-4">事業承継・相続</h3>
                         <p class="text-gray-400 font-sans text-sm leading-relaxed mb-6">
                             次世代へのスムーズなバトンタッチを。自社株評価から相続税対策まで、長期的な視点で設計します。
                         </p>
-                        <span class="text-xs font-sans text-navy-light border-b border-navy-light pb-1 card-more">MORE DETAIL</span>
+                        <span class="text-xs font-sans text-navy-light border-b border-navy-light pb-1 card-more">MORE
+                            DETAIL</span>
                     </div>
                 </div>
             </div>
@@ -635,7 +717,8 @@
                                 </tr>
                                 <tr class="bg-gold/5">
                                     <td data-label="SERVICE" class="p-6 font-bold text-gold-dark">初回相談</td>
-                                    <td data-label="PRICE (TAX INC.)" class="p-6 font-sans font-bold text-gold-dark">無料（60分）</td>
+                                    <td data-label="PRICE (TAX INC.)" class="p-6 font-sans font-bold text-gold-dark">
+                                        無料（60分）</td>
                                     <td data-label="NOTE" class="p-6 text-xs text-gold-dark">以降30分ごとに5,500円</td>
                                 </tr>
                             </tbody>
@@ -660,35 +743,45 @@
                 <div class="grid md:grid-cols-5 gap-4 relative reveal-text">
                     <!-- Step 1 -->
                     <div class="text-center relative group">
-                        <div class="w-12 h-12 bg-white border border-gold text-gold rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-serif z-10 relative">1</div>
+                        <div
+                            class="w-12 h-12 bg-white border border-gold text-gold rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-serif z-10 relative">
+                            1</div>
                         <h4 class="font-bold text-navy-900 mb-2">お問い合わせ</h4>
                         <p class="text-xs text-gray-500 leading-relaxed">電話またはフォームより<br>ご連絡ください。</p>
                     </div>
                     <!-- Step 2 -->
                     <div class="text-center relative group">
                         <div class="hidden md:block absolute top-6 right-1/2 w-full h-[1px] bg-gray-300 -z-0"></div>
-                        <div class="w-12 h-12 bg-white border border-gold text-gold rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-serif z-10 relative">2</div>
+                        <div
+                            class="w-12 h-12 bg-white border border-gold text-gold rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-serif z-10 relative">
+                            2</div>
                         <h4 class="font-bold text-navy-900 mb-2">初回ヒアリング</h4>
                         <p class="text-xs text-gray-500 leading-relaxed">現状の課題やご要望を<br>伺います（60分無料）。</p>
                     </div>
                     <!-- Step 3 -->
                     <div class="text-center relative group">
                         <div class="hidden md:block absolute top-6 right-1/2 w-full h-[1px] bg-gray-300 -z-0"></div>
-                        <div class="w-12 h-12 bg-white border border-gold text-gold rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-serif z-10 relative">3</div>
+                        <div
+                            class="w-12 h-12 bg-white border border-gold text-gold rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-serif z-10 relative">
+                            3</div>
                         <h4 class="font-bold text-navy-900 mb-2">ご提案・お見積り</h4>
                         <p class="text-xs text-gray-500 leading-relaxed">解決策と明確な費用を<br>ご提示します。</p>
                     </div>
                     <!-- Step 4 -->
                     <div class="text-center relative group">
                         <div class="hidden md:block absolute top-6 right-1/2 w-full h-[1px] bg-gray-300 -z-0"></div>
-                        <div class="w-12 h-12 bg-navy-900 border border-navy-900 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-serif z-10 relative">4</div>
+                        <div
+                            class="w-12 h-12 bg-navy-900 border border-navy-900 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-serif z-10 relative">
+                            4</div>
                         <h4 class="font-bold text-navy-900 mb-2">ご契約・着手</h4>
                         <p class="text-xs text-gray-500 leading-relaxed">契約締結後、速やかに<br>業務を開始します。</p>
                     </div>
                     <!-- Step 5 -->
                     <div class="text-center relative group">
                         <div class="hidden md:block absolute top-6 right-1/2 w-full h-[1px] bg-gray-300 -z-0"></div>
-                        <div class="w-12 h-12 bg-gold border border-gold text-white rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-serif z-10 relative">5</div>
+                        <div
+                            class="w-12 h-12 bg-gold border border-gold text-white rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-serif z-10 relative">
+                            5</div>
                         <h4 class="font-bold text-navy-900 mb-2">完了・報告</h4>
                         <p class="text-xs text-gray-500 leading-relaxed">完了報告書を納品し<br>終了となります。</p>
                     </div>
@@ -699,8 +792,14 @@
         <!-- Divider / Marquee -->
         <div class="bg-gold py-4 overflow-hidden flex items-center">
             <div class="marquee-container w-full">
-                <div class="marquee-content flex gap-12 text-navy-900 font-bold tracking-widest text-lg">
-                    <span>TRUST</span> ✦ <span>INTEGRITY</span> ✦ <span>STRATEGY</span> ✦ <span>GROWTH</span> ✦ <span>MIDORI TAX</span> ✦ <span>TRUST</span> ✦ <span>INTEGRITY</span> ✦ <span>STRATEGY</span> ✦ <span>GROWTH</span> ✦ <span>MIDORI TAX</span> ✦
+                <div
+                    class="marquee-content inline-flex min-w-max gap-12 text-navy-900 font-bold tracking-widest text-lg">
+                    <span>TRUST</span> ✦ <span>INTEGRITY</span> ✦ <span>STRATEGY</span> ✦ <span>GROWTH</span> ✦
+                    <span>MIDORI TAX</span> ✦ <span>TRUST</span> ✦ <span>INTEGRITY</span> ✦ <span>STRATEGY</span> ✦
+                    <span>GROWTH</span> ✦ <span>MIDORI TAX</span> ✦
+                    <span>TRUST</span> ✦ <span>INTEGRITY</span> ✦ <span>STRATEGY</span> ✦ <span>GROWTH</span> ✦
+                    <span>MIDORI TAX</span> ✦ <span>TRUST</span> ✦ <span>INTEGRITY</span> ✦ <span>STRATEGY</span> ✦
+                    <span>GROWTH</span> ✦ <span>MIDORI TAX</span> ✦
                 </div>
             </div>
         </div>
@@ -716,7 +815,8 @@
                 <div class="space-y-4 reveal-text">
                     <!-- FAQ Item -->
                     <div class="faq-item border-b border-gray-200 pb-4">
-                        <button class="w-full flex justify-between items-center text-left py-2 focus:outline-none group">
+                        <button
+                            class="w-full flex justify-between items-center text-left py-2 focus:outline-none group">
                             <span class="font-bold text-navy-900">Q. 土日や夜間の相談は可能ですか？</span>
                             <span class="faq-icon text-gold text-2xl group-hover:text-navy-900">+</span>
                         </button>
@@ -728,7 +828,8 @@
                     </div>
                     <!-- FAQ Item -->
                     <div class="faq-item border-b border-gray-200 pb-4">
-                        <button class="w-full flex justify-between items-center text-left py-2 focus:outline-none group">
+                        <button
+                            class="w-full flex justify-between items-center text-left py-2 focus:outline-none group">
                             <span class="font-bold text-navy-900">Q. 遠方ですが対応してもらえますか？</span>
                             <span class="faq-icon text-gold text-2xl group-hover:text-navy-900">+</span>
                         </button>
@@ -738,9 +839,10 @@
                             </p>
                         </div>
                     </div>
-                     <!-- FAQ Item -->
-                     <div class="faq-item border-b border-gray-200 pb-4">
-                        <button class="w-full flex justify-between items-center text-left py-2 focus:outline-none group">
+                    <!-- FAQ Item -->
+                    <div class="faq-item border-b border-gray-200 pb-4">
+                        <button
+                            class="w-full flex justify-between items-center text-left py-2 focus:outline-none group">
                             <span class="font-bold text-navy-900">Q. 顧問契約なしで、スポットの決算依頼はできますか？</span>
                             <span class="faq-icon text-gold text-2xl group-hover:text-navy-900">+</span>
                         </button>
@@ -761,11 +863,12 @@
                 <h3 class="contact-main-copy text-4xl md:text-6xl font-bold mb-12 reveal-text">
                     未来の話を<span class="contact-tail">しましょう。</span>
                 </h3>
-                
+
                 <div class="grid md:grid-cols-2 gap-8 mb-16 reveal-text">
                     <div class="border border-navy-700 p-8 hover:border-gold transition-colors">
                         <p class="text-xs font-sans tracking-widest text-gray-400 mb-2">BY PHONE</p>
-                        <a href="tel:03-1234-5678" class="text-2xl font-bold tracking-wider hover:text-gold transition-colors">03-1234-5678</a>
+                        <a href="tel:03-1234-5678"
+                            class="text-2xl font-bold tracking-wider hover:text-gold transition-colors">03-1234-5678</a>
                         <p class="text-xs text-gray-500 mt-2">受付：平日 9:00 - 18:00</p>
                     </div>
                     <div class="border border-navy-700 p-8 hover:border-gold transition-colors">
@@ -778,19 +881,28 @@
                 <form class="text-left max-w-2xl mx-auto space-y-8 reveal-text">
                     <div class="grid md:grid-cols-2 gap-8">
                         <div class="group">
-                            <label class="block text-xs font-sans text-gray-400 tracking-widest mb-2 group-focus-within:text-gold transition-colors">NAME</label>
-                            <input type="text" class="w-full bg-transparent border-b border-gray-600 py-3 focus:outline-none focus:border-gold transition-colors text-white placeholder-gray-700" placeholder="お名前">
+                            <label
+                                class="block text-xs font-sans text-gray-400 tracking-widest mb-2 group-focus-within:text-gold transition-colors">NAME</label>
+                            <input type="text"
+                                class="w-full bg-transparent border-b border-gray-600 py-3 focus:outline-none focus:border-gold transition-colors text-white placeholder-gray-700"
+                                placeholder="お名前">
                         </div>
                         <div class="group">
-                            <label class="block text-xs font-sans text-gray-400 tracking-widest mb-2 group-focus-within:text-gold transition-colors">EMAIL</label>
-                            <input type="email" class="w-full bg-transparent border-b border-gray-600 py-3 focus:outline-none focus:border-gold transition-colors text-white placeholder-gray-700" placeholder="メールアドレス">
+                            <label
+                                class="block text-xs font-sans text-gray-400 tracking-widest mb-2 group-focus-within:text-gold transition-colors">EMAIL</label>
+                            <input type="email"
+                                class="w-full bg-transparent border-b border-gray-600 py-3 focus:outline-none focus:border-gold transition-colors text-white placeholder-gray-700"
+                                placeholder="メールアドレス">
                         </div>
                     </div>
                     <div class="group">
-                        <label class="block text-xs font-sans text-gray-400 tracking-widest mb-2 group-focus-within:text-gold transition-colors">MESSAGE</label>
-                        <textarea rows="4" class="w-full bg-transparent border-b border-gray-600 py-3 focus:outline-none focus:border-gold transition-colors text-white placeholder-gray-700" placeholder="ご相談内容（例：相続について相談したい）"></textarea>
+                        <label
+                            class="block text-xs font-sans text-gray-400 tracking-widest mb-2 group-focus-within:text-gold transition-colors">MESSAGE</label>
+                        <textarea rows="4"
+                            class="w-full bg-transparent border-b border-gray-600 py-3 focus:outline-none focus:border-gold transition-colors text-white placeholder-gray-700"
+                            placeholder="ご相談内容（例：相続について相談したい）"></textarea>
                     </div>
-                    
+
                     <!-- Form Note -->
                     <p class="text-xs text-gray-500 text-center">
                         ご入力いただいた個人情報は、お問い合わせ対応の目的以外には使用いたしません。<br>
@@ -798,8 +910,10 @@
                     </p>
 
                     <div class="text-center mt-12">
-                        <button type="button" class="contact-submit cta-touch group relative inline-flex items-center justify-center px-12 py-4 overflow-hidden border border-white transition-all hover:border-gold hover:text-navy-900 bg-transparent hover:bg-gold">
-                            <span class="relative text-sm font-sans tracking-widest transition-colors duration-300">SEND MESSAGE</span>
+                        <button type="button"
+                            class="contact-submit cta-touch group relative inline-flex items-center justify-center px-12 py-4 overflow-hidden border border-white transition-all hover:border-gold hover:text-navy-900 bg-transparent hover:bg-gold">
+                            <span class="relative text-sm font-sans tracking-widest transition-colors duration-300">SEND
+                                MESSAGE</span>
                         </button>
                     </div>
                 </form>
@@ -812,8 +926,9 @@
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
             <div>
                 <a href="#" class="text-2xl font-bold tracking-widest flex items-center gap-2 mb-6">
-                    <svg class="w-6 h-6 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    <svg class="w-6 h-6 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                     </svg>
                     MIDORI TAX
                 </a>
@@ -824,7 +939,7 @@
                     TEL: 03-1234-5678
                 </address>
             </div>
-            
+
             <div class="flex flex-wrap gap-12 text-sm font-sans text-gray-400">
                 <ul class="space-y-4">
                     <li><a href="#" class="hover:text-gold transition-colors">ホーム</a></li>
@@ -843,7 +958,8 @@
                 </ul>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto mt-20 pt-8 border-t border-navy-800 flex flex-col md:flex-row justify-between text-xs text-gray-600 font-sans">
+        <div
+            class="max-w-7xl mx-auto mt-20 pt-8 border-t border-navy-800 flex flex-col md:flex-row justify-between text-xs text-gray-600 font-sans">
             <p>&copy; 2024 Midori Tax Accounting Office.</p>
             <p>Designed with Integrity.</p>
         </div>
@@ -908,13 +1024,13 @@
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) {
                 nav.classList.add('backdrop-blur-md', 'bg-navy-900/90', 'py-4', 'shadow-lg');
-                nav.classList.remove('py-6');
+                nav.classList.remove('py-6', 'mix-blend-difference');
             } else {
                 nav.classList.remove('backdrop-blur-md', 'bg-navy-900/90', 'py-4', 'shadow-lg');
-                nav.classList.add('py-6');
+                nav.classList.add('py-6', 'mix-blend-difference');
             }
         });
-        
+
         // Anchor link smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -974,4 +1090,5 @@
 
     </script>
 </body>
+
 </html>
