@@ -109,6 +109,15 @@
         .hero-main-copy {
             font-size: clamp(2rem, 8.4vw, 4.5rem);
             line-height: 1.2;
+            overflow-wrap: normal;
+            word-break: keep-all;
+            white-space: normal;
+            text-wrap: balance;
+        }
+
+        .hero-main-copy span {
+            overflow-wrap: normal;
+            word-break: keep-all;
         }
 
         .hero-sub-copy {
@@ -271,7 +280,7 @@
             }
 
             .hero-main-copy-line {
-                white-space: normal;
+                white-space: nowrap;
             }
 
             .services-head {
