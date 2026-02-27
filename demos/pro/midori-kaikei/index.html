@@ -3,737 +3,1069 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>みどり税理士事務所 | Midori Tax Accounting Office</title>
-    <meta name="description" content="事業承継・相続・法人税務に強い税理士事務所。初回相談無料。">
-
-    <!-- Fonts -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>みどり税理士事務所 | 事業承継・相続・法人税務</title>
+    <meta name="description" content="事業承継・相続・法人税務に強い税理士事務所。経営者に寄り添い、未来を見据えた財務戦略をご提案します。初回相談60分無料。">
+    <meta name="format-detection" content="telephone=no">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@400;500;700;900&family=Jost:wght@300;400;500&display=swap"
-        rel="stylesheet">
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Lenis for Smooth Scroll -->
-    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        navy: {
-                            900: '#0F172A',
-                            800: '#1E293B',
-                            700: '#334155',
-                            light: '#475569',
-                        },
-                        gold: {
-                            DEFAULT: '#C5A059',
-                            light: '#E5C985',
-                            dark: '#A38038',
-                        },
-                        offwhite: '#F8F8F6',
-                    },
-                    fontFamily: {
-                        serif: ['"Zen Old Mincho"', 'serif'],
-                        sans: ['"Jost"', 'sans-serif'],
-                    },
-                    transitionTimingFunction: {
-                        'out-expo': 'cubic-bezier(0.19, 1, 0.22, 1)',
-                    }
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
-        :root {
-            --container-max: 72rem;
-            --container-pad: clamp(1rem, 4vw, 2rem);
-        }
-
-        *,
-        *::before,
-        *::after {
-            box-sizing: border-box;
-            min-width: 0;
-        }
-
-        html,
+        /* ===== Reset & Base ===== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; min-width: 0; }
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+        html, body { max-width: 100%; overflow-x: hidden; }
         body {
-            max-width: 100%;
-            overflow-x: hidden;
-        }
-
-        body {
-            background-color: #F8F8F6;
-            color: #0F172A;
-            overflow-x: hidden;
+            font-family: 'Noto Serif JP', 'Yu Mincho', serif;
+            background: #f7f6f3;
+            color: #0b1a33;
+            line-height: 1.8;
             font-feature-settings: "palt";
+            -webkit-font-smoothing: antialiased;
         }
-
-        img,
-        svg,
-        video,
-        canvas {
-            max-width: 100%;
-            height: auto;
-        }
-
-        p,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        a,
-        li,
-        td,
-        th,
-        span {
+        img, svg, video { max-width: 100%; height: auto; display: block; }
+        a { color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
+        button { cursor: pointer; border: none; background: none; font: inherit; -webkit-tap-highlight-color: transparent; }
+        ul, ol { list-style: none; }
+        input, textarea, select { font: inherit; }
+        p, h1, h2, h3, h4, h5, h6, a, li, td, th, span {
             overflow-wrap: anywhere;
             word-break: break-word;
         }
 
-        .container-safe {
-            width: min(100%, var(--container-max));
+        /* ===== CSS Variables ===== */
+        :root {
+            --navy-900: #0b1a33;
+            --navy-800: #122240;
+            --navy-700: #1a2e52;
+            --navy-600: #243d6a;
+            --navy-500: #2e4f85;
+            --navy-light: #5a7299;
+            --gold: #c5a255;
+            --gold-light: #ddc07a;
+            --gold-dark: #a6873e;
+            --gold-pale: #f5ecd5;
+            --offwhite: #f7f6f3;
+            --text-body: #3a4a60;
+            --text-muted: #7a8a9e;
+            --border-light: #e0ddd6;
+            --white: #ffffff;
+            --section-pad: clamp(4rem, 10vw, 8rem);
+            --container-max: 1120px;
+            --container-pad: clamp(1.25rem, 5vw, 3rem);
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-serif: 'Noto Serif JP', 'Yu Mincho', serif;
+            --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+            --transition-base: 0.4s var(--ease-out);
+        }
+
+        /* ===== Utility ===== */
+        .container {
+            width: 100%;
+            max-width: var(--container-max);
             margin-inline: auto;
             padding-inline: var(--container-pad);
         }
+        .sr-only {
+            position: absolute; width: 1px; height: 1px;
+            margin: -1px; padding: 0; overflow: hidden;
+            clip: rect(0,0,0,0); border: 0;
+        }
 
-        .hero-main-copy {
-            font-size: clamp(2rem, 8.4vw, 4.5rem);
-            line-height: 1.2;
-            overflow-wrap: normal;
-            word-break: keep-all;
-            white-space: normal;
+        /* ===== Loader ===== */
+        #loader {
+            position: fixed; inset: 0; z-index: 9999;
+            background: var(--navy-900);
+            display: flex; justify-content: center; align-items: center;
+            transition: opacity 0.7s ease, visibility 0.7s;
+        }
+        #loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+        .loader-logo {
+            text-align: center; color: var(--gold);
+            opacity: 0; transform: translateY(20px);
+            animation: loaderIn 0.8s var(--ease-out) 0.2s forwards;
+        }
+        .loader-logo-text {
+            font-size: clamp(1.2rem, 4vw, 1.6rem);
+            letter-spacing: 0.15em;
+            font-weight: 700;
+        }
+        .loader-bar {
+            width: 60px; height: 2px; background: var(--gold);
+            margin: 1rem auto 0; transform-origin: left;
+            animation: loaderBar 1.2s var(--ease-out) 0.4s forwards;
+            transform: scaleX(0);
+        }
+        @keyframes loaderIn { to { opacity: 1; transform: translateY(0); } }
+        @keyframes loaderBar { to { transform: scaleX(1); } }
+
+        /* ===== Navigation ===== */
+        .nav {
+            position: fixed; top: 0; left: 0; width: 100%; z-index: 100;
+            padding: max(1.25rem, env(safe-area-inset-top)) max(var(--container-pad), env(safe-area-inset-right)) 1.25rem max(var(--container-pad), env(safe-area-inset-left));
+            display: flex; justify-content: space-between; align-items: center;
+            transition: background var(--transition-base), padding var(--transition-base), box-shadow var(--transition-base);
+        }
+        .nav.scrolled {
+            background: rgba(11, 26, 51, 0.95);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            padding-block: 0.75rem;
+            box-shadow: 0 1px 20px rgba(0,0,0,0.2);
+        }
+        .nav-logo {
+            display: flex; align-items: center; gap: 0.5rem;
+            color: var(--white); font-weight: 700; font-size: 1.1rem;
+            letter-spacing: 0.12em; z-index: 110;
+        }
+        .nav-logo-icon {
+            width: 28px; height: 28px; position: relative;
+        }
+        .nav-logo-icon::before, .nav-logo-icon::after {
+            content: ''; position: absolute;
+            border: 1.5px solid var(--gold);
+            border-radius: 2px;
+        }
+        .nav-logo-icon::before {
+            width: 18px; height: 18px; top: 1px; left: 1px;
+            transform: rotate(12deg);
+        }
+        .nav-logo-icon::after {
+            width: 18px; height: 18px; bottom: 1px; right: 1px;
+            transform: rotate(-6deg);
+            border-color: var(--gold-light);
+        }
+        .nav-links {
+            display: flex; align-items: center; gap: 2.5rem;
+        }
+        .nav-links a {
+            font-family: var(--font-sans); font-size: 0.75rem;
+            letter-spacing: 0.15em; color: rgba(255,255,255,0.8);
+            transition: color var(--transition-base);
+            position: relative;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0;
+            width: 0; height: 1px; background: var(--gold);
+            transition: width var(--transition-base);
+        }
+        .nav-links a:hover { color: var(--gold); }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-cta-link {
+            padding: 0.5rem 1.5rem;
+            border: 1px solid var(--gold);
+            color: var(--gold) !important;
+            transition: background var(--transition-base), color var(--transition-base) !important;
+        }
+        .nav-cta-link::after { display: none !important; }
+        .nav-cta-link:hover {
+            background: var(--gold) !important;
+            color: var(--navy-900) !important;
+        }
+
+        /* Mobile Menu */
+        .nav-hamburger {
+            display: none; z-index: 110;
+            width: 44px; height: 44px; position: relative;
+            flex-direction: column; justify-content: center; align-items: center; gap: 6px;
+        }
+        .nav-hamburger span {
+            display: block; width: 22px; height: 1.5px;
+            background: var(--gold); transition: all 0.35s var(--ease-out);
+            transform-origin: center;
+        }
+        .nav-hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(2.5px, 2.5px); }
+        .nav-hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .nav-hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(3px, -3px); }
+
+        .mobile-menu {
+            position: fixed; inset: 0; z-index: 105;
+            background: var(--navy-900);
+            display: flex; flex-direction: column;
+            justify-content: center; align-items: center; gap: 0;
+            opacity: 0; visibility: hidden;
+            transition: opacity 0.4s ease, visibility 0.4s;
+            overflow-y: auto;
+            padding: max(5rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) max(2rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
+        }
+        .mobile-menu.open { opacity: 1; visibility: visible; }
+        .mobile-menu a {
+            font-family: var(--font-sans); font-size: 0.85rem;
+            letter-spacing: 0.2em; color: rgba(255,255,255,0.7);
+            padding: 1.2rem 2rem; display: block;
+            transition: color var(--transition-base);
+        }
+        .mobile-menu a:hover { color: var(--gold); }
+        .mobile-menu .mobile-cta {
+            margin-top: 1.5rem; padding: 0.8rem 2.5rem;
+            border: 1px solid var(--gold); color: var(--gold);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav-hamburger { display: flex; }
+        }
+
+        /* ===== Hero ===== */
+        .hero {
+            position: relative; min-height: 100vh; min-height: 100dvh;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--navy-900); color: var(--white);
+            overflow: hidden; text-align: center;
+            padding: 6rem var(--container-pad) 4rem;
+        }
+        .hero-bg {
+            position: absolute; inset: 0; overflow: hidden; pointer-events: none;
+        }
+        .hero-bg-line {
+            position: absolute; width: 1px; background: rgba(197, 162, 85, 0.08);
+            top: 0; bottom: 0;
+        }
+        .hero-bg-line:nth-child(1) { left: 20%; }
+        .hero-bg-line:nth-child(2) { left: 40%; }
+        .hero-bg-line:nth-child(3) { left: 60%; }
+        .hero-bg-line:nth-child(4) { left: 80%; }
+        .hero-bg-circle {
+            position: absolute; border-radius: 50%;
+            border: 1px solid rgba(197, 162, 85, 0.06);
+        }
+        .hero-bg-circle:nth-child(5) {
+            width: 600px; height: 600px; top: -100px; right: -200px;
+        }
+        .hero-bg-circle:nth-child(6) {
+            width: 400px; height: 400px; bottom: -100px; left: -150px;
+        }
+        .hero-content {
+            position: relative; z-index: 2;
+            max-width: 700px; margin: 0 auto;
+        }
+        .hero-badge {
+            display: inline-block; padding: 0.4rem 1.5rem;
+            border: 1px solid rgba(197, 162, 85, 0.4);
+            border-radius: 100px;
+            font-family: var(--font-sans); font-size: 0.7rem;
+            letter-spacing: 0.12em; color: var(--gold);
+            margin-bottom: 2.5rem; white-space: nowrap;
+        }
+        .hero-title {
+            font-size: clamp(2rem, 7.5vw, 3.8rem);
+            font-weight: 700; line-height: 1.3;
+            letter-spacing: 0.02em;
+            margin-bottom: 1rem;
             text-wrap: balance;
         }
-
-        .hero-main-copy span {
-            overflow-wrap: normal;
-            word-break: keep-all;
+        .hero-title-accent { color: var(--gold); }
+        .hero-divider {
+            width: 1px; height: 48px;
+            background: var(--gold);
+            margin: 1.5rem auto;
+            transform-origin: top;
+        }
+        .hero-sub {
+            font-family: var(--font-sans); font-size: clamp(0.82rem, 2.5vw, 0.95rem);
+            color: rgba(255,255,255,0.6); line-height: 2;
+            letter-spacing: 0.04em;
+            max-width: 480px; margin: 0 auto 2.5rem;
+        }
+        .hero-cta {
+            display: inline-flex; align-items: center; gap: 0.75rem;
+            background: var(--gold); color: var(--navy-900);
+            padding: 0.9rem 2.5rem;
+            font-family: var(--font-sans); font-size: 0.85rem;
+            font-weight: 600; letter-spacing: 0.08em;
+            transition: background var(--transition-base), transform 0.2s;
+            min-height: 48px;
+        }
+        .hero-cta:hover { background: var(--gold-light); transform: translateY(-2px); }
+        .hero-cta svg { width: 16px; height: 16px; transition: transform 0.3s var(--ease-out); }
+        .hero-cta:hover svg { transform: translateX(4px); }
+        .hero-scroll {
+            position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+            font-family: var(--font-sans); font-size: 0.6rem;
+            letter-spacing: 0.2em; color: rgba(197,162,85,0.5);
+            writing-mode: vertical-rl; text-orientation: mixed;
+        }
+        .hero-scroll::after {
+            content: ''; display: block; width: 1px; height: 32px;
+            background: var(--gold); margin: 0.75rem auto 0;
+            opacity: 0.4; animation: scrollPulse 2s ease infinite;
+        }
+        @keyframes scrollPulse {
+            0%, 100% { opacity: 0.2; transform: scaleY(0.7); }
+            50% { opacity: 0.6; transform: scaleY(1); }
         }
 
-        .hero-sub-copy {
-            font-size: clamp(0.84rem, 2.9vw, 1rem);
-            line-height: 1.85;
-            letter-spacing: 0.02em;
-            overflow-wrap: anywhere;
-        }
-
-        .contact-main-copy {
-            font-size: clamp(1.8rem, 8vw, 3.75rem);
-            line-height: 1.3;
-        }
-
-        .cta-touch {
-            min-height: 44px;
-            min-width: 44px;
-        }
-
-        /* Animations */
-        .reveal-text {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 1.0s cubic-bezier(0.19, 1, 0.22, 1);
-        }
-
-        .reveal-text.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .reveal-line {
-            width: 0;
-            transition: width 1.5s cubic-bezier(0.19, 1, 0.22, 1);
-        }
-
-        .reveal-line.active {
-            width: 100%;
-        }
-
-        .bg-pattern {
-            background-image: radial-gradient(#C5A059 0.5px, transparent 0.5px);
-            background-size: 24px 24px;
-            opacity: 0.15;
-        }
-
-        .writing-vertical {
-            writing-mode: vertical-rl;
-            text-orientation: upright;
-            letter-spacing: 0.2em;
-        }
-
-        /* Loader */
-        #loader {
-            position: fixed;
-            inset: 0;
-            background: #0F172A;
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            transition: opacity 0.8s ease-out, visibility 0.8s;
-        }
-
-        .loader-text {
-            color: #C5A059;
-            font-family: 'Zen Old Mincho', serif;
-            font-size: 2rem;
-            transform: translateY(100%);
-            animation: textUp 1s cubic-bezier(0.19, 1, 0.22, 1) forwards;
-        }
-
-        @keyframes textUp {
-            to {
-                transform: translateY(0);
-            }
-        }
-
-        /* Hover Effects */
-        .service-card {
-            transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            background-color: #0F172A;
-            color: #F8F8F6;
-        }
-
-        .service-card:hover .icon-gold {
-            color: #F8F8F6;
-        }
-
-        .service-card:hover p {
-            color: #94A3B8;
-        }
-
-        .service-card:hover .card-more {
-            color: #C5A059;
-            border-bottom-color: #C5A059;
-        }
-
-        /* Accordion */
-        .faq-item {
-            transition: all 0.3s ease;
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 200px;
-        }
-
-        .faq-icon {
-            transition: transform 0.3s ease;
-        }
-
-        .faq-item.active .faq-icon {
-            transform: rotate(45deg);
-        }
-
-        /* Marquee */
-        .marquee-container {
-            overflow: hidden;
-            white-space: nowrap;
-        }
-
-        .marquee-content {
-            display: inline-block;
-            animation: marquee 30s linear infinite;
-        }
-
-        @keyframes marquee {
-            0% {
-                transform: translateX(0);
-            }
-
-            100% {
-                transform: translateX(-50%);
-            }
-        }
-
-        .hero-sub-copy .hero-sub-tiny {
-            display: none;
-        }
-
-        /* Small mobile typography tuning (iPhone SE etc.) */
         @media (max-width: 480px) {
-            #navbar {
-                padding-inline: 1rem;
-            }
-
-            .hero-main-copy {
-                font-size: clamp(1.9rem, 9vw, 2.45rem);
-                line-height: 1.22;
-            }
-
-            .hero-main-copy-line {
-                white-space: nowrap;
-            }
-
-            .services-head {
-                align-items: center;
-                text-align: center;
-            }
-
-            .services-head>div {
-                width: 100%;
-            }
-
-            .services-head .services-note {
-                margin-left: auto;
-                margin-right: auto;
-                text-align: center;
-            }
-
-            .contact-main-copy {
-                font-size: clamp(1.2rem, 5vw, 2rem);
-                line-height: 1.35;
-                white-space: nowrap;
-            }
-
-            .contact-main-copy .contact-tail {
-                white-space: nowrap;
-            }
-
-            .hero-sub-copy {
-                font-size: clamp(0.82rem, 3.2vw, 0.9rem);
-                line-height: 1.9;
-                letter-spacing: 0.01em !important;
-                max-width: 20.5rem;
-                padding-left: 0.25rem;
-                padding-right: 0.25rem;
-                overflow-wrap: anywhere;
-            }
-
-            .hero-cta,
-            .contact-submit {
-                width: 100%;
-                justify-content: center;
-                padding-inline: 1rem;
-            }
-
-            #contact a[href^="tel:"] {
-                font-size: clamp(1.4rem, 7vw, 2rem);
-            }
-
-            #pricing .overflow-x-auto {
-                overflow: visible;
-            }
-
-            #pricing table,
-            #pricing thead,
-            #pricing tbody,
-            #pricing tr,
-            #pricing th,
-            #pricing td {
-                display: block;
-                width: 100%;
-            }
-
-            #pricing thead {
-                position: absolute;
-                width: 1px;
-                height: 1px;
-                margin: -1px;
-                padding: 0;
-                overflow: hidden;
-                border: 0;
-                clip: rect(0 0 0 0);
-            }
-
-            #pricing tr {
-                padding: 1rem;
-                border-bottom: 1px solid #e5e7eb;
-            }
-
-            #pricing td {
-                padding: 0.35rem 0;
-                border: 0;
-                font-size: 0.92rem;
-            }
-
-            #pricing td::before {
-                display: block;
-                margin-bottom: 0.15rem;
-                font-size: 0.66rem;
-                letter-spacing: 0.12em;
-                color: #6b7280;
-                font-family: "Jost", sans-serif;
-                content: attr(data-label);
-            }
+            .hero { padding: 5rem 1.25rem 3rem; }
+            .hero-title { font-size: clamp(1.75rem, 8.5vw, 2.2rem); line-height: 1.35; }
+            .hero-sub { font-size: 0.8rem; line-height: 1.9; padding-inline: 0.25rem; }
+            .hero-cta { width: 100%; justify-content: center; padding: 1rem 1.5rem; }
+            .hero-badge { font-size: 0.65rem; padding: 0.35rem 1rem; }
         }
-
-        @media (max-width: 380px) {
-            .hero-sub-copy {
-                font-size: 0.84rem;
-                line-height: 1.85;
-                letter-spacing: 0 !important;
-                max-width: 20rem;
-                padding-left: 0.2rem;
-                padding-right: 0.2rem;
-            }
-
-            .hero-sub-copy .hero-sub-desktop {
-                display: none;
-            }
-
-            .hero-sub-copy .hero-sub-tiny {
-                display: inline;
-            }
-
-            .hero-sub-copy .hero-sub-line {
-                display: block;
-            }
-
-            .representative-catch {
-                font-size: 0.95rem !important;
-                letter-spacing: 0;
-                white-space: nowrap;
-            }
-        }
-
         @media (max-width: 340px) {
-            .hero-main-copy {
-                font-size: clamp(1.7rem, 8.5vw, 1.95rem);
-            }
+            .hero-title { font-size: 1.6rem; }
+        }
 
-            #contact,
-            #about,
-            #pricing,
-            #services {
-                padding-inline: 1rem;
+        /* ===== Stats Bar ===== */
+        .stats {
+            background: var(--navy-800);
+            border-bottom: 1px solid var(--navy-700);
+            padding: 2.5rem 0;
+        }
+        .stats-grid {
+            display: grid; grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem; text-align: center; color: var(--white);
+        }
+        .stat-label {
+            font-family: var(--font-sans); font-size: 0.65rem;
+            letter-spacing: 0.15em; color: var(--gold); margin-bottom: 0.5rem;
+        }
+        .stat-value {
+            font-family: var(--font-sans); font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 600; line-height: 1.2;
+        }
+        .stat-value small { font-size: 0.75em; font-weight: 400; margin-left: 2px; }
+        .stat-item { position: relative; }
+        .stat-item + .stat-item::before {
+            content: ''; position: absolute; left: 0; top: 15%; height: 70%;
+            width: 1px; background: var(--navy-600);
+        }
+        @media (max-width: 600px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 0; }
+            .stat-item:nth-child(3)::before { display: none; }
+            .stat-value { font-size: 1.4rem; }
+        }
+
+        /* ===== Section Common ===== */
+        .section { padding: var(--section-pad) 0; }
+        .section-label {
+            font-family: var(--font-sans); font-size: 0.65rem;
+            letter-spacing: 0.2em; color: var(--gold);
+            margin-bottom: 0.75rem; display: block;
+        }
+        .section-title {
+            font-size: clamp(1.6rem, 5vw, 2.4rem);
+            font-weight: 700; line-height: 1.4;
+            color: var(--navy-900); margin-bottom: 1rem;
+        }
+        .section-title-white { color: var(--white); }
+        .section-divider {
+            width: 40px; height: 2px;
+            background: var(--gold); margin-bottom: 2rem;
+        }
+        .section-divider-center { margin-inline: auto; }
+
+        /* ===== Scroll Reveal ===== */
+        .reveal {
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+        }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+
+        /* ===== About ===== */
+        .about { background: var(--offwhite); position: relative; }
+        .about-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 4rem; align-items: start;
+        }
+        .about-image-wrap { position: relative; }
+        .about-image-wrap::before {
+            content: ''; position: absolute;
+            top: -12px; left: -12px; width: 80px; height: 80px;
+            border-top: 2px solid var(--gold); border-left: 2px solid var(--gold);
+            opacity: 0.4; pointer-events: none;
+        }
+        .about-image {
+            width: 100%; aspect-ratio: 4/5; object-fit: cover;
+            background: var(--navy-700);
+            filter: grayscale(30%) brightness(0.95);
+        }
+        .about-text p {
+            color: var(--text-body); font-size: 0.95rem;
+            line-height: 2; text-align: justify; margin-bottom: 1.5rem;
+        }
+
+        /* Representative */
+        .representative {
+            margin-top: 4rem; background: var(--white);
+            border: 1px solid var(--border-light);
+            padding: 3rem; display: grid;
+            grid-template-columns: 160px 1fr; gap: 2.5rem;
+            align-items: center;
+        }
+        .rep-photo {
+            width: 130px; height: 130px; border-radius: 50%;
+            background: var(--navy-light); margin: 0 auto;
+            overflow: hidden;
+        }
+        .rep-photo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(40%); }
+        .rep-label {
+            font-family: var(--font-sans); font-size: 0.6rem;
+            letter-spacing: 0.2em; color: var(--gold); margin-bottom: 0.25rem;
+        }
+        .rep-name { font-size: 1.15rem; font-weight: 700; color: var(--navy-900); margin-bottom: 1rem; }
+        .rep-catch {
+            font-size: 1.05rem; font-weight: 700;
+            color: var(--navy-900); margin-bottom: 0.75rem;
+        }
+        .rep-desc {
+            font-size: 0.85rem; color: var(--text-body);
+            line-height: 1.9; margin-bottom: 1.25rem;
+        }
+        .rep-creds {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem;
+        }
+        .rep-creds li {
+            font-size: 0.75rem; color: var(--text-muted);
+            font-family: var(--font-sans); padding-left: 0.75rem;
+            position: relative;
+        }
+        .rep-creds li::before {
+            content: ''; position: absolute; left: 0; top: 0.5em;
+            width: 4px; height: 4px; background: var(--gold);
+            border-radius: 50%;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .representative { grid-template-columns: 1fr; text-align: center; padding: 2rem 1.5rem; }
+            .rep-creds { grid-template-columns: 1fr; text-align: left; max-width: 280px; margin: 0 auto; }
+        }
+        @media (max-width: 480px) {
+            .about-text p { font-size: 0.88rem; }
+        }
+
+        /* ===== Services ===== */
+        .services { background: var(--navy-900); color: var(--white); }
+        .services-header {
+            display: flex; justify-content: space-between;
+            align-items: flex-end; margin-bottom: 3.5rem;
+            flex-wrap: wrap; gap: 1.5rem;
+        }
+        .services-note {
+            max-width: 320px; font-family: var(--font-sans);
+            font-size: 0.85rem; color: rgba(255,255,255,0.5);
+            line-height: 1.7;
+        }
+        .services-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 1px; background: var(--navy-700);
+            border: 1px solid var(--navy-700);
+        }
+        .service-card {
+            background: var(--navy-900); padding: 2.5rem;
+            transition: background var(--transition-base), transform 0.3s var(--ease-out);
+        }
+        .service-card:hover {
+            background: var(--navy-800); transform: translateY(-4px);
+        }
+        .service-icon {
+            width: 48px; height: 48px; margin-bottom: 1.5rem;
+            color: var(--gold);
+        }
+        .service-card h3 {
+            font-size: 1.15rem; font-weight: 700; margin-bottom: 0.75rem;
+        }
+        .service-card p {
+            font-family: var(--font-sans); font-size: 0.82rem;
+            color: rgba(255,255,255,0.5); line-height: 1.8;
+        }
+        @media (max-width: 768px) {
+            .services-grid { grid-template-columns: 1fr; }
+            .services-header { flex-direction: column; align-items: flex-start; text-align: left; }
+            .services-note { max-width: 100%; }
+        }
+        @media (max-width: 480px) {
+            .service-card { padding: 2rem 1.5rem; }
+        }
+
+        /* ===== Strengths ===== */
+        .strengths { background: var(--offwhite); }
+        .strengths-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 2rem; margin-top: 3rem;
+        }
+        .strength-card {
+            background: var(--white); border: 1px solid var(--border-light);
+            padding: 2.5rem 2rem; text-align: center;
+            transition: box-shadow var(--transition-base), transform 0.3s;
+        }
+        .strength-card:hover {
+            box-shadow: 0 12px 40px rgba(11,26,51,0.08);
+            transform: translateY(-4px);
+        }
+        .strength-num {
+            font-family: var(--font-sans); font-size: 2rem;
+            font-weight: 300; color: var(--gold); margin-bottom: 1rem;
+            line-height: 1;
+        }
+        .strength-card h3 {
+            font-size: 1.05rem; font-weight: 700;
+            color: var(--navy-900); margin-bottom: 0.75rem;
+        }
+        .strength-card p {
+            font-size: 0.82rem; color: var(--text-body);
+            line-height: 1.8;
+        }
+        @media (max-width: 768px) {
+            .strengths-grid { grid-template-columns: 1fr; gap: 1rem; }
+            .strength-card { padding: 2rem 1.5rem; }
+        }
+
+        /* ===== Pricing ===== */
+        .pricing { background: var(--white); }
+        .pricing-table-wrap {
+            background: var(--white); border: 1px solid var(--border-light);
+            overflow: hidden; max-width: 900px; margin: 0 auto;
+        }
+        .pricing-table {
+            width: 100%; border-collapse: collapse; text-align: left;
+        }
+        .pricing-table thead { background: var(--navy-900); color: var(--white); }
+        .pricing-table th {
+            padding: 1.1rem 1.5rem;
+            font-family: var(--font-sans); font-size: 0.7rem;
+            letter-spacing: 0.12em; font-weight: 500;
+        }
+        .pricing-table td {
+            padding: 1.1rem 1.5rem; border-bottom: 1px solid var(--border-light);
+            font-size: 0.9rem;
+        }
+        .pricing-table tbody tr:hover { background: rgba(197,162,85,0.03); }
+        .pricing-table .td-service { font-weight: 700; color: var(--navy-900); }
+        .pricing-table .td-price { font-family: var(--font-sans); }
+        .pricing-table .td-note { font-size: 0.78rem; color: var(--text-muted); }
+        .pricing-table .tr-highlight { background: var(--gold-pale); }
+        .pricing-table .tr-highlight .td-service,
+        .pricing-table .tr-highlight .td-price { color: var(--gold-dark); font-weight: 700; }
+        .pricing-note {
+            padding: 1.25rem; background: var(--offwhite);
+            font-size: 0.75rem; color: var(--text-muted);
+            text-align: center; line-height: 1.8;
+        }
+
+        @media (max-width: 600px) {
+            .pricing-table, .pricing-table thead,
+            .pricing-table tbody, .pricing-table tr,
+            .pricing-table th, .pricing-table td {
+                display: block; width: 100%;
+            }
+            .pricing-table thead {
+                position: absolute; width: 1px; height: 1px;
+                margin: -1px; overflow: hidden; clip: rect(0,0,0,0);
+            }
+            .pricing-table tr {
+                padding: 1rem 1.25rem; border-bottom: 1px solid var(--border-light);
+            }
+            .pricing-table td {
+                padding: 0.25rem 0; border: 0; font-size: 0.88rem;
+            }
+            .pricing-table td::before {
+                content: attr(data-label);
+                display: block; margin-bottom: 0.1rem;
+                font-family: var(--font-sans); font-size: 0.6rem;
+                letter-spacing: 0.12em; color: var(--text-muted);
+            }
+        }
+
+        /* ===== Flow ===== */
+        .flow { background: var(--offwhite); border-top: 1px solid var(--border-light); }
+        .flow-steps {
+            display: grid; grid-template-columns: repeat(5, 1fr);
+            gap: 1.5rem; position: relative;
+        }
+        .flow-step { text-align: center; position: relative; }
+        .flow-num {
+            width: 44px; height: 44px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 0.75rem; font-family: var(--font-sans);
+            font-size: 0.9rem; font-weight: 600;
+            border: 2px solid var(--gold); color: var(--gold);
+            background: var(--white); position: relative; z-index: 2;
+            transition: background var(--transition-base), color var(--transition-base);
+        }
+        .flow-step:last-child .flow-num {
+            background: var(--gold); color: var(--white); border-color: var(--gold);
+        }
+        .flow-step h4 { font-size: 0.9rem; font-weight: 700; color: var(--navy-900); margin-bottom: 0.4rem; }
+        .flow-step p { font-size: 0.75rem; color: var(--text-muted); line-height: 1.6; }
+        .flow-connector {
+            position: absolute; top: 22px; left: calc(50% + 24px);
+            width: calc(100% - 48px); height: 1px;
+            background: var(--border-light); z-index: 1;
+        }
+        .flow-step:last-child .flow-connector { display: none; }
+
+        @media (max-width: 768px) {
+            .flow-steps { grid-template-columns: 1fr; gap: 0; }
+            .flow-step { display: grid; grid-template-columns: 44px 1fr; gap: 1rem; text-align: left; padding-bottom: 1.5rem; }
+            .flow-num { margin: 0; }
+            .flow-connector {
+                left: 22px; top: 44px; width: 1px; height: calc(100% - 44px);
+            }
+        }
+
+        /* ===== Marquee ===== */
+        .marquee {
+            background: var(--gold); padding: 0.9rem 0;
+            overflow: hidden; white-space: nowrap;
+        }
+        .marquee-track {
+            display: inline-flex; gap: 2rem;
+            animation: marqueeMove 25s linear infinite;
+        }
+        .marquee-track span {
+            font-family: var(--font-sans); font-size: 0.85rem;
+            font-weight: 600; letter-spacing: 0.15em;
+            color: var(--navy-900);
+        }
+        @keyframes marqueeMove {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ===== FAQ ===== */
+        .faq { background: var(--white); }
+        .faq-list { max-width: 720px; margin: 0 auto; }
+        .faq-item { border-bottom: 1px solid var(--border-light); }
+        .faq-question {
+            width: 100%; display: flex; justify-content: space-between;
+            align-items: center; text-align: left;
+            padding: 1.25rem 0; gap: 1rem;
+            font-weight: 700; font-size: 0.95rem; color: var(--navy-900);
+        }
+        .faq-icon {
+            flex-shrink: 0; width: 24px; height: 24px;
+            position: relative; color: var(--gold);
+            transition: transform 0.35s var(--ease-out);
+        }
+        .faq-icon::before, .faq-icon::after {
+            content: ''; position: absolute;
+            background: var(--gold);
+        }
+        .faq-icon::before {
+            width: 14px; height: 1.5px; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .faq-icon::after {
+            width: 1.5px; height: 14px; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            transition: transform 0.35s var(--ease-out);
+        }
+        .faq-item.active .faq-icon::after { transform: translate(-50%, -50%) rotate(90deg); }
+        .faq-answer {
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.5s var(--ease-out);
+        }
+        .faq-answer-inner {
+            padding: 0 0 1.25rem;
+            font-size: 0.88rem; color: var(--text-body); line-height: 1.9;
+        }
+        .faq-item.active .faq-answer { max-height: 500px; }
+
+        @media (max-width: 480px) {
+            .faq-question { font-size: 0.88rem; }
+        }
+
+        /* ===== Contact ===== */
+        .contact { background: var(--navy-900); color: var(--white); }
+        .contact-inner { max-width: 800px; margin: 0 auto; text-align: center; }
+        .contact-title {
+            font-size: clamp(1.6rem, 6vw, 2.8rem);
+            font-weight: 700; margin-bottom: 2.5rem; line-height: 1.3;
+        }
+        .contact-boxes {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 1rem; margin-bottom: 3rem;
+        }
+        .contact-box {
+            border: 1px solid var(--navy-600); padding: 2rem;
+            transition: border-color var(--transition-base);
+        }
+        .contact-box:hover { border-color: var(--gold); }
+        .contact-box-label {
+            font-family: var(--font-sans); font-size: 0.65rem;
+            letter-spacing: 0.15em; color: var(--text-muted); margin-bottom: 0.5rem;
+        }
+        .contact-box-value {
+            font-size: 1.3rem; font-weight: 700;
+            transition: color var(--transition-base);
+        }
+        .contact-box:hover .contact-box-value { color: var(--gold); }
+        .contact-box-note {
+            font-size: 0.72rem; color: var(--text-muted); margin-top: 0.5rem;
+        }
+
+        .contact-form {
+            text-align: left; max-width: 600px; margin: 0 auto;
+        }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-label {
+            display: block; font-family: var(--font-sans); font-size: 0.7rem;
+            letter-spacing: 0.12em; color: rgba(255,255,255,0.5);
+            margin-bottom: 0.5rem;
+            transition: color var(--transition-base);
+        }
+        .form-group:focus-within .form-label { color: var(--gold); }
+        .form-input {
+            width: 100%; background: transparent;
+            border: none; border-bottom: 1px solid var(--navy-600);
+            padding: 0.875rem 0; color: var(--white);
+            font-size: 0.95rem; outline: none; min-height: 44px;
+            transition: border-color var(--transition-base);
+        }
+        .form-input::placeholder { color: rgba(255,255,255,0.15); }
+        .form-input:focus { border-color: var(--gold); }
+        textarea.form-input { resize: vertical; min-height: 80px; }
+        .form-privacy {
+            font-size: 0.72rem; color: rgba(255,255,255,0.35);
+            text-align: center; margin: 1.5rem 0 2rem; line-height: 1.8;
+        }
+        .form-privacy a { text-decoration: underline; }
+        .form-privacy a:hover { color: var(--gold); }
+        .form-submit {
+            display: flex; align-items: center; justify-content: center;
+            gap: 0.5rem; margin: 0 auto;
+            padding: 0.9rem 3rem; border: 1px solid var(--white);
+            color: var(--white); font-family: var(--font-sans);
+            font-size: 0.8rem; letter-spacing: 0.12em;
+            transition: all var(--transition-base); min-height: 48px;
+        }
+        .form-submit:hover {
+            background: var(--gold); border-color: var(--gold);
+            color: var(--navy-900);
+        }
+
+        @media (max-width: 600px) {
+            .contact-boxes { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; gap: 0; }
+            .form-row .form-group { margin-bottom: 1.5rem; }
+            .contact-box-value { font-size: 1.1rem; }
+            .form-submit { width: 100%; }
+        }
+        @media (max-width: 480px) {
+            .contact-title { font-size: clamp(1.3rem, 5.5vw, 1.8rem); }
+        }
+
+        /* ===== Footer ===== */
+        .footer {
+            background: var(--navy-900); color: var(--white);
+            border-top: 1px solid var(--navy-700);
+            padding: 4rem 0 calc(2.5rem + env(safe-area-inset-bottom));
+        }
+        .footer-grid {
+            display: flex; justify-content: space-between;
+            align-items: flex-start; flex-wrap: wrap; gap: 2.5rem;
+        }
+        .footer-logo {
+            font-size: 1.1rem; font-weight: 700;
+            letter-spacing: 0.1em; margin-bottom: 1rem;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .footer-address {
+            font-style: normal; font-size: 0.82rem;
+            color: rgba(255,255,255,0.4); line-height: 1.9;
+            font-family: var(--font-sans);
+        }
+        .footer-links {
+            display: flex; gap: 3rem; flex-wrap: wrap;
+        }
+        .footer-links ul { display: flex; flex-direction: column; gap: 0.8rem; }
+        .footer-links a {
+            font-family: var(--font-sans); font-size: 0.78rem;
+            color: rgba(255,255,255,0.4); transition: color var(--transition-base);
+            padding-block: 0.4rem; display: inline-block;
+        }
+        .footer-links a:hover { color: var(--gold); }
+        .footer-bottom {
+            margin-top: 3rem; padding-top: 1.5rem;
+            border-top: 1px solid var(--navy-700);
+            display: flex; justify-content: space-between;
+            align-items: center; flex-wrap: wrap; gap: 1rem;
+            font-family: var(--font-sans); font-size: 0.7rem;
+            color: rgba(255,255,255,0.25);
+        }
+        @media (max-width: 600px) {
+            .footer-grid { flex-direction: column; }
+            .footer-links { gap: 2rem; }
+        }
+
+        /* ===== Global responsive safety ===== */
+        @media (max-width: 380px) {
+            :root {
+                --container-pad: 1rem;
             }
         }
     </style>
 </head>
 
-<body class="font-serif antialiased selection:bg-gold selection:text-white">
+<body>
 
-    <!-- Loading Screen -->
+    <!-- Loader -->
     <div id="loader">
-        <div class="overflow-hidden">
-            <div class="loader-text">みどり税理士事務所</div>
+        <div class="loader-logo">
+            <div class="loader-logo-text">みどり税理士事務所</div>
+            <div class="loader-bar"></div>
         </div>
     </div>
 
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 transition-all duration-300 mix-blend-difference text-white py-6 px-6 md:px-12 flex justify-between items-center"
-        id="navbar">
-        <a href="#" class="text-xl font-bold tracking-widest z-50 flex items-center gap-2 group">
-            <svg class="w-6 h-6 text-gold group-hover:rotate-180 transition-transform duration-700" viewBox="0 0 24 24"
-                fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-            </svg>
+    <nav class="nav" id="navbar">
+        <a href="#" class="nav-logo">
+            <span class="nav-logo-icon"></span>
             MIDORI TAX
         </a>
-
-        <div class="hidden md:flex gap-10 text-sm font-sans tracking-widest font-light items-center">
-            <a href="#about" class="hover:text-gold transition-colors relative group">ABOUT</a>
-            <a href="#services" class="hover:text-gold transition-colors relative group">SERVICES</a>
-            <a href="#pricing" class="hover:text-gold transition-colors relative group">PRICE</a>
-            <a href="#flow" class="hover:text-gold transition-colors relative group">FLOW</a>
-            <a href="#contact"
-                class="px-6 py-2 border border-gold text-gold hover:bg-gold hover:text-navy-900 transition-colors duration-300">CONTACT</a>
+        <div class="nav-links">
+            <a href="#about">ABOUT</a>
+            <a href="#services">SERVICES</a>
+            <a href="#pricing">PRICE</a>
+            <a href="#flow">FLOW</a>
+            <a href="#contact" class="nav-cta-link">CONTACT</a>
         </div>
-
-        <button id="menu-btn" class="md:hidden text-gold z-50" aria-label="メニューを開く" aria-expanded="false"
-            aria-controls="mobile-menu">
-            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16">
-                </path>
-            </svg>
+        <button class="nav-hamburger" id="menuBtn" aria-label="メニューを開く" aria-expanded="false">
+            <span></span><span></span><span></span>
         </button>
     </nav>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu-overlay"
-        class="fixed inset-0 z-40 bg-black/40 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"
-        aria-hidden="true"></div>
-    <nav id="mobile-menu"
-        class="fixed top-0 right-0 z-50 h-dvh w-[82%] max-w-[320px] bg-navy-900 text-offwhite border-l border-navy-700 transform translate-x-full transition-transform duration-300 md:hidden"
-        aria-label="モバイルメニュー">
-        <div class="flex items-center justify-between px-6 h-20 border-b border-navy-700">
-            <span class="text-gold tracking-widest text-xs font-sans">MENU</span>
-            <button id="menu-close" class="text-gold" aria-label="メニューを閉じる">
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 6l12 12M18 6L6 18">
-                    </path>
-                </svg>
-            </button>
-        </div>
-        <div class="px-6 py-6 flex flex-col gap-1 font-sans tracking-widest text-sm">
-            <a href="#about" class="mobile-nav-link py-4 border-b border-navy-700/70">ABOUT</a>
-            <a href="#services" class="mobile-nav-link py-4 border-b border-navy-700/70">SERVICES</a>
-            <a href="#pricing" class="mobile-nav-link py-4 border-b border-navy-700/70">PRICE</a>
-            <a href="#flow" class="mobile-nav-link py-4 border-b border-navy-700/70">FLOW</a>
-            <a href="#contact"
-                class="mobile-nav-link mt-5 inline-flex items-center justify-center px-4 py-3 border border-gold text-gold hover:bg-gold hover:text-navy-900 transition-colors duration-300">CONTACT</a>
-        </div>
-    </nav>
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about" class="mobile-nav-link">ABOUT</a>
+        <a href="#services" class="mobile-nav-link">SERVICES</a>
+        <a href="#pricing" class="mobile-nav-link">PRICE</a>
+        <a href="#flow" class="mobile-nav-link">FLOW</a>
+        <a href="#contact" class="mobile-nav-link mobile-cta">CONTACT</a>
+    </div>
 
     <main>
-        <!-- Hero Section -->
-        <section
-            class="relative h-screen w-full bg-navy-900 text-offwhite overflow-hidden flex flex-col justify-center items-center">
-            <!-- Background Decoration -->
-            <div class="absolute inset-0 opacity-20 pointer-events-none">
-                <svg class="absolute top-0 right-0 w-[800px] h-[800px] text-gold animate-[spin_60s_linear_infinite]"
-                    viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="0.2">
-                    <circle cx="50" cy="50" r="40" stroke-dasharray="4 4" />
-                    <circle cx="50" cy="50" r="30" stroke-dasharray="2 6" />
-                    <circle cx="50" cy="50" r="20" />
-                </svg>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-bg">
+                <div class="hero-bg-line"></div>
+                <div class="hero-bg-line"></div>
+                <div class="hero-bg-line"></div>
+                <div class="hero-bg-line"></div>
+                <div class="hero-bg-circle"></div>
+                <div class="hero-bg-circle"></div>
             </div>
-
-            <div class="z-10 text-center px-4 relative max-w-4xl mx-auto pt-20 md:pt-0">
-                <div
-                    class="inline-block border border-gold px-4 py-1 rounded-full text-gold text-xs font-sans tracking-widest mb-8 reveal-text">
-                    初回相談60分無料 | 土日祝対応可
-                </div>
-                <h1 class="hero-main-copy text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-tight tracking-tight reveal-text"
-                    style="transition-delay: 0.2s;">
-                    <span class="hero-main-copy-line block">数字の向こうに、</span>
-                    <span class="block mt-2 text-gold">未来を見る。</span>
+            <div class="hero-content">
+                <div class="hero-badge reveal">初回相談 60分無料 ／ 土日祝 対応可</div>
+                <h1 class="hero-title reveal reveal-delay-1">
+                    数字の向こうに、<br><span class="hero-title-accent">未来を描く。</span>
                 </h1>
-                <div
-                    class="w-[1px] h-16 bg-gold mx-auto my-6 origin-top transform scale-y-0 transition-transform duration-1000 delay-500 active-scale">
-                </div>
-                <p class="hero-sub-copy text-sm md:text-base text-gray-300 font-sans tracking-widest max-w-lg mx-auto leading-loose reveal-text"
-                    style="transition-delay: 0.4s;">
-                    <span class="hero-sub-desktop">事業承継・法人税務の専門家。<br>経営者の孤独に寄り添い、確かな戦略で事業の永続を支えます。</span>
-                    <span class="hero-sub-tiny">
-                        <span class="hero-sub-line">事業承継・法人税務の専門家。</span>
-                        <span class="hero-sub-line">経営者の孤独に寄り添い、</span>
-                        <span class="hero-sub-line">確かな戦略で事業の永続を支えます。</span>
-                    </span>
+                <div class="hero-divider reveal reveal-delay-2"></div>
+                <p class="hero-sub reveal reveal-delay-3">
+                    事業承継・法人税務の専門家として、<br>
+                    経営者お一人おひとりに寄り添い、<br>
+                    確かな戦略で事業の未来を支えます。
                 </p>
-                <div class="mt-10 reveal-text" style="transition-delay: 0.6s;">
-                    <a href="#contact"
-                        class="hero-cta cta-touch inline-flex items-center gap-2 bg-gold text-navy-900 px-8 py-3 hover:bg-white transition-colors duration-300 font-sans tracking-widest text-sm font-medium">
+                <div class="reveal reveal-delay-4">
+                    <a href="#contact" class="hero-cta">
                         無料相談を予約する
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                        </svg>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
                 </div>
             </div>
-
-            <div class="absolute bottom-10 right-10 hidden md:block">
-                <div class="writing-vertical text-xs text-gold tracking-widest opacity-60">SCROLL TO EXPLORE</div>
-            </div>
+            <div class="hero-scroll">SCROLL</div>
         </section>
 
-        <!-- Stats / Trust Bar (New) -->
-        <div class="bg-navy-800 border-b border-navy-700 py-12 text-offwhite">
-            <div
-                class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-navy-700">
-                <div class="reveal-text">
-                    <p class="text-xs text-gold font-sans mb-2 tracking-widest">創業</p>
-                    <p class="text-3xl font-bold font-sans">30<span class="text-sm font-normal ml-1">年</span></p>
-                </div>
-                <div class="reveal-text" style="transition-delay: 0.1s;">
-                    <p class="text-xs text-gold font-sans mb-2 tracking-widest">解決実績</p>
-                    <p class="text-3xl font-bold font-sans">500<span class="text-sm font-normal ml-1">件超</span></p>
-                </div>
-                <div class="reveal-text" style="transition-delay: 0.2s;">
-                    <p class="text-xs text-gold font-sans mb-2 tracking-widest">対応エリア</p>
-                    <p class="text-xl font-bold mt-1">全国対応</p>
-                </div>
-                <div class="reveal-text" style="transition-delay: 0.3s;">
-                    <p class="text-xs text-gold font-sans mb-2 tracking-widest">初回相談</p>
-                    <p class="text-xl font-bold mt-1">無料</p>
+        <!-- Stats -->
+        <div class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item reveal">
+                        <p class="stat-label">ESTABLISHED</p>
+                        <p class="stat-value">30<small>年</small></p>
+                    </div>
+                    <div class="stat-item reveal reveal-delay-1">
+                        <p class="stat-label">RESULTS</p>
+                        <p class="stat-value">500<small>件超</small></p>
+                    </div>
+                    <div class="stat-item reveal reveal-delay-2">
+                        <p class="stat-label">AREA</p>
+                        <p class="stat-value">全国対応</p>
+                    </div>
+                    <div class="stat-item reveal reveal-delay-3">
+                        <p class="stat-label">FIRST VISIT</p>
+                        <p class="stat-value">無料</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- About & Representative (Philosophy) -->
-        <section id="about" class="py-32 px-6 md:px-24 bg-offwhite relative overflow-hidden">
-            <div class="bg-pattern absolute top-0 left-0 w-full h-full pointer-events-none"></div>
-
-            <div class="max-w-7xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-20 items-start mb-24">
-                    <div class="relative">
-                        <div class="absolute -top-6 -left-6 w-24 h-24 border-t border-l border-gold opacity-50"></div>
-                        <img src="./assets/images/about-placeholder.svg" alt="Meeting"
-                            class="w-full h-[500px] object-cover grayscale brightness-90 hover:grayscale-0 transition-all duration-1000 ease-out-expo reveal-text">
+        <!-- About -->
+        <section class="section about" id="about">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image-wrap reveal">
+                        <img src="./assets/images/about-placeholder.svg" alt="オフィスでの打ち合わせ風景" class="about-image">
                     </div>
-
-                    <div class="pt-10">
-                        <h2 class="text-xs font-sans text-gold tracking-[0.3em] mb-6 reveal-text">PHILOSOPHY</h2>
-                        <h3 class="text-3xl md:text-4xl font-bold leading-normal mb-8 text-navy-900 reveal-text">
-                            誠実さと革新。<br>
-                            静寂の中で最善手を打つ。
-                        </h3>
-                        <div class="w-full h-[1px] bg-gray-300 mb-8 reveal-line"></div>
-                        <p class="text-navy-light leading-loose font-sans mb-8 text-justify reveal-text">
-                            税務は単なる事務処理ではありません。それは企業の健康状態を示す羅針盤であり、次の一手を決めるための地図でもあります。私たちは伝統的な「誠実さ」と、最新テクノロジーによる「効率化」を融合させ、経営者が本業に集中できる静謐な環境を提供します。
+                    <div class="about-text">
+                        <span class="section-label reveal">PHILOSOPHY</span>
+                        <h2 class="section-title reveal reveal-delay-1">誠実さと先見性。<br>静かに、最善手を打つ。</h2>
+                        <div class="section-divider reveal reveal-delay-2"></div>
+                        <p class="reveal reveal-delay-3">
+                            税務とは、単なる事務処理ではありません。企業の健康状態を示す羅針盤であり、次の一手を見定めるための道標です。
+                        </p>
+                        <p class="reveal reveal-delay-4">
+                            私たちは「誠実さ」を基盤に、最新テクノロジーを活用した効率的な業務体制を構築。経営者の皆さまが本業に集中できるよう、安心してお任せいただける環境を整えています。
                         </p>
                     </div>
                 </div>
 
-                <!-- Representative Profile -->
-                <div class="bg-white p-12 shadow-sm border border-gray-100 relative reveal-text">
-                    <div class="grid md:grid-cols-[200px_1fr] gap-12 items-center">
-                        <div class="text-center">
-                            <!-- Placeholder for Headshot -->
-                            <div class="w-40 h-40 bg-navy-light mx-auto mb-4 rounded-full overflow-hidden">
-                                <img src="./assets/images/representative-placeholder.svg" alt="代表写真"
-                                    class="w-full h-full object-cover grayscale">
-                            </div>
-                            <p class="text-xs font-sans tracking-widest text-gold mb-1">REPRESENTATIVE</p>
-                            <p class="font-bold text-lg text-navy-900">翠川 健一</p>
+                <!-- Representative -->
+                <div class="representative reveal">
+                    <div style="text-align:center;">
+                        <div class="rep-photo">
+                            <img src="./assets/images/representative-placeholder.svg" alt="代表 翠川 健一">
                         </div>
-                        <div>
-                            <h4 class="representative-catch text-xl font-bold text-navy-900 mb-4">「守り」から「攻め」の財務へ</h4>
-                            <p class="text-sm text-navy-light leading-loose mb-6 font-sans">
-                                大手監査法人での10年間の勤務を経て、当事務所を開設いたしました。単なる節税だけでなく、企業の永続的な成長を見据えた財務戦略の提案を得意としています。特に事業承継においては、現経営者様と後継者様、双方の想いを繋ぐ架け橋となることを心がけています。
-                            </p>
-                            <div class="grid md:grid-cols-2 gap-4 text-xs font-sans text-gray-500">
-                                <ul class="space-y-2 list-disc list-inside">
-                                    <li>公認会計士・税理士（登録番号：12345）</li>
-                                    <li>経営革新等支援機関認定</li>
-                                </ul>
-                                <ul class="space-y-2 list-disc list-inside">
-                                    <li>日本税理士会連合会 所属</li>
-                                    <li>M&Aシニアエキスパート</li>
-                                </ul>
-                            </div>
-                        </div>
+                        <p class="rep-label">REPRESENTATIVE</p>
+                        <p class="rep-name">翠川 健一</p>
+                    </div>
+                    <div>
+                        <h4 class="rep-catch">「守り」の財務から、「攻め」の戦略へ</h4>
+                        <p class="rep-desc">
+                            大手監査法人での10年間の経験を活かし、当事務所を開設���たしました。節税にとどまらず、企業の持続的な成長を見据えた財務戦略のご提案を得意としています。事業承継では、現経営者様と後継者様、双方の想いを繋ぐ架け橋でありたいと考えています。
+                        </p>
+                        <ul class="rep-creds">
+                            <li>公認会計士・税理士（登録番号：12345）</li>
+                            <li>経営革新等支援機関認定</li>
+                            <li>日本税理士会連合会 所属</li>
+                            <li>M&Aシニアエキスパート</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section id="services" class="py-32 bg-navy-900 text-offwhite">
-            <div class="max-w-7xl mx-auto px-6 md:px-12">
-                <div class="services-head flex flex-col md:flex-row justify-between items-end mb-24">
+        <!-- Services -->
+        <section class="section services" id="services">
+            <div class="container">
+                <div class="services-header">
                     <div>
-                        <h2 class="text-xs font-sans text-gold tracking-[0.3em] mb-4 reveal-text">OUR EXPERTISE</h2>
-                        <p class="text-4xl md:text-5xl font-bold reveal-text">提供サービス</p>
+                        <span class="section-label reveal">OUR EXPERTISE</span>
+                        <h2 class="section-title section-title-white reveal reveal-delay-1">提供サービス</h2>
                     </div>
-                    <p
-                        class="services-note mt-8 md:mt-0 max-w-sm text-gray-400 font-sans text-sm leading-relaxed reveal-text">
-                        法人税務から事業承継まで。<br>あらゆるフェーズに対応する包括的サポート。
+                    <p class="services-note reveal reveal-delay-2">
+                        法人税務から事業承継まで。<br>あらゆるフェーズに対応する包括的なサポートをご用意しています。
                     </p>
                 </div>
-
-                <div class="grid md:grid-cols-3 gap-px bg-navy-700 border border-navy-700">
-                    <!-- Card 1 -->
-                    <div
-                        class="service-card bg-navy-900 p-10 border-b md:border-b-0 md:border-r border-navy-700 group relative">
-                        <svg class="w-10 h-10 text-gold mb-6 icon-gold" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z">
-                            </path>
+                <div class="services-grid">
+                    <div class="service-card reveal">
+                        <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="8" y="6" width="32" height="36" rx="3"/>
+                            <line x1="16" y1="14" x2="32" y2="14"/>
+                            <line x1="16" y1="22" x2="28" y2="22"/>
+                            <line x1="16" y1="30" x2="24" y2="30"/>
+                            <circle cx="32" cy="34" r="6"/>
+                            <path d="M29 34l2 2 4-4"/>
                         </svg>
-                        <h3 class="text-xl font-bold mb-4">税務顧問・決算</h3>
-                        <p class="text-gray-400 font-sans text-sm leading-relaxed mb-6">
-                            月次巡回監査を通じ、正確な月次決算を実施。AIを活用した予実管理で、未来のキャッシュフローを可視化します。
-                        </p>
-                        <span class="text-xs font-sans text-navy-light border-b border-navy-light pb-1 card-more">MORE
-                            DETAIL</span>
+                        <h3>税務顧問・決算</h3>
+                        <p>月次巡回監査による正確な決算を実施。予実管理の可視化を通じて、経営判断に役立つ情報をお届けします。</p>
                     </div>
-
-                    <!-- Card 2 -->
-                    <div
-                        class="service-card bg-navy-900 p-10 border-b md:border-b-0 md:border-r border-navy-700 group relative">
-                        <svg class="w-10 h-10 text-gold mb-6 icon-gold" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                    <div class="service-card reveal reveal-delay-1">
+                        <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 36 18 24 26 32 42 12"/>
+                            <polyline points="32 12 42 12 42 22"/>
                         </svg>
-                        <h3 class="text-xl font-bold mb-4">経営コンサルティング</h3>
-                        <p class="text-gray-400 font-sans text-sm leading-relaxed mb-6">
-                            財務分析に基づく経営改善計画の策定。銀行融資対策や資金調達支援など、攻めの財務をサポートします。
-                        </p>
-                        <span class="text-xs font-sans text-navy-light border-b border-navy-light pb-1 card-more">MORE
-                            DETAIL</span>
+                        <h3>経営コンサルティング</h3>
+                        <p>財務分析に基づく経営改善計画の策定から、銀行融資・資金調達のご支援まで。攻めの財務をサポートします。</p>
                     </div>
-
-                    <!-- Card 3 -->
-                    <div class="service-card bg-navy-900 p-10 group relative">
-                        <svg class="w-10 h-10 text-gold mb-6 icon-gold" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3">
-                            </path>
+                    <div class="service-card reveal reveal-delay-2">
+                        <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="24" cy="12" r="6"/>
+                            <circle cx="12" cy="36" r="5"/>
+                            <circle cx="36" cy="36" r="5"/>
+                            <line x1="24" y1="18" x2="24" y2="24"/>
+                            <line x1="18" y1="28" x2="14" y2="31"/>
+                            <line x1="30" y1="28" x2="34" y2="31"/>
+                            <line x1="24" y1="24" x2="18" y2="28"/>
+                            <line x1="24" y1="24" x2="30" y2="28"/>
                         </svg>
-                        <h3 class="text-xl font-bold mb-4">事業承継・相続</h3>
-                        <p class="text-gray-400 font-sans text-sm leading-relaxed mb-6">
-                            次世代へのスムーズなバトンタッチを。自社株評価から相続税対策まで、長期的な視点で設計します。
-                        </p>
-                        <span class="text-xs font-sans text-navy-light border-b border-navy-light pb-1 card-more">MORE
-                            DETAIL</span>
+                        <h3>事業承継・相続</h3>
+                        <p>次世代へのスムーズなバトンタッチを実現。自社株評価から相続税対策まで、長期的な視点でお手伝いします。</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Pricing Section (New) -->
-        <section id="pricing" class="py-32 px-6 md:px-24 bg-offwhite">
-            <div class="max-w-5xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-xs font-sans text-gold tracking-[0.3em] mb-4 reveal-text">PRICING</h2>
-                    <h3 class="text-3xl md:text-4xl font-bold text-navy-900 reveal-text">料金の目安</h3>
-                </div>
+        <!-- Strengths -->
+        <section class="section strengths">
+            <div class="container" style="text-align:center;">
+                <span class="section-label reveal">WHY CHOOSE US</span>
+                <h2 class="section-title reveal reveal-delay-1">選ばれる理由</h2>
+                <div class="section-divider section-divider-center reveal reveal-delay-2"></div>
 
-                <div class="bg-white shadow-sm border border-gray-100 reveal-text">
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-left border-collapse">
-                            <thead>
-                                <tr class="bg-navy-900 text-offwhite text-sm font-sans tracking-widest">
-                                    <th class="p-6 font-normal">SERVICE</th>
-                                    <th class="p-6 font-normal">PRICE (TAX INC.)</th>
-                                    <th class="p-6 font-normal">NOTE</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-navy-900 text-sm md:text-base">
-                                <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                                    <td data-label="SERVICE" class="p-6 font-bold">税務顧問（月次）</td>
-                                    <td data-label="PRICE (TAX INC.)" class="p-6 font-sans">33,000円〜</td>
-                                    <td data-label="NOTE" class="p-6 text-xs text-gray-500">年商・訪問頻度により変動します</td>
-                                </tr>
-                                <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                                    <td data-label="SERVICE" class="p-6 font-bold">決算申告のみ</td>
-                                    <td data-label="PRICE (TAX INC.)" class="p-6 font-sans">165,000円〜</td>
-                                    <td data-label="NOTE" class="p-6 text-xs text-gray-500">記帳代行の有無により変動します</td>
-                                </tr>
-                                <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                                    <td data-label="SERVICE" class="p-6 font-bold">相続税申告</td>
-                                    <td data-label="PRICE (TAX INC.)" class="p-6 font-sans">330,000円〜</td>
-                                    <td data-label="NOTE" class="p-6 text-xs text-gray-500">遺産総額の0.5%〜1.0%が目安です</td>
-                                </tr>
-                                <tr class="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                                    <td data-label="SERVICE" class="p-6 font-bold">事業承継コンサルティング</td>
-                                    <td data-label="PRICE (TAX INC.)" class="p-6 font-sans">応相談</td>
-                                    <td data-label="NOTE" class="p-6 text-xs text-gray-500">株価算定含む。プロジェクト単位でお見積り</td>
-                                </tr>
-                                <tr class="bg-gold/5">
-                                    <td data-label="SERVICE" class="p-6 font-bold text-gold-dark">初回相談</td>
-                                    <td data-label="PRICE (TAX INC.)" class="p-6 font-sans font-bold text-gold-dark">
-                                        無料（60分）</td>
-                                    <td data-label="NOTE" class="p-6 text-xs text-gold-dark">以降30分ごとに5,500円</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                <div class="strengths-grid">
+                    <div class="strength-card reveal">
+                        <p class="strength-num">01</p>
+                        <h3>経験と専門性</h3>
+                        <p>大手監査法人出身の代表が、豊富な実務経験をもとに対応。複雑な税務案件にも的確なアドバイスを行います。</p>
                     </div>
-                    <div class="p-6 bg-gray-50 text-xs text-gray-500 leading-relaxed text-center">
+                    <div class="strength-card reveal reveal-delay-1">
+                        <p class="strength-num">02</p>
+                        <h3>明朗な料金体系</h3>
+                        <p>事前にお見積りをご提示し、ご納得いただいてからの着手。追加費用が発生する場合は、必ず事前にご相談いたします。</p>
+                    </div>
+                    <div class="strength-card reveal reveal-delay-2">
+                        <p class="strength-num">03</p>
+                        <h3>柔軟な対応体制</h3>
+                        <p>オンライン相談・土日祝日対応可能。全国どこからでもお気軽にご相談いただけます。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing -->
+        <section class="section pricing" id="pricing">
+            <div class="container" style="text-align:center;">
+                <span class="section-label reveal">PRICING</span>
+                <h2 class="section-title reveal reveal-delay-1">料金の目安</h2>
+                <div class="section-divider section-divider-center reveal reveal-delay-2"></div>
+
+                <div class="pricing-table-wrap reveal reveal-delay-3">
+                    <table class="pricing-table">
+                        <thead>
+                            <tr>
+                                <th>SERVICE</th>
+                                <th>PRICE（税込）</th>
+                                <th>NOTE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="td-service" data-label="SERVICE">税務顧問（月次）</td>
+                                <td class="td-price" data-label="PRICE（税込）">33,000円〜</td>
+                                <td class="td-note" data-label="NOTE">年商・訪問頻度により変動します</td>
+                            </tr>
+                            <tr>
+                                <td class="td-service" data-label="SERVICE">決算申告のみ</td>
+                                <td class="td-price" data-label="PRICE（税込）">165,000円〜</td>
+                                <td class="td-note" data-label="NOTE">記帳代行の有無により変動します</td>
+                            </tr>
+                            <tr>
+                                <td class="td-service" data-label="SERVICE">相続税申告</td>
+                                <td class="td-price" data-label="PRICE（税込）">330,000円〜</td>
+                                <td class="td-note" data-label="NOTE">遺産総額の0.5%〜1.0%が目安です</td>
+                            </tr>
+                            <tr>
+                                <td class="td-service" data-label="SERVICE">事業承継コンサルティング</td>
+                                <td class="td-price" data-label="PRICE（税込）">応相談</td>
+                                <td class="td-note" data-label="NOTE">株価算定含む。プロジェクト単位でお見積り</td>
+                            </tr>
+                            <tr class="tr-highlight">
+                                <td class="td-service" data-label="SERVICE">初回相談</td>
+                                <td class="td-price" data-label="PRICE（税込）">無料（60分）</td>
+                                <td class="td-note" data-label="NOTE">以降30分ごとに5,500円</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="pricing-note">
                         ※上記は目安です。正式なお見積りは、ヒアリング後にご提示いたします。<br>
                         ※ご契約前に費用が発生することはございません。安心してご相談ください。
                     </div>
@@ -741,362 +1073,335 @@
             </div>
         </section>
 
-        <!-- Flow Section (New) -->
-        <section id="flow" class="py-20 bg-navy-50 border-t border-gray-200">
-            <div class="max-w-6xl mx-auto px-6">
-                <div class="text-center mb-16">
-                    <h2 class="text-xs font-sans text-gold tracking-[0.3em] mb-4 reveal-text">FLOW</h2>
-                    <h3 class="text-3xl font-bold text-navy-900 reveal-text">ご相談の流れ</h3>
-                </div>
+        <!-- Flow -->
+        <section class="section flow" id="flow">
+            <div class="container" style="text-align:center;">
+                <span class="section-label reveal">FLOW</span>
+                <h2 class="section-title reveal reveal-delay-1">ご相談の流れ</h2>
+                <div class="section-divider section-divider-center reveal reveal-delay-2"></div>
 
-                <div class="grid md:grid-cols-5 gap-4 relative reveal-text">
-                    <!-- Step 1 -->
-                    <div class="text-center relative group">
-                        <div
-                            class="w-12 h-12 bg-white border border-gold text-gold rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-serif z-10 relative">
-                            1</div>
-                        <h4 class="font-bold text-navy-900 mb-2">お問い合わせ</h4>
-                        <p class="text-xs text-gray-500 leading-relaxed">電話またはフォームより<br>ご連絡ください。</p>
+                <div class="flow-steps reveal reveal-delay-3">
+                    <div class="flow-step">
+                        <div class="flow-num">1</div>
+                        <div>
+                            <h4>お問い合わせ</h4>
+                            <p>電話またはフォームより<br>お気軽にご連絡ください。</p>
+                        </div>
+                        <div class="flow-connector"></div>
                     </div>
-                    <!-- Step 2 -->
-                    <div class="text-center relative group">
-                        <div class="hidden md:block absolute top-6 right-1/2 w-full h-[1px] bg-gray-300 -z-0"></div>
-                        <div
-                            class="w-12 h-12 bg-white border border-gold text-gold rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-serif z-10 relative">
-                            2</div>
-                        <h4 class="font-bold text-navy-900 mb-2">初回ヒアリング</h4>
-                        <p class="text-xs text-gray-500 leading-relaxed">現状の課題やご要望を<br>伺います（60分無料）。</p>
+                    <div class="flow-step">
+                        <div class="flow-num">2</div>
+                        <div>
+                            <h4>初回ヒアリング</h4>
+                            <p>現状の課題やご要望を<br>お伺いします（60分無料）。</p>
+                        </div>
+                        <div class="flow-connector"></div>
                     </div>
-                    <!-- Step 3 -->
-                    <div class="text-center relative group">
-                        <div class="hidden md:block absolute top-6 right-1/2 w-full h-[1px] bg-gray-300 -z-0"></div>
-                        <div
-                            class="w-12 h-12 bg-white border border-gold text-gold rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-serif z-10 relative">
-                            3</div>
-                        <h4 class="font-bold text-navy-900 mb-2">ご提案・お見積り</h4>
-                        <p class="text-xs text-gray-500 leading-relaxed">解決策と明確な費用を<br>ご提示します。</p>
+                    <div class="flow-step">
+                        <div class="flow-num">3</div>
+                        <div>
+                            <h4>ご提案・お見積り</h4>
+                            <p>解決策と明確な費用を<br>ご提示いたします。</p>
+                        </div>
+                        <div class="flow-connector"></div>
                     </div>
-                    <!-- Step 4 -->
-                    <div class="text-center relative group">
-                        <div class="hidden md:block absolute top-6 right-1/2 w-full h-[1px] bg-gray-300 -z-0"></div>
-                        <div
-                            class="w-12 h-12 bg-navy-900 border border-navy-900 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-serif z-10 relative">
-                            4</div>
-                        <h4 class="font-bold text-navy-900 mb-2">ご契約・着手</h4>
-                        <p class="text-xs text-gray-500 leading-relaxed">契約締結後、速やかに<br>業務を開始します。</p>
+                    <div class="flow-step">
+                        <div class="flow-num">4</div>
+                        <div>
+                            <h4>ご契約・着手</h4>
+                            <p>契約締結後、速やかに<br>業務を開始いたします。</p>
+                        </div>
+                        <div class="flow-connector"></div>
                     </div>
-                    <!-- Step 5 -->
-                    <div class="text-center relative group">
-                        <div class="hidden md:block absolute top-6 right-1/2 w-full h-[1px] bg-gray-300 -z-0"></div>
-                        <div
-                            class="w-12 h-12 bg-gold border border-gold text-white rounded-full flex items-center justify-center mx-auto mb-4 text-lg font-serif z-10 relative">
-                            5</div>
-                        <h4 class="font-bold text-navy-900 mb-2">完了・報告</h4>
-                        <p class="text-xs text-gray-500 leading-relaxed">完了報告書を納品し<br>終了となります。</p>
+                    <div class="flow-step">
+                        <div class="flow-num">5</div>
+                        <div>
+                            <h4>完了・ご報告</h4>
+                            <p>完了報告書を納品し<br>業務完了となります。</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Divider / Marquee -->
-        <div class="bg-gold py-4 overflow-hidden flex items-center">
-            <div class="marquee-container w-full">
-                <div
-                    class="marquee-content inline-flex min-w-max gap-12 text-navy-900 font-bold tracking-widest text-lg">
-                    <span>TRUST</span> ✦ <span>INTEGRITY</span> ✦ <span>STRATEGY</span> ✦ <span>GROWTH</span> ✦
-                    <span>MIDORI TAX</span> ✦ <span>TRUST</span> ✦ <span>INTEGRITY</span> ✦ <span>STRATEGY</span> ✦
-                    <span>GROWTH</span> ✦ <span>MIDORI TAX</span> ✦
-                    <span>TRUST</span> ✦ <span>INTEGRITY</span> ✦ <span>STRATEGY</span> ✦ <span>GROWTH</span> ✦
-                    <span>MIDORI TAX</span> ✦ <span>TRUST</span> ✦ <span>INTEGRITY</span> ✦ <span>STRATEGY</span> ✦
-                    <span>GROWTH</span> ✦ <span>MIDORI TAX</span> ✦
-                </div>
+        <!-- Marquee -->
+        <div class="marquee">
+            <div class="marquee-track">
+                <span>TRUST</span><span>✦</span>
+                <span>INTEGRITY</span><span>✦</span>
+                <span>STRATEGY</span><span>✦</span>
+                <span>GROWTH</span><span>✦</span>
+                <span>MIDORI TAX</span><span>✦</span>
+                <span>TRUST</span><span>✦</span>
+                <span>INTEGRITY</span><span>✦</span>
+                <span>STRATEGY</span><span>✦</span>
+                <span>GROWTH</span><span>✦</span>
+                <span>MIDORI TAX</span><span>✦</span>
+                <span>TRUST</span><span>✦</span>
+                <span>INTEGRITY</span><span>✦</span>
+                <span>STRATEGY</span><span>✦</span>
+                <span>GROWTH</span><span>✦</span>
+                <span>MIDORI TAX</span><span>✦</span>
+                <span>TRUST</span><span>✦</span>
+                <span>INTEGRITY</span><span>✦</span>
+                <span>STRATEGY</span><span>✦</span>
+                <span>GROWTH</span><span>✦</span>
+                <span>MIDORI TAX</span><span>✦</span>
             </div>
         </div>
 
-        <!-- FAQ Section (New) -->
-        <section class="py-24 px-6 md:px-24 bg-offwhite">
-            <div class="max-w-3xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-xs font-sans text-gold tracking-[0.3em] mb-4 reveal-text">Q&A</h2>
-                    <h3 class="text-3xl font-bold text-navy-900 reveal-text">よくあるご質問</h3>
+        <!-- FAQ -->
+        <section class="section faq">
+            <div class="container">
+                <div style="text-align:center;">
+                    <span class="section-label reveal">Q&A</span>
+                    <h2 class="section-title reveal reveal-delay-1">よくあるご質問</h2>
+                    <div class="section-divider section-divider-center reveal reveal-delay-2"></div>
                 </div>
-
-                <div class="space-y-4 reveal-text">
-                    <!-- FAQ Item -->
-                    <div class="faq-item border-b border-gray-200 pb-4">
-                        <button
-                            class="w-full flex justify-between items-center text-left py-2 focus:outline-none group">
-                            <span class="font-bold text-navy-900">Q. 土日や夜間の相談は可能ですか？</span>
-                            <span class="faq-icon text-gold text-2xl group-hover:text-navy-900">+</span>
+                <div class="faq-list reveal reveal-delay-3">
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Q. 土日や夜間の相談は可能ですか？</span>
+                            <span class="faq-icon"></span>
                         </button>
                         <div class="faq-answer">
-                            <p class="text-sm text-gray-600 leading-relaxed pt-2 pb-4">
-                                はい、事前にご予約いただければ、土日祝日や平日の夜間（20時まで）も対応可能です。お忙しい経営者様も安心してご相談ください。
-                            </p>
+                            <p class="faq-answer-inner">はい、事前にご予約いただければ、土日祝日や平日の夜間（20時まで）も対応可能です。お仕事でお忙しい経営者の方もお気軽にご相談ください。</p>
                         </div>
                     </div>
-                    <!-- FAQ Item -->
-                    <div class="faq-item border-b border-gray-200 pb-4">
-                        <button
-                            class="w-full flex justify-between items-center text-left py-2 focus:outline-none group">
-                            <span class="font-bold text-navy-900">Q. 遠方ですが対応してもらえますか？</span>
-                            <span class="faq-icon text-gold text-2xl group-hover:text-navy-900">+</span>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Q. 遠方ですが対応していただけますか？</span>
+                            <span class="faq-icon"></span>
                         </button>
                         <div class="faq-answer">
-                            <p class="text-sm text-gray-600 leading-relaxed pt-2 pb-4">
-                                ZoomやGoogle Meet等のオンラインツールを活用し、全国対応しております。資料のやり取りもクラウドや郵送でスムーズに行えます。
-                            </p>
+                            <p class="faq-answer-inner">ZoomやGoogle Meet等のオンラインツールを活用し、全国からのご相談に対応しております。資料のやり取りもクラウドや郵送でスムーズに行えます。</p>
                         </div>
                     </div>
-                    <!-- FAQ Item -->
-                    <div class="faq-item border-b border-gray-200 pb-4">
-                        <button
-                            class="w-full flex justify-between items-center text-left py-2 focus:outline-none group">
-                            <span class="font-bold text-navy-900">Q. 顧問契約なしで、スポットの決算依頼はできますか？</span>
-                            <span class="faq-icon text-gold text-2xl group-hover:text-navy-900">+</span>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Q. 顧問契約なしで、単発の依頼は可能ですか？</span>
+                            <span class="faq-icon"></span>
                         </button>
                         <div class="faq-answer">
-                            <p class="text-sm text-gray-600 leading-relaxed pt-2 pb-4">
-                                はい、承っております。年一回の決算申告のみや、相続税申告のみといったスポット依頼も歓迎ですので、お気軽にお見積りをご依頼ください。
-                            </p>
+                            <p class="faq-answer-inner">はい、承っております。年1回の決算申告や相続税申告など、単発でのご依頼も歓迎しておりますので、お気軽にお見積りをご依頼ください。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>Q. 他の税理士事務所から乗り換えたいのですが？</span>
+                            <span class="faq-icon"></span>
+                        </button>
+                        <div class="faq-answer">
+                            <p class="faq-answer-inner">引き継���手続きも含めてサポートいたします。現在の顧問税理士への連絡方法やタイミングについてもアドバイスいたしますので、まずは初回無料相談でお気軽にご相談ください。</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="py-32 px-6 md:px-24 bg-navy-900 text-offwhite">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-xs font-sans text-gold tracking-[0.3em] mb-6 reveal-text">CONTACT</h2>
-                <h3 class="contact-main-copy text-4xl md:text-6xl font-bold mb-12 reveal-text">
-                    未来の話を<span class="contact-tail">しましょう。</span>
-                </h3>
-
-                <div class="grid md:grid-cols-2 gap-8 mb-16 reveal-text">
-                    <div class="border border-navy-700 p-8 hover:border-gold transition-colors">
-                        <p class="text-xs font-sans tracking-widest text-gray-400 mb-2">BY PHONE</p>
-                        <a href="tel:03-1234-5678"
-                            class="text-2xl font-bold tracking-wider hover:text-gold transition-colors">03-1234-5678</a>
-                        <p class="text-xs text-gray-500 mt-2">受付：平日 9:00 - 18:00</p>
-                    </div>
-                    <div class="border border-navy-700 p-8 hover:border-gold transition-colors">
-                        <p class="text-xs font-sans tracking-widest text-gray-400 mb-2">BY EMAIL</p>
-                        <p class="text-lg">24時間受付中</p>
-                        <p class="text-xs text-gray-500 mt-2">通常2営業日以内に返信いたします</p>
-                    </div>
-                </div>
-
-                <form class="text-left max-w-2xl mx-auto space-y-8 reveal-text">
-                    <div class="grid md:grid-cols-2 gap-8">
-                        <div class="group">
-                            <label
-                                class="block text-xs font-sans text-gray-400 tracking-widest mb-2 group-focus-within:text-gold transition-colors">NAME</label>
-                            <input type="text"
-                                class="w-full bg-transparent border-b border-gray-600 py-3 focus:outline-none focus:border-gold transition-colors text-white placeholder-gray-700"
-                                placeholder="お名前">
+        <!-- Contact -->
+        <section class="section contact" id="contact">
+            <div class="container">
+                <div class="contact-inner">
+                    <span class="section-label reveal">CONTACT</span>
+                    <h2 class="contact-title reveal reveal-delay-1">
+                        まずはお気軽に、<br>ご相談ください。
+                    </h2>
+                    <div class="contact-boxes reveal reveal-delay-2">
+                        <div class="contact-box">
+                            <p class="contact-box-label">BY PHONE</p>
+                            <a href="tel:03-1234-5678" class="contact-box-value">03-1234-5678</a>
+                            <p class="contact-box-note">受付：平日 9:00 - 18:00</p>
                         </div>
-                        <div class="group">
-                            <label
-                                class="block text-xs font-sans text-gray-400 tracking-widest mb-2 group-focus-within:text-gold transition-colors">EMAIL</label>
-                            <input type="email"
-                                class="w-full bg-transparent border-b border-gray-600 py-3 focus:outline-none focus:border-gold transition-colors text-white placeholder-gray-700"
-                                placeholder="メールアドレス">
+                        <div class="contact-box">
+                            <p class="contact-box-label">BY EMAIL</p>
+                            <p class="contact-box-value">24時間受付</p>
+                            <p class="contact-box-note">通常2営業日以内にご返信いたします</p>
                         </div>
                     </div>
-                    <div class="group">
-                        <label
-                            class="block text-xs font-sans text-gray-400 tracking-widest mb-2 group-focus-within:text-gold transition-colors">MESSAGE</label>
-                        <textarea rows="4"
-                            class="w-full bg-transparent border-b border-gray-600 py-3 focus:outline-none focus:border-gold transition-colors text-white placeholder-gray-700"
-                            placeholder="ご相談内容（例：相続について相談したい）"></textarea>
-                    </div>
 
-                    <!-- Form Note -->
-                    <p class="text-xs text-gray-500 text-center">
-                        ご入力いただいた個人情報は、お問い合わせ対応の目的以外には使用いたしません。<br>
-                        当事務所の<a href="#" class="underline hover:text-gold">プライバシーポリシー</a>に同意の上、送信してください。
-                    </p>
-
-                    <div class="text-center mt-12">
-                        <button type="button"
-                            class="contact-submit cta-touch group relative inline-flex items-center justify-center px-12 py-4 overflow-hidden border border-white transition-all hover:border-gold hover:text-navy-900 bg-transparent hover:bg-gold">
-                            <span class="relative text-sm font-sans tracking-widest transition-colors duration-300">SEND
-                                MESSAGE</span>
+                    <form class="contact-form reveal reveal-delay-3">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">NAME</label>
+                                <input type="text" class="form-input" placeholder="お名前">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">EMAIL</label>
+                                <input type="email" class="form-input" placeholder="メールアドレス">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">COMPANY</label>
+                            <input type="text" class="form-input" placeholder="会社名（任意）">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">MESSAGE</label>
+                            <textarea class="form-input" placeholder="ご相談内容（例：相続について相談したい）"></textarea>
+                        </div>
+                        <p class="form-privacy">
+                            ご入力いただいた個人情報は、お問い合わせ対応の目的以外には使用いたしません。<br>
+                            当事務所の<a href="#">プライバシーポリシー</a>に同意の上、送信してください。
+                        </p>
+                        <button type="button" class="form-submit">
+                            SEND MESSAGE
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                         </button>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-navy-900 text-offwhite py-20 px-6 border-t border-navy-800">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
-            <div>
-                <a href="#" class="text-2xl font-bold tracking-widest flex items-center gap-2 mb-6">
-                    <svg class="w-6 h-6 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                    </svg>
-                    MIDORI TAX
-                </a>
-                <address class="not-italic text-gray-400 text-sm font-sans leading-relaxed">
-                    〒100-0005<br>
-                    東京都千代田区丸の内1-1-1<br>
-                    みどりビルディング 8F<br>
-                    TEL: 03-1234-5678
-                </address>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        <span class="nav-logo-icon" style="width:22px;height:22px;"></span>
+                        MIDORI TAX
+                    </div>
+                    <address class="footer-address">
+                        〒100-0005<br>
+                        東京都千代田区丸の内1-1-1<br>
+                        みどりビルディング 8F<br>
+                        TEL: 03-1234-5678
+                    </address>
+                </div>
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="#">ホーム</a></li>
+                        <li><a href="#about">事務所案内</a></li>
+                        <li><a href="#services">サービス</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#pricing">料金案内</a></li>
+                        <li><a href="#flow">ご相談の流れ</a></li>
+                        <li><a href="#contact">お問い合わせ</a></li>
+                    </ul>
+                    <ul>
+                        <li><a href="#">プライバシーポリシー</a></li>
+                        <li><a href="#">特定商取引法に基づく表記</a></li>
+                    </ul>
+                </div>
             </div>
-
-            <div class="flex flex-wrap gap-12 text-sm font-sans text-gray-400">
-                <ul class="space-y-4">
-                    <li><a href="#" class="hover:text-gold transition-colors">ホーム</a></li>
-                    <li><a href="#about" class="hover:text-gold transition-colors">事務所案内</a></li>
-                    <li><a href="#services" class="hover:text-gold transition-colors">サービス</a></li>
-                </ul>
-                <ul class="space-y-4">
-                    <li><a href="#pricing" class="hover:text-gold transition-colors">料金案内</a></li>
-                    <li><a href="#flow" class="hover:text-gold transition-colors">ご相談の流れ</a></li>
-                    <li><a href="#contact" class="hover:text-gold transition-colors">お問い合わせ</a></li>
-                </ul>
-                <ul class="space-y-4">
-                    <li><a href="#" class="hover:text-gold transition-colors">プライバシーポリシー</a></li>
-                    <li><a href="#" class="hover:text-gold transition-colors">特定商取引法に基づく表記</a></li>
-                    <li><a href="#" class="hover:text-gold transition-colors">サイトマップ</a></li>
-                </ul>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Midori Tax Accounting Office.</p>
+                <p>Designed with Integrity.</p>
             </div>
-        </div>
-        <div
-            class="max-w-7xl mx-auto mt-20 pt-8 border-t border-navy-800 flex flex-col md:flex-row justify-between text-xs text-gray-600 font-sans">
-            <p>&copy; 2024 Midori Tax Accounting Office.</p>
-            <p>Designed with Integrity.</p>
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- JavaScript -->
     <script>
-        // Loading Animation
-        window.addEventListener('load', () => {
-            const loader = document.getElementById('loader');
-            setTimeout(() => {
-                loader.style.opacity = '0';
-                loader.style.visibility = 'hidden';
-            }, 1000);
-        });
+        (function() {
+            'use strict';
 
-        // Initialize Lenis Smooth Scroll (fail-safe if CDN is unavailable)
-        let lenis = null;
-        if (typeof window.Lenis === 'function') {
-            try {
-                lenis = new window.Lenis({
-                    duration: 1.2,
-                    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-                    direction: 'vertical',
-                    gestureDirection: 'vertical',
-                    smooth: true,
-                    mouseMultiplier: 1,
-                    smoothTouch: false,
-                    touchMultiplier: 2,
-                });
-
-                function raf(time) {
-                    lenis.raf(time);
-                    requestAnimationFrame(raf);
-                }
-                requestAnimationFrame(raf);
-            } catch (error) {
-                console.warn('Lenis initialization failed:', error);
-            }
-        }
-
-        // Intersection Observer for Scroll Reveals
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px"
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
+            // ===== Loader =====
+            window.addEventListener('load', function() {
+                var loader = document.getElementById('loader');
+                setTimeout(function() {
+                    loader.classList.add('hidden');
+                }, 1200);
             });
-        }, observerOptions);
 
-        document.querySelectorAll('.reveal-text, .reveal-line, .active-scale').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Navbar Scroll Effect
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                nav.classList.add('backdrop-blur-md', 'bg-navy-900/90', 'py-4', 'shadow-lg');
-                nav.classList.remove('py-6', 'mix-blend-difference');
-            } else {
-                nav.classList.remove('backdrop-blur-md', 'bg-navy-900/90', 'py-4', 'shadow-lg');
-                nav.classList.add('py-6', 'mix-blend-difference');
-            }
-        });
-
-        // Anchor link smooth scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                if (lenis) {
-                    lenis.scrollTo(targetId);
-                } else {
-                    const target = document.querySelector(targetId);
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // ===== Scroll Reveal =====
+            var revealObserver = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
                     }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+            document.querySelectorAll('.reveal').forEach(function(el) {
+                revealObserver.observe(el);
+            });
+
+            // ===== Navbar Scroll =====
+            var navbar = document.getElementById('navbar');
+            var lastScroll = 0;
+
+            window.addEventListener('scroll', function() {
+                var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+                if (scrollY > 60) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+                lastScroll = scrollY;
+            }, { passive: true });
+
+            // ===== Mobile Menu =====
+            var menuBtn = document.getElementById('menuBtn');
+            var mobileMenu = document.getElementById('mobileMenu');
+            var mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+            function openMenu() {
+                menuBtn.classList.add('active');
+                mobileMenu.classList.add('open');
+                menuBtn.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMenu() {
+                menuBtn.classList.remove('active');
+                mobileMenu.classList.remove('open');
+                menuBtn.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+
+            menuBtn.addEventListener('click', function() {
+                if (mobileMenu.classList.contains('open')) {
+                    closeMenu();
+                } else {
+                    openMenu();
                 }
             });
-        });
 
-        // FAQ Accordion
-        document.querySelectorAll('.faq-item button').forEach(button => {
-            button.addEventListener('click', () => {
-                const item = button.parentElement;
-                item.classList.toggle('active');
+            mobileLinks.forEach(function(link) {
+                link.addEventListener('click', closeMenu);
             });
-        });
 
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('menu-btn');
-        const menuClose = document.getElementById('menu-close');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            window.addEventListener('resize', function() {
+                if (window.innerWidth >= 769) closeMenu();
+            });
 
-        const openMenu = () => {
-            mobileMenu.classList.remove('translate-x-full');
-            mobileMenuOverlay.classList.remove('opacity-0', 'pointer-events-none');
-            menuBtn.setAttribute('aria-expanded', 'true');
-            document.body.style.overflow = 'hidden';
-        };
+            // ===== Smooth Scroll =====
+            document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+                anchor.addEventListener('click', function(e) {
+                    var href = this.getAttribute('href');
+                    if (href === '#') return;
+                    e.preventDefault();
+                    var target = document.querySelector(href);
+                    if (target) {
+                        var offset = navbar.offsetHeight + 10;
+                        var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                        window.scrollTo({ top: top, behavior: 'smooth' });
+                    }
+                });
+            });
 
-        const closeMenu = () => {
-            mobileMenu.classList.add('translate-x-full');
-            mobileMenuOverlay.classList.add('opacity-0', 'pointer-events-none');
-            menuBtn.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = '';
-        };
+            // ===== FAQ Accordion =====
+            document.querySelectorAll('.faq-question').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var item = this.closest('.faq-item');
+                    var isActive = item.classList.contains('active');
+                    // Close all
+                    document.querySelectorAll('.faq-item').forEach(function(faq) {
+                        faq.classList.remove('active');
+                        faq.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                    });
+                    // Open clicked if not already active
+                    if (!isActive) {
+                        item.classList.add('active');
+                        this.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            });
 
-        menuBtn.addEventListener('click', openMenu);
-        menuClose.addEventListener('click', closeMenu);
-        mobileMenuOverlay.addEventListener('click', closeMenu);
-        mobileNavLinks.forEach(link => link.addEventListener('click', closeMenu));
-
-        window.addEventListener('resize', () => {
-            if (window.innerWidth >= 768) {
-                closeMenu();
-            }
-        });
-
+        })();
     </script>
 </body>
 
