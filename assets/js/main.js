@@ -5,9 +5,9 @@
   var rootStyle = document.documentElement.style;
   var copySets = {
     A: {
-      heroLabel: '建設業・士業向き / IT初心者向け',
+      heroLabel: '建設業・士業向き / IT初心者歓迎',
       heroTitle: '<span class="u-keep">根拠に基づいた維持費0円のHP・LP制作</span>',
-      heroSub: '難しい設定は不要です。全国800社の調査をもとに、お問い合わせにつながる構成で制作します。',
+      heroSub: '全国800社の調査をもとに、お問い合わせにつながる構成で制作します。',
       primaryCta: '料金とサービス内容を見る',
       ctaDesc: 'デモ確認後にそのままご相談できます。初めての方にも分かるよう、手順をシンプルにしています。',
       floatCta: 'HP制作の詳細・料金を見る'
