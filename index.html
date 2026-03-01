@@ -1,475 +1,662 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Yuki Portfolio | 維持費0円のホームページ制作（建設業・士業向き）</title>
-<meta name="description" content="建設業・士業向けホームページ制作。IT初心者でも安心。全国800社の調査をもとに、見やすく伝わる3ページ構成を維持費0円でご提供します。">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Yuki Portfolio | 維持費0円のホームページ制作（建設業・士業向き）</title>
+  <meta name="description" content="建設業・士業向けホームページ制作。IT初心者でも安心。全国800社の調査をもとに、見やすく伝わる構成を維持費0円でご提案します。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;700&amp;family=Zen+Kaku+Gothic+New:wght@400;500;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/main.js" defer></script>
 </head>
 <body>
+  <a href="#main" class="skip-link">本文へスキップ</a>
 
-<a href="#main" class="skip-link">本文へスキップ</a>
-
-<!-- ========== Header ========== -->
-<header class="header" role="banner">
-  <div class="header__inner">
-    <a href="#" class="header__logo">Yuki <span>Portfolio</span></a>
-    <nav aria-label="メインナビゲーション">
-      <ul class="header__nav">
-        <li><a href="#portfolio">ポートフォリオ</a></li>
-        <li><a href="#demo">デモ</a></li>
-        <li><a href="#features">制作の特徴</a></li>
-        <li><a href="https://coconala.com/services/3974879?ref=top_histories&ref_kind=home&ref_no=4" target="_blank" rel="noopener noreferrer" class="header__cta">サービスを見る</a></li>
-      </ul>
-    </nav>
-    <button class="hamburger" aria-label="メニューを開く" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</header>
-
-<!-- Mobile Nav -->
-<nav class="mobile-nav" aria-label="モバイルナビゲーション">
-  <a href="#portfolio">ポートフォリオ</a>
-  <a href="#demo">デモ</a>
-  <a href="#features">制作の特徴</a>
-  <a href="https://coconala.com/services/3974879?ref=top_histories&ref_kind=home&ref_no=4" target="_blank" rel="noopener noreferrer" class="mobile-nav__cta">サービスを見る</a>
-</nav>
-
-<!-- ========== Hero ========== -->
-<main id="main">
-<section class="hero">
-  <div class="hero__bg" aria-hidden="true"></div>
-  <div class="hero__grid" aria-hidden="true"></div>
-  <div class="hero__content">
-    <p class="hero__label" data-copy-key="heroLabel">建設業・士業向き / IT初心者歓迎</p>
-    <h1 class="hero__title" data-copy-key="heroTitle"><span class="u-keep">根拠に基づいた維持費0円のHP・LP制作</span></h1>
-    <p class="hero__sub" data-copy-key="heroSub">全国800社の調査をもとに、お問い合わせにつながる構成で制作します。</p>
-    <div class="hero__stat">
-      <span class="hero__stat-num">800</span>
-      <span class="hero__stat-text">社のホームページを調査済み</span>
-    </div>
-    <div class="hero__cta">
-      <a href="https://coconala.com/services/3974879?ref=top_histories&ref_kind=home&ref_no=4" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
-        <span data-copy-key="primaryCta">料金とサービス内容を見る</span>
-        <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5zM5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/></svg>
+  <header class="site-header" id="top">
+    <div class="container site-header__inner">
+      <a class="site-header__logo" href="#top" aria-label="Yuki Portfolio トップへ戻る">
+        <span class="site-header__logo-mark">YK</span>
+        <span class="site-header__logo-text">Yuki Portfolio</span>
       </a>
-      <a href="#demo" class="btn btn--ghost">デモサイトを見る</a>
+
+      <nav class="site-nav" aria-label="メインナビゲーション">
+        <a href="#strengths" data-nav-link data-load style="--load-delay:120ms;">強み</a>
+        <a href="#works" data-nav-link data-load style="--load-delay:170ms;">事例</a>
+        <a href="#services" data-nav-link data-load style="--load-delay:220ms;">料金</a>
+        <a href="#faq" data-nav-link data-load style="--load-delay:270ms;">FAQ</a>
+      </nav>
+
+      <a
+        href="https://coconala.com/services/3974879?ref=top_histories&amp;ref_kind=home&amp;ref_no=4"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="button button--header"
+        data-load
+        style="--load-delay:320ms;"
+      >
+        <span>ココナラで相談する</span>
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M11 3a1 1 0 1 0 0 2h2.586l-6.293 6.293a1 1 0 1 0 1.414 1.414L15 6.414V9a1 1 0 1 0 2 0V4a1 1 0 0 0-1-1h-5zM5 5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-3a1 1 0 1 0-2 0v3H5V7h3a1 1 0 0 0 0-2H5z"/></svg>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
-  </div>
-</section>
 
-<!-- ========== Value Strip ========== -->
-<div class="value-strip">
-  <div class="container">
-    <div class="value-strip__grid">
-      <div class="value-strip__item">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-        <div>
-          <strong>維持費 0円</strong>
-          <span>毎月のサーバー代・保守費用なし</span>
-        </div>
-      </div>
-      <div class="value-strip__item">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
-        <div>
-          <strong>業種に合わせた設計</strong>
-          <span>800社の調査データを反映</span>
-        </div>
-      </div>
-      <div class="value-strip__item">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
-        <div>
-          <strong>更新は1回5,000円から</strong>
-          <span>必要なときだけ依頼できます</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ========== Portfolio ========== -->
-<section id="portfolio" class="section portfolio">
-  <div class="container">
-    <span class="section-label">Portfolio</span>
-    <h2 class="section-title">制作実績</h2>
-
-    <div class="portfolio-grid">
-      <!-- Card: サクラ工業 -->
-      <article class="portfolio-card fade-in">
-        <a href="https://www.sakura-kogyo.jp/" target="_blank" rel="noopener noreferrer" class="portfolio-card__img">
-          <img src="img/portfolio/build/sakura-fv.webp" alt="株式会社サクラ工業のファーストビュー">
-          <div class="portfolio-card__img-overlay">
-            <span>サイトを見る &#8599;</span>
-          </div>
+    <nav class="mobile-nav" id="mobile-nav" aria-label="モバイルナビゲーション">
+      <div class="mobile-nav__panel">
+        <a href="#strengths" data-mobile-link>強み</a>
+        <a href="#works" data-mobile-link>事例</a>
+        <a href="#services" data-mobile-link>料金</a>
+        <a href="#faq" data-mobile-link>FAQ</a>
+        <a href="#about" data-mobile-link>プロフィール</a>
+        <a href="https://coconala.com/services/3974879?ref=top_histories&amp;ref_kind=home&amp;ref_no=4" target="_blank" rel="noopener noreferrer" class="button button--mobile-nav" data-mobile-link>
+          <span>ココナラで相談する</span>
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M11 3a1 1 0 1 0 0 2h2.586l-6.293 6.293a1 1 0 1 0 1.414 1.414L15 6.414V9a1 1 0 1 0 2 0V4a1 1 0 0 0-1-1h-5zM5 5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-3a1 1 0 1 0-2 0v3H5V7h3a1 1 0 0 0 0-2H5z"/></svg>
         </a>
-        <div class="portfolio-card__body">
-          <div class="portfolio-card__meta">
-            <span class="tag tag--build">建設業</span>
-            <span class="portfolio-card__meta-item"><strong>業種:</strong> 電気設備工事（外構）</span>
-            <span class="portfolio-card__meta-item"><strong>構成:</strong> 3ページ</span>
-            <span class="portfolio-card__meta-item"><strong>担当:</strong> 設計・コーディング・公開</span>
-          </div>
-          <h3 class="portfolio-card__title">株式会社サクラ工業</h3>
+      </div>
+    </nav>
+  </header>
 
-          <div class="portfolio-card__desc">
-            <h4>ご依頼の背景</h4>
-            <p>「会社の強みはあるけど、HPでうまく伝わっていない」というご相談でした。迅速対応・技術力・豊富な施工実績を、初めてサイトを訪れた方にも短時間で伝わるように構成しています。</p>
+  <main id="main">
+    <section class="hero" id="hero">
+      <div class="hero__texture" aria-hidden="true"></div>
+      <div class="hero__orbit hero__orbit--one" aria-hidden="true"></div>
+      <div class="hero__orbit hero__orbit--two" aria-hidden="true"></div>
+
+      <div class="container hero__layout">
+        <div class="hero__copy">
+          <p class="hero__eyebrow" data-load style="--load-delay:160ms;">建設業・士業向き / IT初心者歓迎</p>
+          <h1 class="hero__title" data-load style="--load-delay:260ms;">根拠に基づいた維持費0円のHP・LP制作</h1>
+          <p class="hero__lead" data-load style="--load-delay:360ms;">全国800社の調査をもとに、お問い合わせにつながる構成で制作します。会社案内から採用LPまで、必要な情報だけを整理して伝わる形に仕上げます。</p>
+          <div class="hero__price" data-load style="--load-delay:460ms;">
+            <span>HP制作 3万円〜</span>
+            <span>LP制作 2万円〜</span>
+            <span>更新 5千円〜</span>
           </div>
 
-          <div class="portfolio-card__desc">
-            <h4>具体的にやったこと</h4>
-            <ul>
-              <li>最初の画面で「何の会社か」と「問い合わせ先」がすぐ分かるように配置し、訪問者が迷わない導線にしました。</li>
-              <li>施工実績を「商業施設・工場施設・公共施設」に分けて、<strong>どんな工事に対応できるかが一目で伝わる</strong>ように整理しました。</li>
-              <li>ページ構成をシンプルにし、<strong>表示が速く・壊れにくく・管理しやすい</strong>作りにしました。</li>
-              <li>見出しやページの説明文を整え、検索で見つけてもらいやすくしました。（SEO＝検索エンジンに評価される工夫のことです）</li>
+          <div class="hero__actions" data-load style="--load-delay:560ms;">
+            <a href="#services" class="button button--primary">
+              <span>サービス・料金を見る</span>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 15a1 1 0 0 1-.707-1.707L11.586 11H4a1 1 0 1 1 0-2h7.586L9.293 6.707A1 1 0 0 1 10.707 5.293l4 4a1 1 0 0 1 0 1.414l-4 4A.997.997 0 0 1 10 15z"/></svg>
+            </a>
+            <a href="https://coconala.com/services/3974879?ref=top_histories&amp;ref_kind=home&amp;ref_no=4" target="_blank" rel="noopener noreferrer" class="button button--ghost">
+              <span>ココナラで相談する</span>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M11 3a1 1 0 1 0 0 2h2.586l-6.293 6.293a1 1 0 1 0 1.414 1.414L15 6.414V9a1 1 0 1 0 2 0V4a1 1 0 0 0-1-1h-5zM5 5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-3a1 1 0 1 0-2 0v3H5V7h3a1 1 0 0 0 0-2H5z"/></svg>
+            </a>
+          </div>
+
+          <div class="hero__badges">
+            <div class="hero-badge" data-load style="--load-delay:660ms;">
+              <strong>維持費0円</strong>
+              <span>固定費を重くしない静的サイト</span>
+            </div>
+            <div class="hero-badge" data-load style="--load-delay:720ms;">
+              <strong>800社調査</strong>
+              <span>業種に合わせて見せ方を設計</span>
+            </div>
+            <div class="hero-badge" data-load style="--load-delay:780ms;">
+              <strong>更新5千円〜</strong>
+              <span>必要なときだけスポット対応</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__visual">
+          <div class="hero-portrait" data-load style="--load-delay:620ms;">
+            <div class="hero-portrait__frame">
+              <img src="img/profile/yuki-portrait.webp" alt="Yukiの顔写真" width="853" height="1280" fetchpriority="high">
+            </div>
+            <div class="hero-portrait__card">
+              <span class="hero-portrait__card-label">Direction</span>
+              <strong>構成設計から公開まで対応</strong>
+              <p>文章整理、導線設計、公開設定までまとめて進められます。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section strengths" id="strengths">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <p class="section-heading__eyebrow">Strengths</p>
+          <h2 class="section-heading__title">選ばれる理由</h2>
+          <p class="section-heading__lead">「誰に頼むか」と「どう進むか」が最初から見えるように、差別化ポイントを4つに整理しました。</p>
+        </div>
+
+        <div class="strengths__grid">
+          <article class="feature-card" data-reveal style="--delay:0ms;">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32"><path d="M16 4v24M23 9H13a4 4 0 0 0 0 8h6a4 4 0 0 1 0 8H8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>維持費0円で始めやすい</h3>
+            <p>GitHub Pagesを活用した静的サイトで、毎月のサーバー代や保守費用を抑えやすい構成です。公開後も固定費を重くしません。</p>
+          </article>
+
+          <article class="feature-card" data-reveal style="--delay:100ms;">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32"><path d="M6 9h20M6 16h20M6 23h14M10 5v22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>800社調査を構成に反映</h3>
+            <p>建設業・士業のホームページを調査し、何を先に見せるべきかを整理しています。業種に合った順番で情報を設計します。</p>
+          </article>
+
+          <article class="feature-card" data-reveal style="--delay:200ms;">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32"><path d="M8 22l6-6 4 4 6-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 26h20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>文章整理から丸投げOK</h3>
+            <p>文章作成、画像の選定、公開準備までまとめて対応します。忙しくて後回しになりがちなホームページ制作でも進めやすい体制です。</p>
+          </article>
+
+          <article class="feature-card" data-reveal style="--delay:300ms;">
+            <div class="feature-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32"><path d="M7 10h18M7 16h12M7 22h8M23 20l2 2 4-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3>専門用語なしで進行</h3>
+            <p>ITが苦手でも大丈夫です。難しい言葉はかみ砕いて説明し、必要な準備だけを順番にご案内するので迷わず進められます。</p>
+          </article>
+        </div>
+
+        <div class="section-inline-cta" data-reveal style="--delay:360ms;">
+          <a href="#services">料金を見る</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--soft section--divider works" id="works">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <p class="section-heading__eyebrow">Works</p>
+          <h2 class="section-heading__title">制作事例</h2>
+          <p class="section-heading__lead">実案件1件とデモ4件をまとめて掲載し、制作の幅と品質が一度で分かる構成にしています。</p>
+        </div>
+
+        <div class="works__label" data-reveal>実案件</div>
+        <article class="work-card">
+          <a class="work-card__media" href="https://www.sakura-kogyo.jp/" target="_blank" rel="noopener noreferrer" data-restore-scroll data-reveal style="--delay:0ms;">
+            <img src="img/portfolio/build/sakura-fv.webp" alt="株式会社サクラ工業のホームページ表示イメージ" width="1280" height="720" loading="lazy">
+          </a>
+          <div class="work-card__body" data-reveal style="--delay:120ms;">
+            <div class="work-card__meta">
+              <span class="badge badge--accent">実績</span>
+              <span class="badge badge--line">建設業</span>
+              <span>3ページ構成</span>
+              <span>設計・コーディング・公開</span>
+            </div>
+            <h3>株式会社サクラ工業</h3>
+            <p class="work-card__summary">「会社の強みはあるけど、HPでうまく伝わっていない」というご相談に対し、迅速対応・技術力・施工実績が短時間で伝わる構成へ再設計しました。</p>
+            <ul class="work-card__list">
+              <li>最初の画面で会社概要と問い合わせ先がすぐ分かる導線に調整</li>
+              <li>施工実績を分類して、対応範囲が一目で伝わるように整理</li>
+              <li>表示速度、壊れにくさ、管理しやすさを重視して公開</li>
             </ul>
-          </div>
 
-          <div class="portfolio-card__desc portfolio-card__desc--result">
-            <h4>公開後の状況</h4>
-            <p>同じ社名の大企業がある中でも検索で混同されにくい状態を実現。GoogleのAI Overview（検索結果の上部に表示される自動まとめ）にも情報が引用されていることを確認しました。</p>
-          </div>
+            <blockquote class="work-quote" data-reveal style="--delay:280ms;">
+              <p>「全て丸投げであったのにも関わらず…」というお声をいただき、安心して任せられる進行面も評価いただきました。</p>
+              <footer>ご依頼者様</footer>
+            </blockquote>
 
-          <a href="https://www.sakura-kogyo.jp/" target="_blank" rel="noopener noreferrer" class="portfolio-card__link">
-            サイトを見る
-            <svg viewBox="0 0 20 20"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5zM5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/></svg>
+            <a href="https://www.sakura-kogyo.jp/" target="_blank" rel="noopener noreferrer" class="button button--secondary" data-restore-scroll>
+              <span>サイトを見る</span>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M11 3a1 1 0 1 0 0 2h2.586l-6.293 6.293a1 1 0 1 0 1.414 1.414L15 6.414V9a1 1 0 1 0 2 0V4a1 1 0 0 0-1-1h-5zM5 5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-3a1 1 0 1 0-2 0v3H5V7h3a1 1 0 0 0 0-2H5z"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <div class="works__label works__label--demo" data-reveal>デモサイト</div>
+        <div class="demo-grid">
+          <article class="demo-card" data-reveal style="--delay:0ms;">
+            <a href="demos/build/sakura-kensetu/index.html" class="demo-card__image" data-restore-scroll>
+              <img src="img/demos/build/sakura-kensetu.webp" alt="さくら建設 採用特化LPのデモ画像" width="960" height="540" loading="lazy">
+            </a>
+            <div class="demo-card__body">
+              <span class="badge badge--line">建設</span>
+              <h3>さくら建設 採用特化LP</h3>
+              <p>建設全般 / 採用訴求</p>
+              <a href="demos/build/sakura-kensetu/index.html" class="demo-card__link" data-restore-scroll>デモを見る</a>
+            </div>
+          </article>
+
+          <article class="demo-card" data-reveal style="--delay:100ms;">
+            <a href="demos/pro/aoba-gyosei/index.html" class="demo-card__image" data-restore-scroll>
+              <img src="img/demos/pro/aoba-gyosei.webp" alt="あおば行政書士事務所のデモ画像" width="960" height="540" loading="lazy">
+            </a>
+            <div class="demo-card__body">
+              <span class="badge badge--line">行政書士</span>
+              <h3>あおば行政書士事務所</h3>
+              <p>建設業許可 / 法人設立</p>
+              <a href="demos/pro/aoba-gyosei/index.html" class="demo-card__link" data-restore-scroll>デモを見る</a>
+            </div>
+          </article>
+
+          <article class="demo-card" data-reveal style="--delay:200ms;">
+            <a href="demos/pro/midori-kaikei/index.html" class="demo-card__image" data-restore-scroll>
+              <img src="img/demos/pro/midori-kaikei.webp" alt="みどり税理士事務所のデモ画像" width="960" height="540" loading="lazy">
+            </a>
+            <div class="demo-card__body">
+              <span class="badge badge--line">税理士</span>
+              <h3>みどり税理士事務所</h3>
+              <p>確定申告 / 法人決算 / 相続税</p>
+              <a href="demos/pro/midori-kaikei/index.html" class="demo-card__link" data-restore-scroll>デモを見る</a>
+            </div>
+          </article>
+
+          <article class="demo-card" data-reveal style="--delay:300ms;">
+            <a href="demos/pro/tsubasa-syaroushi/index.html" class="demo-card__image" data-restore-scroll>
+              <img src="img/demos/pro/tsubasa-syaroushi.webp" alt="つばさ社労士事務所のデモ画像" width="960" height="540" loading="lazy">
+            </a>
+            <div class="demo-card__body">
+              <span class="badge badge--line">社労士</span>
+              <h3>つばさ社労士事務所</h3>
+              <p>就業規則 / 助成金 / 労務相談</p>
+              <a href="demos/pro/tsubasa-syaroushi/index.html" class="demo-card__link" data-restore-scroll>デモを見る</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="works__cta" data-reveal style="--delay:360ms;">
+          <p>このクオリティで制作をご依頼いただけます。</p>
+          <a href="https://coconala.com/services/3974879?ref=top_histories&amp;ref_kind=home&amp;ref_no=4" target="_blank" rel="noopener noreferrer" class="button button--secondary">
+            <span>ココナラで相談する</span>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M11 3a1 1 0 1 0 0 2h2.586l-6.293 6.293a1 1 0 1 0 1.414 1.414L15 6.414V9a1 1 0 1 0 2 0V4a1 1 0 0 0-1-1h-5zM5 5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-3a1 1 0 1 0-2 0v3H5V7h3a1 1 0 0 0 0-2H5z"/></svg>
           </a>
         </div>
-      </article>
-
-      <!-- 追加カードはここに配置 -->
-    </div>
-  </div>
-</section>
-
-<!-- ========== Demo ========== -->
-<section id="demo" class="section">
-  <div class="container">
-    <span class="section-label">Demo</span>
-    <h2 class="section-title">デモサイト</h2>
-    <p style="color:var(--c-text-sub);margin-top:calc(var(--sp-lg) * -1 + var(--sp-xs));margin-bottom:var(--sp-lg);max-width:600px;">完成イメージを先に確認できます。<br>画像をクリックすると、実際に操作できるデモが開きます。</p>
-
-    <!-- 建設業 -->
-    <div class="demo__category fade-in">
-      <h3 class="demo__category-title">建設業</h3>
-      <div class="demo-grid">
-
-        <article class="demo-card">
-          <a href="demos/build/sakura-kensetu/index.html" class="demo-card__placeholder" aria-label="さくら建設 採用特化LPのデモサイトを見る">
-            <img src="img/demos/build/sakura-kensetu.webp" alt="さくら建設 採用特化LPのデモ画像" style="width:100%;height:100%;object-fit:cover;">
-          </a>
-          <div class="demo-card__body">
-            <span class="tag tag--build" style="margin-bottom:0.5em;">建設</span>
-            <h4 class="demo-card__name">さくら建設 採用特化LP</h4>
-            <p class="demo-card__type">建設全般</p>
-            <a href="demos/build/sakura-kensetu/index.html" class="demo-card__link">
-              デモを見る
-              <svg viewBox="0 0 20 20"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5zM5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/></svg>
-            </a>
-          </div>
-        </article>
-
-        <!-- 建設業デモ追加用スロット -->
       </div>
-    </div>
+    </section>
 
-    <!-- 士業 -->
-    <div class="demo__category fade-in">
-      <h3 class="demo__category-title">士業</h3>
-      <div class="demo-grid">
-
-        <article class="demo-card">
-          <a href="demos/pro/aoba-gyosei/index.html" class="demo-card__placeholder" aria-label="あおば行政書士事務所のデモサイトを見る">
-            <img src="img/demos/pro/aoba-gyosei.webp" alt="あおば行政書士事務所のデモ画像" style="width:100%;height:100%;object-fit:cover;">
-          </a>
-          <div class="demo-card__body">
-            <span class="tag tag--pro" style="margin-bottom:0.5em;">行政書士</span>
-            <h4 class="demo-card__name">あおば行政書士事務所</h4>
-            <p class="demo-card__type">建設業許可・法人設立</p>
-            <a href="demos/pro/aoba-gyosei/index.html" class="demo-card__link">
-              デモを見る
-              <svg viewBox="0 0 20 20"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5zM5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/></svg>
-            </a>
-          </div>
-        </article>
-
-        <article class="demo-card">
-          <a href="demos/pro/midori-kaikei/index.html" class="demo-card__placeholder" aria-label="みどり税理士事務所のデモサイトを見る">
-            <img src="img/demos/pro/midori-kaikei.webp" alt="みどり税理士事務所のデモ画像" style="width:100%;height:100%;object-fit:cover;">
-          </a>
-          <div class="demo-card__body">
-            <span class="tag tag--pro" style="margin-bottom:0.5em;">税理士</span>
-            <h4 class="demo-card__name">みどり税理士事務所</h4>
-            <p class="demo-card__type">確定申告・法人決算・相続税</p>
-            <a href="demos/pro/midori-kaikei/index.html" class="demo-card__link">
-              デモを見る
-              <svg viewBox="0 0 20 20"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5zM5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/></svg>
-            </a>
-          </div>
-        </article>
-
-        <article class="demo-card">
-          <a href="demos/pro/tsubasa-syaroushi/index.html" class="demo-card__placeholder" aria-label="つばさ社労士事務所のデモサイトを見る">
-            <img src="img/demos/pro/tsubasa-syaroushi.webp" alt="つばさ社労士事務所のデモ画像" style="width:100%;height:100%;object-fit:cover;">
-          </a>
-          <div class="demo-card__body">
-            <span class="tag tag--pro" style="margin-bottom:0.5em;">社労士</span>
-            <h4 class="demo-card__name">つばさ社労士事務所</h4>
-            <p class="demo-card__type">就業規則・助成金・労務相談</p>
-            <a href="demos/pro/tsubasa-syaroushi/index.html" class="demo-card__link">
-              デモを見る
-              <svg viewBox="0 0 20 20"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5zM5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/></svg>
-            </a>
-          </div>
-        </article>
-
-        <!-- 士業デモ追加用スロット -->
-      </div>
-    </div>
-
-    <div class="fade-in" style="margin-top:var(--sp-lg);">
-      <p style="color:var(--c-text-sub);margin-bottom:var(--sp-sm);">このクオリティで制作をご依頼いただけます</p>
-      <a href="https://coconala.com/services/3974879?ref=top_histories&ref_kind=home&ref_no=4" target="_blank" rel="noopener noreferrer" class="blog-link" style="margin-right:0.75rem;">
-        HP制作の詳細・料金を見る（ココナラ）
-        <svg viewBox="0 0 20 20"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5zM5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/></svg>
-      </a>
-      <a href="https://coconala.com/services/3982923?ref=top_histories&ref_kind=home&ref_no=2" target="_blank" rel="noopener noreferrer" class="blog-link">
-        採用・集客に特化したLP制作を見る（ココナラ）
-        <svg viewBox="0 0 20 20"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5zM5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/></svg>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ========== Features ========== -->
-<section id="features" class="section features">
-  <div class="container">
-    <span class="section-label">Features</span>
-    <h2 class="section-title">購入前に知っておきたいこと</h2>
-
-    <div class="features-block fade-in">
-      <h3 class="features-block__title">
-        このサービスが合う方・合わない方
-      </h3>
-      <div class="fit-grid">
-        <div class="fit-card fit-card--good">
-          <p class="fit-card__title">合う方</p>
-          <ul>
-            <li>会社案内・サービス紹介を分かりやすく見せたい</li>
-            <li>毎月の維持費をできるだけ抑えたい</li>
-            <li>更新は年に数回で十分</li>
-          </ul>
+    <section class="section services" id="services">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <p class="section-heading__eyebrow">Services</p>
+          <h2 class="section-heading__title">サービス・料金</h2>
+          <p class="section-heading__lead">価格感をサイト内で把握できるようにし、ココナラへ遷移する前に全体像が分かる構成にしました。</p>
         </div>
-        <div class="fit-card fit-card--ng">
-          <p class="fit-card__title">合わない方</p>
-          <ul>
-            <li>ブログを毎週更新したい</li>
-            <li>予約機能や会員機能が必要</li>
-            <li>自分で毎日ページ編集したい</li>
-          </ul>
+
+        <div class="services__grid">
+          <article class="service-card" data-reveal style="--delay:0ms;">
+            <h3>HP制作</h3>
+            <p class="service-card__lead">会社案内やサービス紹介に向いた3ページ前後のホームページ。</p>
+            <p class="service-card__price">3万円〜</p>
+            <ul class="service-card__list">
+              <li>構成設計と原稿整理</li>
+              <li>問い合わせ導線の設計</li>
+              <li>公開設定まで対応</li>
+            </ul>
+            <a href="https://coconala.com/services/3974879?ref=top_histories&amp;ref_kind=home&amp;ref_no=4" target="_blank" rel="noopener noreferrer" class="service-card__link">詳細を見る</a>
+          </article>
+
+          <article class="service-card service-card--featured" data-reveal style="--delay:220ms;">
+            <span class="badge badge--accent badge--floating">おすすめ</span>
+            <h3>LP制作</h3>
+            <p class="service-card__lead">採用や集客など、1ページで行動につなげたい方向けのランディングページ。</p>
+            <p class="service-card__price">2万円〜</p>
+            <ul class="service-card__list">
+              <li>訴求順を整理した構成</li>
+              <li>CTA設計と導線最適化</li>
+              <li>スマホ表示まで調整</li>
+            </ul>
+            <a href="https://coconala.com/services/3982923?ref=top_histories&amp;ref_kind=home&amp;ref_no=2" target="_blank" rel="noopener noreferrer" class="service-card__link">詳細を見る</a>
+          </article>
+
+          <article class="service-card" data-reveal style="--delay:110ms;">
+            <h3>スポット保守</h3>
+            <p class="service-card__lead">文章修正、画像差し替え、情報更新などを必要なときだけ依頼できます。</p>
+            <p class="service-card__price">5千円〜</p>
+            <ul class="service-card__list">
+              <li>文章・画像の差し替え</li>
+              <li>軽微なデザイン修正</li>
+              <li>公開後の更新サポート</li>
+            </ul>
+            <a href="https://coconala.com/services/4065849?ref=top_histories&amp;ref_kind=home&amp;ref_no=1" target="_blank" rel="noopener noreferrer" class="service-card__link">詳細を見る</a>
+          </article>
+        </div>
+
+        <p class="services__note" data-reveal style="--delay:300ms;">※正式なお見積りはココナラのメッセージでご案内します。</p>
+      </div>
+    </section>
+
+    <section class="section section--navy process" id="process">
+      <div class="container">
+        <div class="section-heading section-heading--light" data-reveal>
+          <p class="section-heading__eyebrow">Process</p>
+          <h2 class="section-heading__title">ご依頼の流れ</h2>
+          <p class="section-heading__lead">相談前に「何が起きるか」を見せて、不安なく問い合わせできるようにしています。</p>
+        </div>
+
+        <div class="process__rail" aria-hidden="true">
+          <svg viewBox="0 0 1000 140" preserveAspectRatio="none">
+            <path d="M132 70H365"></path>
+            <path d="M385 70H615"></path>
+            <path d="M635 70H868"></path>
+          </svg>
+        </div>
+
+        <div class="process__grid">
+          <article class="process-step" data-reveal style="--delay:0ms;">
+            <span class="process-step__number">1</span>
+            <h3>サービスを選ぶ</h3>
+            <p>HP制作かLP制作か、目的に近いサービスを選択します。</p>
+          </article>
+
+          <article class="process-step" data-reveal style="--delay:150ms;">
+            <span class="process-step__number">2</span>
+            <h3>メッセージで相談</h3>
+            <p>業種、目的、希望納期を送るだけでOKです。専門用語なしで進めます。</p>
+          </article>
+
+          <article class="process-step" data-reveal style="--delay:300ms;">
+            <span class="process-step__number">3</span>
+            <h3>制作開始</h3>
+            <p>内容を整理し、デザインと構成を決めながら形にしていきます。</p>
+          </article>
+
+          <article class="process-step" data-reveal style="--delay:450ms;">
+            <span class="process-step__number">4</span>
+            <h3>公開・納品</h3>
+            <p>公開設定まで対応し、必要に応じてスポット保守もご案内します。</p>
+          </article>
         </div>
       </div>
-    </div>
+    </section>
 
-    <!-- 5-3: WordPress Weakness -->
-    <div class="features-block fade-in">
-      <h3 class="features-block__title">
-        WordPressのデメリット
-      </h3>
-      <div class="features-block__text">
-        <p>WordPressは優れたツールですが、<strong>すべての会社に最適とは限りません。</strong>以下の悩みがある方は、見直しをオススメします。</p>
+    <section class="section section--divider fit-check" id="fit-check">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <p class="section-heading__eyebrow">Fit Check</p>
+          <h2 class="section-heading__title">このサービスが合う方・合わない方</h2>
+          <p class="section-heading__lead">ミスマッチを防ぐために、向いているケースと向いていないケースを先に明示しています。</p>
+        </div>
 
-        <p><strong>セキュリティーの脆弱性：</strong>WordPressは定期的なアップデートが必要です。放置すると改ざんや情報漏えいのリスクが上がるため、保守費が発生し運用コストがかかります。さらに最近では、<strong>1日当たりWordPressサイトへの攻撃が5,000万件以上</strong>発生しており、攻撃数は<strong>増加していく</strong>と見込まれる情報もあります。※お名前.comより引用</p>
-        <p><strong>表示速度が遅い：</strong>ページ生成の仕組みや、プラグイン（簡単にテンプレートやシステムをサイトに導入できる仕組み）により、表示速度が遅くなります。<strong>表示速度に3秒以上時間がかかる</strong>とユーザーの<strong>7割は離脱（サイトを見ない）</strong>するという事がGoogleの公開情報から分かっています。また、表示速度は<strong>SEO</strong>（サイトの情報をGoogleなどのアルゴリズムが評価し、サイトを<strong>検索の上位に表示する</strong>か判定するための情報）にも影響することも分かっています。</p>
+        <div class="fit-check__grid">
+          <article class="fit-card fit-card--good" data-reveal style="--delay:0ms;">
+            <h3>合う方</h3>
+            <ul>
+              <li>会社案内やサービス紹介を分かりやすく見せたい</li>
+              <li>毎月の維持費をできるだけ抑えたい</li>
+              <li>更新は年に数回で十分</li>
+              <li>文章整理や公開準備もまとめて相談したい</li>
+            </ul>
+          </article>
+
+          <article class="fit-card fit-card--neutral" data-reveal style="--delay:200ms;">
+            <h3>合わない方</h3>
+            <ul>
+              <li>ブログを毎週更新したい</li>
+              <li>予約機能やEC機能が必要</li>
+              <li>自分で毎日ページ編集したい</li>
+              <li>大規模な会員機能を前提にしている</li>
+            </ul>
+          </article>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <!-- 5-4: Cost Comparison -->
-    <div class="features-block fade-in">
-      <h3 class="features-block__title">
-        維持・保守費だけでこんなに違います
-      </h3>
-      <div class="features-block__text">
-        <p>当サービスとWordPressで<strong>「維持・保守費」だけ</strong>を比べてみます。</p>
+    <section class="section section--warm comparison" id="comparison">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <p class="section-heading__eyebrow">Comparison</p>
+          <h2 class="section-heading__title">維持費の差を先に確認できます</h2>
+          <p class="section-heading__lead">WordPressの詳細な議論は切り離し、維持費の差だけを短く比較できる簡易版に整理しました。</p>
+        </div>
 
-        <div class="compare-table-wrap">
-          <table class="compare-table">
+        <div class="comparison__table-wrap">
+          <table class="comparison-table" aria-label="静的HPとWordPressの維持費比較">
             <thead>
               <tr>
                 <th>項目</th>
-                <th>静的HP（GitHub Pages）</th>
+                <th>静的HP</th>
                 <th>WordPress</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>月額維持費</td>
-                <td class="highlight-cell">0円</td>
-                <td class="wp-cell">6,000～18,000円</td>
+              <tr data-reveal style="--delay:0ms;">
+                <th>月額維持費</th>
+                <td class="comparison-table__good">0円</td>
+                <td>6,000〜18,000円</td>
               </tr>
-              <tr>
-                <td>独自ドメイン費（年）</td>
-                <td class="highlight-cell">0円（github.io利用時）</td>
-                <td>約1,500円～</td>
+              <tr data-reveal style="--delay:90ms;">
+                <th>独自ドメイン費（年）</th>
+                <td class="comparison-table__good">0円<br><small>github.io利用時</small></td>
+                <td>約1,500円〜</td>
               </tr>
-              <tr>
-                <td>1年間の維持費</td>
-                <td class="highlight-cell">0円（github.io利用時）</td>
-                <td class="wp-cell">約73,500～217,500円</td>
+              <tr data-reveal style="--delay:180ms;">
+                <th>1年間の維持費</th>
+                <td class="comparison-table__good">0円<br><small>github.io利用時</small></td>
+                <td>約73,500〜217,500円</td>
               </tr>
-              <tr>
-                <td>5年間の維持費</td>
-                <td class="highlight-cell">0円（github.io利用時）</td>
-                <td class="wp-cell">約367,500～1,087,500円</td>
+              <tr class="comparison-table__highlight" data-reveal style="--delay:270ms;">
+                <th>5年間の維持費</th>
+                <td class="comparison-table__good">0円<br><small>github.io利用時</small></td>
+                <td>約367,500〜1,087,500円</td>
               </tr>
             </tbody>
           </table>
+
+          <div class="comparison-cards">
+            <article class="comparison-card" data-reveal style="--delay:0ms;">
+              <h3>月額維持費</h3>
+              <p><strong>静的HP</strong> 0円</p>
+              <p><strong>WordPress</strong> 6,000〜18,000円</p>
+            </article>
+            <article class="comparison-card" data-reveal style="--delay:100ms;">
+              <h3>1年間の維持費</h3>
+              <p><strong>静的HP</strong> 0円</p>
+              <p><strong>WordPress</strong> 約73,500〜217,500円</p>
+            </article>
+            <article class="comparison-card comparison-card--highlight" data-reveal style="--delay:200ms;">
+              <h3>5年間の維持費</h3>
+              <p><strong>静的HP</strong> 0円</p>
+              <p><strong>WordPress</strong> 約367,500〜1,087,500円</p>
+            </article>
+          </div>
         </div>
 
-        <p>5年間で<strong>最大約108万円の差</strong>になるケースもあります。<strong>浮いた費用を広告や人材採用に回せます。</strong></p>
-        <p style="font-size:var(--fs-xs);color:var(--c-text-sub);">※ .jpなどの独自ドメイン（ホームページ固有の住所のようなもの）を使う場合は、別途ドメイン会社への年間費用が発生します。金額はドメインの種類や取得先によって異なります。</p>
-        <p style="color:var(--c-wp);font-weight:700;">今お支払いの維持費、それに見合った効果は出ていますか？</p>
-      </div>
-    </div>
-
-    <!-- 5-5: WordPress Pros -->
-    <div class="features-block fade-in">
-      <h3 class="features-block__title">
-        WordPressが向いている場合
-      </h3>
-      <div class="features-block__text">
-        <p>次に当てはまる場合は、WordPressのほうが適しています。</p>
-
-        <div class="wp-pros">
-          <p class="wp-pros__title">WordPressが向いているケース</p>
-          <ul>
-            <li><strong>ネット予約・ネットショップ・会員ログインなどの機能が必要な場合</strong></li>
-            <li>お知らせやブログを社内スタッフが<strong>頻繁に</strong>更新したい場合</li>
-            <li>専門知識なしで、管理画面から文章や画像を<strong>頻繁に</strong>ご自身で直したい場合</li>
-          </ul>
+        <div class="comparison__result" data-reveal style="--delay:320ms;">
+          <p>5年間で最大</p>
+          <strong><span data-countup data-countup-target="1080000">0</span>円の差</strong>
+          <p>になるケースもあります。浮いた費用を広告や採用に回しやすくなります。</p>
         </div>
-        <p>逆に、<strong>「更新は年に数回」</strong>という場合は、<strong>当サービスの方が費用対効果が高い</strong>です。また、修正を<strong>まとめて依頼した方がコストカットできます。</strong></p>
-        <p>なお、当サービスで制作したHP・LPの修正には、HTML/CSS（ページの見た目を作る言語）などの知識が必要なため、<strong>スポットでの保守サービスも出品しています。</strong></p>
-        <p>更新が<strong>月4回以下</strong>なら、<strong>当サービス＋スポット保守が安く</strong>なりやすいです。</p>
+
+        <div class="comparison__footer" data-reveal style="--delay:380ms;">
+          <a href="https://coconala.com/blogs/5520248/699822" target="_blank" rel="noopener noreferrer" class="text-link">WordPress向きのケースはココナラブログで解説しています</a>
+          <a href="https://coconala.com/services/3974879?ref=top_histories&amp;ref_kind=home&amp;ref_no=4" target="_blank" rel="noopener noreferrer" class="button button--secondary">
+            <span>維持費を見直しませんか</span>
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M11 3a1 1 0 1 0 0 2h2.586l-6.293 6.293a1 1 0 1 0 1.414 1.414L15 6.414V9a1 1 0 1 0 2 0V4a1 1 0 0 0-1-1h-5zM5 5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-3a1 1 0 1 0-2 0v3H5V7h3a1 1 0 0 0 0-2H5z"/></svg>
+          </a>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <!-- 5-6: Spot Maintenance -->
-    <div class="features-block fade-in">
-      <h3 class="features-block__title">
-        スポット保守 ― 更新は「必要なときだけ」でOK
-      </h3>
-      <div class="features-block__text">
-        <p>「保守費用を抑えたい」「何かあった際のトラブルシューティングの対応をして欲しい」という方向けに、<strong>1回5,000円からのスポット保守</strong>をご用意しています。</p>
-        <p>施工実績の追加、税制の改正情報、文章修正、画像差し替えなどを必要なときだけ依頼できます。</p>
+    <section class="section faq" id="faq">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <p class="section-heading__eyebrow">FAQ</p>
+          <h2 class="section-heading__title">よくある質問</h2>
+          <p class="section-heading__lead">長文の説明を並べる代わりに、よくある不安だけをアコーディオンで整理しました。</p>
+        </div>
 
-        <a href="https://coconala.com/services/4065849?ref=top_histories&ref_kind=home&ref_no=1" target="_blank" rel="noopener noreferrer" class="blog-link">
-          スポット保守の詳細を見る（ココナラ）
-          <svg viewBox="0 0 20 20"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5zM5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/></svg>
-        </a>
+        <div class="faq-list">
+          <article class="faq-item" data-reveal style="--delay:0ms;">
+            <button class="faq-item__button" type="button" aria-expanded="false">
+              <span>ITが苦手でも大丈夫ですか？</span>
+              <span class="faq-item__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-item__panel">
+              <div class="faq-item__answer">
+                <p>大丈夫です。文系からIT業界に飛び込んだ経験があるため、難しい専門用語は使わず、必要な準備だけを分かりやすくご案内します。</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="faq-item" data-reveal style="--delay:60ms;">
+            <button class="faq-item__button" type="button" aria-expanded="false">
+              <span>相談だけでも可能ですか？</span>
+              <span class="faq-item__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-item__panel">
+              <div class="faq-item__answer">
+                <p>可能です。目的に合わない場合は無理な提案はせず、必要であれば他の選択肢も含めてお伝えします。</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="faq-item" data-reveal style="--delay:120ms;">
+            <button class="faq-item__button" type="button" aria-expanded="false">
+              <span>なぜ維持費が0円なのですか？</span>
+              <span class="faq-item__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-item__panel">
+              <div class="faq-item__answer">
+                <p>GitHub Pagesを使って公開するためです。独自ドメインを使わない場合、レンタルサーバー代やドメイン費用を抑えやすくなります。</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="faq-item" data-reveal style="--delay:180ms;">
+            <button class="faq-item__button" type="button" aria-expanded="false">
+              <span>GitHub Pagesって何ですか？</span>
+              <span class="faq-item__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-item__panel">
+              <div class="faq-item__answer">
+                <p>ホームページを無料で公開できるサービスです。シンプルなサイトと相性が良く、運用コストを抑えたい場合に向いています。</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="faq-item" data-reveal style="--delay:240ms;">
+            <button class="faq-item__button" type="button" aria-expanded="false">
+              <span>丸投げできますか？</span>
+              <span class="faq-item__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-item__panel">
+              <div class="faq-item__answer">
+                <p>可能です。制作実績にある株式会社サクラ工業様も、アンケート回答をベースに文章整理から公開までまとめて対応しました。</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="faq-item" data-reveal style="--delay:300ms;">
+            <button class="faq-item__button" type="button" aria-expanded="false">
+              <span>納期はどのくらいですか？</span>
+              <span class="faq-item__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-item__panel">
+              <div class="faq-item__answer">
+                <p>内容が揃っていれば、LPは比較的短期間、3ページ前後のHPはもう少し余裕を見て進めます。ご希望納期がある場合は最初にご相談ください。</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="faq-item" data-reveal style="--delay:360ms;">
+            <button class="faq-item__button" type="button" aria-expanded="false">
+              <span>修正は何回できますか？</span>
+              <span class="faq-item__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-item__panel">
+              <div class="faq-item__answer">
+                <p>制作途中の確認タイミングで必要な調整を行います。大きな方向転換が続くと追加対応になる場合があるため、初回相談時に優先順位を整理して進めます。</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="faq-item" data-reveal style="--delay:420ms;">
+            <button class="faq-item__button" type="button" aria-expanded="false">
+              <span>キャンセルや返金はできますか？</span>
+              <span class="faq-item__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-item__panel">
+              <div class="faq-item__answer">
+                <p>対応範囲や進行状況によって扱いが変わるため、ココナラ上の規約とサービス内容に沿ってご案内します。不安な点は着手前に確認いただけます。</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="faq-item" data-reveal style="--delay:480ms;">
+            <button class="faq-item__button" type="button" aria-expanded="false">
+              <span>情報の取り扱いについて</span>
+              <span class="faq-item__icon" aria-hidden="true"></span>
+            </button>
+            <div class="faq-item__panel">
+              <div class="faq-item__answer">
+                <p>お預かりした文章、画像、会社情報は制作目的に限って使用します。公開前の内容や相談内容も、外部に共有せず慎重に取り扱います。</p>
+              </div>
+            </div>
+          </article>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <!-- 5-7: AI時代 -->
-    <div class="features-block fade-in">
-      <h3 class="features-block__title">
-        なぜ私がWordPressを強くオススメしないのか
-      </h3>
-      <div class="features-block__text">
-        <p><strong>大きな理由は時代の変化です。</strong>AI検索の普及で、検索結果の見られ方は変化しています。<strong>最新の国内調査（推計）</strong>では、ChatGPTなどの<strong>生成AIが情報を引用するサイトのランキング</strong>などが発表されています。そこで判明したことは、<strong>HPでブログ発信していても情報引用されずらい</strong>ということです。さらに言うと、この調査結果の本質は、Web上での<strong>集客方法も大きく変化している</strong>ということです。</p>
-        <p>詳しくは以下のブログ記事で解説していますので、ぜひご一読下さい。</p>
+    <section class="section section--soft about" id="about">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <p class="section-heading__eyebrow">About</p>
+          <h2 class="section-heading__title">制作者について</h2>
+          <p class="section-heading__lead">ココナラ経由で流入した方にも「誰が作っているか」が見えるよう、軽量なプロフィールを追加しています。</p>
+        </div>
 
-        <a href="https://coconala.com/blogs/5520248/699822" target="_blank" rel="noopener noreferrer" class="blog-link">
-          AI時代の集客戦略を読む（ココナラブログ）
-          <svg viewBox="0 0 20 20"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5zM5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/></svg>
-        </a>
+        <article class="profile-card">
+          <div class="profile-card__media" data-reveal style="--delay:0ms;">
+            <div class="profile-card__photo">
+              <img src="img/profile/yuki-portrait.webp" alt="Yukiの顔写真" width="853" height="1280" loading="lazy">
+            </div>
+          </div>
+          <div class="profile-card__body" data-reveal style="--delay:180ms;">
+            <p class="profile-card__eyebrow">Yuki</p>
+            <h3>國分Web製作所 代表</h3>
+            <p>建設業・士業向けのホームページ制作を中心に、調査と構成設計を重視して制作しています。全国800社以上のサイトを調査し、伝わる順番を整理したうえで形にするのが強みです。</p>
+            <p>はじめて依頼する方でも進めやすいよう、専門用語をかみ砕いて説明し、文章整理から公開まで一緒に進めます。</p>
+            <a href="https://coconala.com/users/5520248" target="_blank" rel="noopener noreferrer" class="text-link">ココナラのプロフィールを見る</a>
+          </div>
+        </article>
       </div>
-    </div>
+    </section>
 
+    <section class="section cta-final" id="cta-final">
+      <div class="container">
+        <div class="cta-final__inner" data-reveal>
+          <p class="section-heading__eyebrow section-heading__eyebrow--light">Final CTA</p>
+          <h2>必要な範囲からご相談ください</h2>
+          <p>会社案内の見直し、採用LP、更新だけの相談まで対応できます。まずは今の状況と目的をココナラのメッセージでお知らせください。</p>
+          <div class="cta-final__actions">
+            <a href="https://coconala.com/services/3974879?ref=top_histories&amp;ref_kind=home&amp;ref_no=4" target="_blank" rel="noopener noreferrer" class="button button--primary button--inverse">
+              <span>HP制作の詳細を見る</span>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M11 3a1 1 0 1 0 0 2h2.586l-6.293 6.293a1 1 0 1 0 1.414 1.414L15 6.414V9a1 1 0 1 0 2 0V4a1 1 0 0 0-1-1h-5zM5 5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-3a1 1 0 1 0-2 0v3H5V7h3a1 1 0 0 0 0-2H5z"/></svg>
+            </a>
+            <a href="https://coconala.com/services/3982923?ref=top_histories&amp;ref_kind=home&amp;ref_no=2" target="_blank" rel="noopener noreferrer" class="button button--ghost button--inverse">
+              <span>LP制作の詳細を見る</span>
+              <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M11 3a1 1 0 1 0 0 2h2.586l-6.293 6.293a1 1 0 1 0 1.414 1.414L15 6.414V9a1 1 0 1 0 2 0V4a1 1 0 0 0-1-1h-5zM5 5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-3a1 1 0 1 0-2 0v3H5V7h3a1 1 0 0 0 0-2H5z"/></svg>
+            </a>
+          </div>
+          <a href="https://coconala.com/services/4065849?ref=top_histories&amp;ref_kind=home&amp;ref_no=1" target="_blank" rel="noopener noreferrer" class="text-link text-link--inverse">スポット保守はこちら</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="footer">
+    <div class="container site-footer__inner">
+      <p>&copy; 2026 Yuki Portfolio</p>
+      <nav aria-label="フッターナビゲーション">
+        <a href="#strengths">強み</a>
+        <a href="#works">事例</a>
+        <a href="#services">料金</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+    </div>
+  </footer>
+
+  <div class="mobile-cta" aria-label="スマホ固定CTA">
+    <a href="https://coconala.com/services/3974879?ref=top_histories&amp;ref_kind=home&amp;ref_no=4" target="_blank" rel="noopener noreferrer" class="mobile-cta__button">
+      <span>ココナラで相談する</span>
+      <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M11 3a1 1 0 1 0 0 2h2.586l-6.293 6.293a1 1 0 1 0 1.414 1.414L15 6.414V9a1 1 0 1 0 2 0V4a1 1 0 0 0-1-1h-5zM5 5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-3a1 1 0 1 0-2 0v3H5V7h3a1 1 0 0 0 0-2H5z"/></svg>
+    </a>
   </div>
-</section>
-
-<!-- ========== CTA Section ========== -->
-<section class="section cta-section" id="cta">
-  <div class="container">
-    <span class="section-label" style="color:var(--c-accent-h);">Service</span>
-    <h2 class="section-title cta-section__title">ココナラで<span class="u-keep">ご依頼いただけます</span></h2>
-    <p class="cta-section__desc" data-copy-key="ctaDesc">デモ確認後にそのままご相談できます。初めての方にも分かるよう、手順をシンプルにしています。</p>
-
-    <div class="process-grid fade-in">
-      <article class="process-card">
-        <p class="process-card__step">STEP 1</p>
-        <h3>サービスを選ぶ</h3>
-        <p>「HP制作」または「LP制作（1ページで申込みに導く縦長ページ）」から目的に合う方を選択。</p>
-      </article>
-      <article class="process-card">
-        <p class="process-card__step">STEP 2</p>
-        <h3>メッセージで相談</h3>
-        <p>業種・目的・希望納期を送るだけでOK。専門用語なしで進行します。</p>
-      </article>
-      <article class="process-card">
-        <p class="process-card__step">STEP 3</p>
-        <h3>制作・公開</h3>
-        <p>内容確定後に制作し、完成後は公開まで対応します。</p>
-      </article>
-    </div>
-
-    <div class="qa-box fade-in">
-      <h3 class="qa-box__title">よくある不安</h3>
-      <p><span class="qa-box__q"><strong>Q.</strong> ITが苦手でも大丈夫ですか？</span><span class="qa-box__a"><strong>A.</strong> 大丈夫です。文系からIT業界に飛び込んだ経験から、難しい専門用語は使わない分かりやすい説明をいたします。</span></p>
-      <p><span class="qa-box__q"><strong>Q.</strong> 相談だけでも可能ですか？</span><span class="qa-box__a"><strong>A.</strong> 可能です。目的に合わない場合は、無理な提案はしません。</span></p>
-      <p><span class="qa-box__q"><strong>Q.</strong> なぜ維持費が0円なのですか？</span><span class="qa-box__a"><strong>A.</strong> GitHub Pagesというサービスを利用するからです。※独自ドメイン（.jpなど）を使用したい場合には、別途ドメイン取得・年間使用料がドメイン会社に対して発生します。アドレスにこだわりがなければ、レンタルサーバー代やドメイン使用料はかかりません。</span></p>
-      <p><span class="qa-box__q"><strong>Q.</strong> GitHub Pagesって何ですか？</span><span class="qa-box__a"><strong>A.</strong> ホームページを無料で公開できるサービスです。<strong>サーバー</strong>（ホームページのデータを置く場所）の料金がかからないため、維持費を抑えやすいです。</span></p>
-      <p><span class="qa-box__q"><strong>Q.</strong> 多忙のため文章作成・画像選定から公開まで全てお任せできますか？</span><span class="qa-box__a"><strong>A.</strong> 全て任せていただいて大丈夫です。制作実績にある株式会社サクラ工業様も、こちらで用意してある手間がかからずできる、デザインイメージなどを割り出すためのアンケートに答えていただき、制作させていただきました。</span></p>
-    </div>
-    <div class="cta-cards">
-      <a href="https://coconala.com/services/3974879?ref=top_histories&ref_kind=home&ref_no=4" target="_blank" rel="noopener noreferrer" class="cta-card">
-        <div class="cta-card__badge">HP制作</div>
-        <h3 class="cta-card__title">ホームページ制作</h3>
-        <p class="cta-card__desc">会社案内・サービス紹介など<br>3ページ構成のHP</p>
-        <span class="cta-card__link">詳細・料金を見る <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5zM5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/></svg></span>
-      </a>
-      <a href="https://coconala.com/services/3982923?ref=top_histories&ref_kind=home&ref_no=2" target="_blank" rel="noopener noreferrer" class="cta-card">
-        <div class="cta-card__badge cta-card__badge--lp">LP制作</div>
-        <h3 class="cta-card__title">採用・集客LP制作</h3>
-        <p class="cta-card__desc">採用強化・集客に特化した<br>ランディングページ</p>
-        <span class="cta-card__link">詳細・料金を見る <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5zM5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/></svg></span>
-      </a>
-      <a href="https://coconala.com/services/4065849?ref=top_histories&ref_kind=home&ref_no=1" target="_blank" rel="noopener noreferrer" class="cta-card">
-        <div class="cta-card__badge cta-card__badge--maint">保守</div>
-        <h3 class="cta-card__title">スポット保守</h3>
-        <p class="cta-card__desc">文章・画像の差し替えなど<br>1回 5,000円から</p>
-        <span class="cta-card__link">詳細を見る <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5zM5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/></svg></span>
-      </a>
-    </div>
-  </div>
-</section>
-
-</main>
-
-<!-- ========== Footer ========== -->
-<footer class="footer" role="contentinfo">
-  <div class="container">
-    <p class="footer__copy">&copy; 2026 Yuki Portfolio</p>
-  </div>
-</footer>
-
-<!-- ========== Floating CTA (Mobile) ========== -->
-<div class="float-cta" aria-label="ご依頼はこちら">
-  <a href="https://coconala.com/services/3974879?ref=top_histories&ref_kind=home&ref_no=4" target="_blank" rel="noopener noreferrer" class="float-cta__btn">
-    <span data-copy-key="floatCta">HP制作の詳細・料金を見る</span>
-    <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5zM5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z"/></svg>
-  </a>
-</div>
-
-<!-- ========== JS ========== -->
-<script src="assets/js/main.js"></script>
-
 </body>
 </html>
