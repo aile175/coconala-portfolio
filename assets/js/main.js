@@ -3,12 +3,10 @@
 
   var demoScrollKey = 'mainLpScrollY';
   var rootStyle = document.documentElement.style;
-  var copyVariant = 'A'; // 'A' | 'B' | 'C'
-  var copyStorageKey = 'mainLpCopyVariant';
   var copySets = {
     A: {
-      heroLabel: '建設業・士業専門 / IT初心者向け',
-      heroTitle: '「何の会社か」が一目で伝わる<br><span class="u-keep">ホームページを、</span><span class="u-keep">維持費0円で制作</span>',
+      heroLabel: '建設業・士業向き / IT初心者向け',
+      heroTitle: '<span class="u-keep">根拠に基づいた維持費0円のHP・LP制作</span>',
       heroSub: '難しい設定は不要です。全国800社の調査をもとに、お問い合わせにつながる構成で制作します。',
       primaryCta: '料金とサービス内容を見る',
       ctaDesc: 'デモ確認後にそのままご相談できます。初めての方にも分かるよう、手順をシンプルにしています。',
@@ -35,21 +33,14 @@
   function resolveCopyVariant() {
     var params = new URLSearchParams(window.location.search || '');
     var fromQuery = (params.get('ab') || '').toUpperCase();
-    if (copySets[fromQuery]) {
-      sessionStorage.setItem(copyStorageKey, fromQuery);
-      return fromQuery;
-    }
-
-    var fromStorage = (sessionStorage.getItem(copyStorageKey) || '').toUpperCase();
-    if (copySets[fromStorage]) return fromStorage;
-
-    sessionStorage.setItem(copyStorageKey, copyVariant);
-    return copyVariant;
+    return copySets[fromQuery] ? fromQuery : null;
   }
 
   function applyCopyVariant() {
     var selectedVariant = resolveCopyVariant();
-    var selected = copySets[selectedVariant] || copySets.A;
+    if (!selectedVariant) return;
+
+    var selected = copySets[selectedVariant];
     Object.keys(selected).forEach(function(key) {
       var el = document.querySelector('[data-copy-key="' + key + '"]');
       if (!el) return;

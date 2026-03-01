@@ -558,6 +558,9 @@ a:hover { color: var(--c-accent-h); }
   color: var(--c-text-sub);
   line-height: 1.7;
 }
+.portfolio-card__desc--result p {
+  color: var(--c-text);
+}
 
 .portfolio-card__desc ul {
   list-style: none;
@@ -1213,6 +1216,22 @@ a:hover { color: var(--c-accent-h); }
   font-size: var(--fs-small);
   line-height: 1.8;
   margin-bottom: 0.6rem;
+}
+.qa-box__q,
+.qa-box__a {
+  display: block;
+}
+.qa-box__q {
+  color: var(--c-text);
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+.qa-box__a {
+  color: var(--c-text-sub);
+}
+.qa-box__q strong,
+.qa-box__a strong {
+  color: var(--c-text);
 }
 .qa-box p:last-child {
   margin-bottom: 0;

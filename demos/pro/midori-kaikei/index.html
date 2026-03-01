@@ -256,12 +256,6 @@
             text-wrap: balance;
         }
         .hero-title-accent { color: var(--gold); }
-        .hero-divider {
-            width: 1px; height: 48px;
-            background: var(--gold);
-            margin: 1.5rem auto;
-            transform-origin: top;
-        }
         .hero-sub {
             font-family: var(--font-sans); font-size: clamp(0.82rem, 2.5vw, 0.95rem);
             color: rgba(255,255,255,0.6); line-height: 2;
@@ -280,21 +274,6 @@
         .hero-cta:hover { background: var(--gold-light); transform: translateY(-2px); }
         .hero-cta svg { width: 16px; height: 16px; transition: transform 0.3s var(--ease-out); }
         .hero-cta:hover svg { transform: translateX(4px); }
-        .hero-scroll {
-            position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
-            font-family: var(--font-sans); font-size: 0.6rem;
-            letter-spacing: 0.2em; color: rgba(197,162,85,0.5);
-            writing-mode: vertical-rl; text-orientation: mixed;
-        }
-        .hero-scroll::after {
-            content: ''; display: block; width: 1px; height: 32px;
-            background: var(--gold); margin: 0.75rem auto 0;
-            opacity: 0.4; animation: scrollPulse 2s ease infinite;
-        }
-        @keyframes scrollPulse {
-            0%, 100% { opacity: 0.2; transform: scaleY(0.7); }
-            50% { opacity: 0.6; transform: scaleY(1); }
-        }
 
         @media (max-width: 480px) {
             .hero { padding: 5rem 1.25rem 3rem; }
@@ -385,6 +364,11 @@
             background: var(--navy-700);
             filter: grayscale(30%) brightness(0.95);
         }
+        .about-image svg,
+        .about-image-wrap > svg.about-image {
+            width: 100%;
+            height: 100%;
+        }
         .about-text p {
             color: var(--text-body); font-size: 0.95rem;
             line-height: 2; text-align: justify; margin-bottom: 1.5rem;
@@ -403,7 +387,8 @@
             background: var(--navy-light); margin: 0 auto;
             overflow: hidden;
         }
-        .rep-photo img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(40%); }
+        .rep-photo img,
+        .rep-photo svg { width: 100%; height: 100%; object-fit: cover; filter: grayscale(40%); }
         .rep-label {
             font-family: var(--font-sans); font-size: 0.6rem;
             letter-spacing: 0.2em; color: var(--gold); margin-bottom: 0.25rem;
@@ -443,14 +428,18 @@
         /* ===== Services ===== */
         .services { background: var(--navy-900); color: var(--white); }
         .services-header {
-            display: flex; justify-content: space-between;
-            align-items: flex-end; margin-bottom: 3.5rem;
-            flex-wrap: wrap; gap: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 3.5rem;
+            gap: 1rem;
         }
         .services-note {
-            max-width: 320px; font-family: var(--font-sans);
+            max-width: 520px; font-family: var(--font-sans);
             font-size: 0.85rem; color: rgba(255,255,255,0.5);
             line-height: 1.7;
+            margin: 0 auto;
         }
         .services-grid {
             display: grid; grid-template-columns: repeat(3, 1fr);
@@ -477,7 +466,7 @@
         }
         @media (max-width: 768px) {
             .services-grid { grid-template-columns: 1fr; }
-            .services-header { flex-direction: column; align-items: flex-start; text-align: left; }
+            .services-header { align-items: center; text-align: center; }
             .services-note { max-width: 100%; }
         }
         @media (max-width: 480px) {
@@ -858,7 +847,6 @@
                 <h1 class="hero-title reveal reveal-delay-1">
                     数字の向こうに、<br><span class="hero-title-accent">未来を描く。</span>
                 </h1>
-                <div class="hero-divider reveal reveal-delay-2"></div>
                 <p class="hero-sub reveal reveal-delay-3">
                     事業承継・法人税務の専門家として、<br>
                     経営者お一人おひとりに寄り添い、<br>
@@ -871,7 +859,6 @@
                     </a>
                 </div>
             </div>
-            <div class="hero-scroll">SCROLL</div>
         </section>
 
         <!-- Stats -->
@@ -903,7 +890,27 @@
             <div class="container">
                 <div class="about-grid">
                     <div class="about-image-wrap reveal">
-                        <img src="./assets/images/about-placeholder.svg" alt="オフィスでの打ち合わせ風景" class="about-image">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" role="img" aria-labelledby="about-title about-desc" class="about-image">
+                            <title id="about-title">オフィスでの打ち合わせ風景</title>
+                            <desc id="about-desc">差し替え用のダミー画像。オフィスイメージを落ち着いた配色で表現した装飾SVGです。</desc>
+                            <defs>
+                                <linearGradient id="about-bg" x1="0" y1="0" x2="1" y2="1">
+                                    <stop offset="0%" stop-color="#1E293B" />
+                                    <stop offset="100%" stop-color="#0F172A" />
+                                </linearGradient>
+                            </defs>
+                            <rect width="1600" height="1000" fill="url(#about-bg)" />
+                            <g stroke="#C5A059" stroke-width="2" fill="none" opacity="0.5">
+                                <rect x="80" y="80" width="1440" height="840" />
+                                <rect x="120" y="120" width="1360" height="760" />
+                            </g>
+                            <text x="50%" y="46%" text-anchor="middle" fill="#E5C985" font-family="Inter, sans-serif" font-size="44" letter-spacing="8">
+                                DUMMY IMAGE
+                            </text>
+                            <text x="50%" y="54%" text-anchor="middle" fill="#F8F8F6" font-family="'Noto Serif JP', serif" font-size="30">
+                                about-placeholder.svg
+                            </text>
+                        </svg>
                     </div>
                     <div class="about-text">
                         <span class="section-label reveal">PHILOSOPHY</span>
@@ -922,7 +929,22 @@
                 <div class="representative reveal">
                     <div style="text-align:center;">
                         <div class="rep-photo">
-                            <img src="./assets/images/representative-placeholder.svg" alt="代表 翠川 健一">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" role="img" aria-labelledby="rep-title rep-desc">
+                                <title id="rep-title">代表 翠川 健一</title>
+                                <desc id="rep-desc">差し替え用の代表写真プレースホルダーです。</desc>
+                                <defs>
+                                    <linearGradient id="rep-bg" x1="0" y1="0" x2="1" y2="1">
+                                        <stop offset="0%" stop-color="#334155" />
+                                        <stop offset="100%" stop-color="#0F172A" />
+                                    </linearGradient>
+                                </defs>
+                                <rect width="800" height="800" fill="url(#rep-bg)" />
+                                <circle cx="400" cy="290" r="120" fill="#C5A059" opacity="0.35" />
+                                <path d="M190 660c40-150 165-220 210-220s170 70 210 220" fill="#C5A059" opacity="0.35" />
+                                <text x="50%" y="88%" text-anchor="middle" fill="#F8F8F6" font-family="Inter, sans-serif" font-size="28" letter-spacing="3">
+                                    representative-placeholder.svg
+                                </text>
+                            </svg>
                         </div>
                         <p class="rep-label">REPRESENTATIVE</p>
                         <p class="rep-name">翠川 健一</p>
@@ -930,7 +952,7 @@
                     <div>
                         <h4 class="rep-catch">「守り」の財務から、「攻め」の戦略へ</h4>
                         <p class="rep-desc">
-                            大手監査法人での10年間の経験を活かし、当事務所を開設���たしました。節税にとどまらず、企業の持続的な成長を見据えた財務戦略のご提案を得意としています。事業承継では、現経営者様と後継者様、双方の想いを繋ぐ架け橋でありたいと考えています。
+                            大手監査法人での10年間の経験を活かし、当事務所を開設いたしました。節税にとどまらず、企業の持続的な成長を見据えた財務戦略のご提案を得意としています。事業承継では、現経営者様と後継者様、双方の想いを繋ぐ架け橋でありたいと考えています。
                         </p>
                         <ul class="rep-creds">
                             <li>公認会計士・税理士（登録番号：12345）</li>
@@ -1192,7 +1214,7 @@
                             <span class="faq-icon"></span>
                         </button>
                         <div class="faq-answer">
-                            <p class="faq-answer-inner">引き継���手続きも含めてサポートいたします。現在の顧問税理士への連絡方法やタイミングについてもアドバイスいたしますので、まずは初回無料相談でお気軽にご相談ください。</p>
+                            <p class="faq-answer-inner">引き継ぎ手続きも含めてサポートいたします。現在の顧問税理士への連絡方法やタイミングについてもアドバイスいたしますので、まずは初回無料相談でお気軽にご相談ください。</p>
                         </div>
                     </div>
                 </div>
