@@ -176,6 +176,7 @@ button {
   gap: 0.85rem;
   position: relative;
   z-index: 2;
+  min-width: 0;
 }
 
 .site-header__logo-mark {
@@ -194,10 +195,21 @@ button {
 }
 
 .site-header__logo-text {
+  display: block;
+  min-width: 0;
   font-family: var(--font-heading);
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 0.06em;
+}
+
+.site-header__logo-text-full,
+.site-header__logo-text-short {
+  display: block;
+}
+
+.site-header__logo-text-short {
+  display: none;
 }
 
 .site-nav {
@@ -919,9 +931,7 @@ button {
 }
 
 .badge--floating {
-  position: absolute;
-  top: 1rem;
-  left: 1.2rem;
+  position: static;
 }
 
 .work-card__meta {
@@ -1077,6 +1087,17 @@ button {
 
 .service-card--featured:hover {
   box-shadow: 0 30px 62px rgba(203, 122, 54, 0.18);
+}
+
+.service-card__title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.service-card__title-row .badge {
+  flex-shrink: 0;
 }
 
 .service-card__lead {
@@ -1257,6 +1278,19 @@ button {
 
 .comparison-cards {
   display: none;
+}
+
+.comparison-notes {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.comparison-notes p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--text-soft);
 }
 
 .comparison__result {
@@ -1751,6 +1785,27 @@ button {
 }
 
 @media (max-width: 420px) {
+  .site-header__inner {
+    gap: 0.75rem;
+  }
+
+  .site-header__logo {
+    gap: 0.6rem;
+  }
+
+  .site-header__logo-text {
+    font-size: 0.84rem;
+    letter-spacing: 0.03em;
+  }
+
+  .site-header__logo-text-full {
+    display: none;
+  }
+
+  .site-header__logo-text-short {
+    display: block;
+  }
+
   .hero__badges,
   .demo-grid {
     grid-template-columns: 1fr;
