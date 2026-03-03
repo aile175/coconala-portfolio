@@ -705,8 +705,7 @@ button {
 }
 
 .section-heading--light .section-heading__lead,
-.section-heading--light .section-heading__title,
-.section-heading__eyebrow--light {
+.section-heading--light .section-heading__title {
   color: var(--text-inverse);
 }
 
@@ -1456,7 +1455,7 @@ button {
 }
 
 .cta-final__inner h2 {
-  margin: 0.5rem 0 0.75rem;
+  margin: 0 0 0.75rem;
   font-family: var(--font-heading);
   font-size: clamp(1.8rem, 3.8vw, 3rem);
   line-height: 1.3;
